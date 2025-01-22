@@ -1,22 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=10 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="2_4bt8x"]
+[ext_resource type="Script" path="res://Objects/Helicopter/Helicopter-Sprite.gd" id="3_0c4em"]
 [ext_resource type="Script" path="res://Objects/Helicopter/player_state_management.gd" id="3_f8pat"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="3_sxh35"]
 [ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="4_unuin"]
+[ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_c1w48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
 size = Vector2(27, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gf4po"]
-size = Vector2(323.5, 22.5)
+size = Vector2(323.5, 23)
 
 [node name="InGame" type="Node2D"]
 
 [node name="Helicopter_Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(148, 95)
+position = Vector2(235, 104)
 script = ExtResource("1_j28tu")
 metadata/_edit_group_ = true
 
@@ -26,9 +28,13 @@ shape = SubResource("RectangleShape2D_wgnhy")
 
 [node name="Sprite" type="Sprite2D" parent="Helicopter_Player"]
 texture = ExtResource("2_4bt8x")
+script = ExtResource("3_0c4em")
 
 [node name="HelicopterDirectionLogic" type="Node" parent="Helicopter_Player"]
 script = ExtResource("3_f8pat")
+
+[node name="HelicopterShootLogic" type="Node" parent="Helicopter_Player"]
+script = ExtResource("5_c1w48")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(132, 72)
@@ -36,37 +42,36 @@ script = ExtResource("3_sxh35")
 target_path = NodePath("../Helicopter_Player")
 
 [node name="Prisoner" parent="." instance=ExtResource("4_unuin")]
-position = Vector2(79, 127)
+position = Vector2(73, 107)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-19, 111)
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(161.25, 11.75)
-shape = SubResource("RectangleShape2D_gf4po")
 
 [node name="ColorRect" type="ColorRect" parent="Ground"]
 offset_right = 322.0
 offset_bottom = 35.0
 color = Color(0.762404, 0.762404, 0.762404, 1)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(161.25, 11.5)
+shape = SubResource("RectangleShape2D_gf4po")
+
 [node name="SkyBounds" type="StaticBody2D" parent="."]
-position = Vector2(77, -12)
+position = Vector2(142, -11)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkyBounds"]
 shape = SubResource("RectangleShape2D_gf4po")
 
 [node name="ColorRect" type="ColorRect" parent="SkyBounds/CollisionShape2D"]
-custom_minimum_size = Vector2(30, 30)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -161.0
-offset_top = -15.0
+offset_top = -11.0
 offset_right = 161.0
-offset_bottom = 15.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.156863, 0.270588, 0.611765, 0.243137)

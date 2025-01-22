@@ -1,55 +1,46 @@
 class_name HelicopterDirectionState
 extends Node
 
-# Define possible facing directions
-enum FacingDirection {
-	LEFT,
-	DOWN,
-	RIGHT	
-}
-
 @onready var helicopter_player: HelicopterPlayer = %Helicopter_Player
 
 # Time tracking for direction changes
 var last_input_time = 0.0
 var input_pressed = false
 var _input_tap_direction: int = 0
-@export var tap_threshold = 0.2  # Adjust this value for what counts as a "tap"
+var tap_threshold = 0.2  # Adjust this value for what counts as a "tap"
 
 # State variables
-var current_direction = FacingDirection.RIGHT
+var current_direction = Constants.PlayerFacingDirection.RIGHT
 
 signal direction_changed(new_direction)
 signal hostages_changed(count)
 
-func set_direction(direction: FacingDirection):
+func set_direction(direction: Constants.PlayerFacingDirection):
 	if current_direction != direction:
 		current_direction = direction
 		direction_changed.emit(current_direction)
 
-func get_direction() -> FacingDirection:
+func get_direction() -> Constants.PlayerFacingDirection:
 	return current_direction
 	
 func update_facing_direction():
 	if _input_tap_direction < 0:
 		# left clicked
-		if get_direction() == FacingDirection.RIGHT:
-			set_direction(FacingDirection.DOWN)
-		elif get_direction() == FacingDirection.DOWN:
-			set_direction(FacingDirection.LEFT)
+		if get_direction() == Constants.PlayerFacingDirection.RIGHT:
+			set_direction(Constants.PlayerFacingDirection.DOWN)
+		elif get_direction() == Constants.PlayerFacingDirection.DOWN:
+			set_direction(Constants.PlayerFacingDirection.LEFT)
 		# if facing left, stay left (no change needed)
 	elif _input_tap_direction > 0:
 		# right clicked
-		if get_direction() == FacingDirection.LEFT:
-			set_direction(FacingDirection.DOWN)
-		elif get_direction() == FacingDirection.DOWN:
-			set_direction(FacingDirection.RIGHT)
+		if get_direction() == Constants.PlayerFacingDirection.LEFT:
+			set_direction(Constants.PlayerFacingDirection.DOWN)
+		elif get_direction() == Constants.PlayerFacingDirection.DOWN:
+			set_direction(Constants.PlayerFacingDirection.RIGHT)
 		# if facing right, stay right (no change needed)
 
 func _process(delta: float) -> void:
 	_handle_input_direction_or_movement_logic(delta)
-	print(get_direction())
-	
 	
 func _handle_input_direction_or_movement_logic(delta: float) -> void:
 		# Handle direction changes based on taps

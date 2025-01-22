@@ -5,12 +5,20 @@ extends CharacterBody2D
 
 var direction_input: Vector2 = Vector2.ZERO
 
+func _init() -> void:
+	# allow other objects to reference player in future
+	Constants.player_reference = self
+
 func _physics_process(_delta):
 	# Get input values (-1, 0, or 1 for each axis)
 	direction_input = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down")
 	)
+	
+	# if we are touched down, we cannot move left or right
+	if is_on_floor():
+		direction_input.x = 0
 	
 	# Set velocity based on input direction and speed
 	velocity = direction_input * speed
