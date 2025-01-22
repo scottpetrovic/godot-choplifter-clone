@@ -1,3 +1,4 @@
+class_name Bullet
 extends Area2D
 
 # either LEFT, DOWN, RIGHT
@@ -6,12 +7,12 @@ var _shoot_direction: Constants.PlayerFacingDirection = Constants.PlayerFacingDi
 
 const BULLET_SPEED = 80
 
+func set_shoot_direction(direc: Constants.PlayerFacingDirection) -> void:
+	_shoot_direction = direc
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player_direction = Constants.player_reference.get_node("HelicopterDirectionLogic") as HelicopterDirectionState
-	_shoot_direction = player_direction.get_direction()
-	
+
 	area_entered.connect(_area_entered)
 	body_entered.connect(_body_entered)
 	

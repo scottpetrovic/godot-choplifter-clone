@@ -40,6 +40,7 @@ script = ExtResource("5_c1w48")
 position = Vector2(132, 72)
 script = ExtResource("3_sxh35")
 target_path = NodePath("../Helicopter_Player")
+smooth_speed = 12.0
 
 [node name="Prisoner" parent="." instance=ExtResource("4_unuin")]
 position = Vector2(73, 107)

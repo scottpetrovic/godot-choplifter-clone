@@ -14,6 +14,23 @@ func _ready():
 	# this will lock the camera vertically
 	# so we can only go side to side
 	initial_vertical_position = global_position.y
+	
+func _process(delta: float) -> void:
+	_update_offset(delta)
+	
+
+func _update_offset(delta: float) -> void:
+	# lerp the offset depending on what direction the player is facing
+	# if we are facing right, we want to see more of the screen to the left for example
+	var anim_delta = delta * 3
+	if Constants.player_reference:
+		if Constants.player_direction == Constants.PlayerFacingDirection.LEFT:
+			offset.x = lerpf(offset.x, -40, anim_delta )
+		elif Constants.player_direction == Constants.PlayerFacingDirection.RIGHT:
+			offset.x = lerpf(offset.x, 40, anim_delta)
+		else:
+			offset.x = lerpf(offset.x, 0, anim_delta)
+
 
 func _physics_process(delta):
 	if target:
