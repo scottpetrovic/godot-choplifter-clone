@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	# if we are inside helicoptor, signal that we are saved
 	var _distance_to_be_saved: float = 10
 	if _distance_to_player < _distance_to_be_saved:
-		print('prisoner saved')
 		queue_free()
 
 

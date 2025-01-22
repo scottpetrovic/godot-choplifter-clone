@@ -35,25 +35,6 @@ color = Color(0.762404, 0.762404, 0.762404, 1)
 position = Vector2(161.25, 11.5)
 shape = SubResource("RectangleShape2D_gf4po")
 
-[node name="SkyBounds" type="StaticBody2D" parent="."]
-position = Vector2(142, -11)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SkyBounds"]
-shape = SubResource("RectangleShape2D_gf4po")
-
-[node name="ColorRect" type="ColorRect" parent="SkyBounds/CollisionShape2D"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -161.0
-offset_top = -11.0
-offset_right = 161.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.156863, 0.270588, 0.611765, 0.243137)
-
 [node name="PrisonerCamp" parent="." instance=ExtResource("7_k0cwt")]
 position = Vector2(96, 111)
 
