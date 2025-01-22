@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var move_speed = 20.0  # Speed at which prisoner moves to helicopter
+@export var move_speed = 13.0  # Speed at which prisoner moves to helicopter
 @export var distance_to_watch_for_player: int = 60 # in pixels
 
 var _distance_to_player: float = 0.0

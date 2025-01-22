@@ -5,45 +5,22 @@
 [ext_resource type="Script" path="res://Objects/Helicopter/Helicopter-Sprite.gd" id="3_0c4em"]
 [ext_resource type="Script" path="res://Objects/Helicopter/player_state_management.gd" id="3_f8pat"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="3_sxh35"]
-[ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="4_unuin"]
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_c1w48"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
-size = Vector2(27, 13)
+[ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="7_k0cwt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gf4po"]
 size = Vector2(323.5, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
+size = Vector2(27, 13)
+
 [node name="InGame" type="Node2D"]
-
-[node name="Helicopter_Player" type="CharacterBody2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(235, 104)
-script = ExtResource("1_j28tu")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Helicopter_Player"]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_wgnhy")
-
-[node name="Sprite" type="Sprite2D" parent="Helicopter_Player"]
-texture = ExtResource("2_4bt8x")
-script = ExtResource("3_0c4em")
-
-[node name="HelicopterDirectionLogic" type="Node" parent="Helicopter_Player"]
-script = ExtResource("3_f8pat")
-
-[node name="HelicopterShootLogic" type="Node" parent="Helicopter_Player"]
-script = ExtResource("5_c1w48")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(132, 72)
 script = ExtResource("3_sxh35")
 target_path = NodePath("../Helicopter_Player")
 smooth_speed = 12.0
-
-[node name="Prisoner" parent="." instance=ExtResource("4_unuin")]
-position = Vector2(73, 107)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-19, 111)
@@ -76,3 +53,26 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.156863, 0.270588, 0.611765, 0.243137)
+
+[node name="PrisonerCamp" parent="." instance=ExtResource("7_k0cwt")]
+position = Vector2(96, 111)
+
+[node name="Helicopter_Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(235, 104)
+script = ExtResource("1_j28tu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Helicopter_Player"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_wgnhy")
+
+[node name="Sprite" type="Sprite2D" parent="Helicopter_Player"]
+texture = ExtResource("2_4bt8x")
+script = ExtResource("3_0c4em")
+
+[node name="HelicopterDirectionLogic" type="Node" parent="Helicopter_Player"]
+script = ExtResource("3_f8pat")
+
+[node name="HelicopterShootLogic" type="Node" parent="Helicopter_Player"]
+script = ExtResource("5_c1w48")
