@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 80.0
 
 var direction_input: Vector2 = Vector2.ZERO
+var prisoners_in_helicopter: int = 0
 
 # helps keeps us on screen mostly
 var max_elevation: float = 6 # 0 is at the very top of the screen

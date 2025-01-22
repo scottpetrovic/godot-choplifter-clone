@@ -6,14 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_017jk"]
 size = Vector2(2, 6)
 
-[node name="Prisoner" type="Area2D"]
+[node name="Prisoner" type="Area2D" groups=["Prisoner"]]
 script = ExtResource("1_fs72g")
 
 [node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
 scale = Vector2(0.015625, 0.046875)
 texture = ExtResource("1_nmfua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_017jk")
 
 [node name="StateMachine" type="Node" parent="."]

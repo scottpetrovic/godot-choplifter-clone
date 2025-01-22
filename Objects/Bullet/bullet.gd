@@ -22,10 +22,12 @@ func _ready() -> void:
 	lifetime_timer.start()
 
 func _area_entered(area: Area2D) -> void:
-	print('area contact')
+	pass
+	#print('area contact')
 	
 func _body_entered(body: Node2D) -> void:
-	print('body entered ' + body.name)
+	pass
+	#print('body entered ' + body.name)
 
 func _process(delta: float) -> void:
 	match _shoot_direction:

@@ -55,7 +55,6 @@ func _release_prisoner() -> void:
 	# if timer is not running, instantiate a prisoner object at 0,0
 	# then start the timer
 	var pris: Node2D = PRISONER.instantiate()
-	pris.name = "Prisoner"
 	add_child(pris)
 	prisoner_release_timer.start()
 	prisoners_held_captive -= 1
