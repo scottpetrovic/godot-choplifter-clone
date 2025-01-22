@@ -32,12 +32,6 @@ smooth_speed = 12.0
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-19, 111)
 
-[node name="ColorRect" type="ColorRect" parent="Ground"]
-offset_left = -105.0
-offset_right = 427.0
-offset_bottom = 35.0
-color = Color(0.762404, 0.762404, 0.762404, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(161.25, 11.5)
 shape = SubResource("RectangleShape2D_gf4po")
@@ -59,6 +53,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_wgnhy")
 
 [node name="Sprite" type="Sprite2D" parent="Helicopter_Player"]
+texture_filter = 1
 texture = ExtResource("2_4bt8x")
 script = ExtResource("3_0c4em")
 
@@ -106,3 +101,79 @@ script = ExtResource("11_qn1pq")
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("12_gu644")]
 position = Vector2(184, 109)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayerBG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(230, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
+offset_left = -13.0
+offset_top = 50.0
+offset_right = 29.0
+offset_bottom = 67.0
+color = Color(0.61339, 0.61339, 0.61339, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
+offset_left = 48.0
+offset_top = 50.0
+offset_right = 90.0
+offset_bottom = 67.0
+color = Color(0.61339, 0.61339, 0.61339, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
+offset_left = 106.0
+offset_top = 50.0
+offset_right = 148.0
+offset_bottom = 67.0
+color = Color(0.61339, 0.61339, 0.61339, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
+offset_left = 160.0
+offset_top = 50.0
+offset_right = 202.0
+offset_bottom = 67.0
+color = Color(0.61339, 0.61339, 0.61339, 1)
+
+[node name="ParallaxGround" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxGround"]
+offset_left = -124.0
+offset_top = 111.0
+offset_right = 408.0
+offset_bottom = 146.0
+color = Color(0.886262, 0.886262, 0.886261, 1)
+
+[node name="ParallaxLayerFG" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 80)
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(230, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
+offset_left = -13.0
+offset_top = 50.0
+offset_right = 29.0
+offset_bottom = 67.0
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
+offset_left = 48.0
+offset_top = 50.0
+offset_right = 90.0
+offset_bottom = 67.0
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
+offset_left = 106.0
+offset_top = 50.0
+offset_right = 148.0
+offset_bottom = 67.0
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
+offset_left = 160.0
+offset_top = 50.0
+offset_right = 202.0
+offset_bottom = 67.0
+color = Color(0.154876, 0.154876, 0.154876, 1)
