@@ -24,6 +24,6 @@ func prisoner_captured() -> void:
 
 
 func _process(delta: float) -> void:
-	if player_reference:
+	if is_instance_valid(player_reference) && player_reference:
 		var logic_node: HelicopterDirectionState = player_reference.get_node("HelicopterDirectionLogic")
 		player_direction = logic_node.get_direction()

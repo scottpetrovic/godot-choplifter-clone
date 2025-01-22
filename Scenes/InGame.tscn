@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=16 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_c1w48"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="7_k0cwt"]
 [ext_resource type="Script" path="res://GUI/basic_gui_info.gd" id="10_nwxal"]
+[ext_resource type="Script" path="res://GUI/gui_health.gd" id="11_aw3g5"]
 [ext_resource type="Script" path="res://Scenes/level_complete.gd" id="11_qn1pq"]
+[ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="12_gu644"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gf4po"]
 size = Vector2(531.5, 23)
@@ -71,19 +73,36 @@ script = ExtResource("5_c1w48")
 [node name="Info" type="Label" parent="GUI"]
 offset_left = 6.0
 offset_top = 3.0
-offset_right = 147.0
-offset_bottom = 15.0
+offset_right = 60.0
+offset_bottom = 39.0
 theme_override_font_sizes/font_size = 8
 text = "123"
 script = ExtResource("10_nwxal")
 
-[node name="LevelComplete" type="Label" parent="GUI"]
+[node name="Health" type="Label" parent="GUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -47.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 16.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Health: 3"
+horizontal_alignment = 2
+script = ExtResource("11_aw3g5")
+
+[node name="LevelOverMessage" type="Label" parent="GUI"]
 visible = false
 offset_left = 10.0
 offset_top = 59.0
 offset_right = 150.0
 offset_bottom = 71.0
 theme_override_font_sizes/font_size = 10
-text = "LEVEL COMPLETE"
+text = "LEVEL FAIL/COMPLETE"
 horizontal_alignment = 1
 script = ExtResource("11_qn1pq")
+
+[node name="BasicAAEnemy" parent="." instance=ExtResource("12_gu644")]
+position = Vector2(184, 109)

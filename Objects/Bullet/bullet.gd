@@ -12,6 +12,8 @@ func set_shoot_direction(direc: Constants.PlayerFacingDirection) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	add_to_group("PlayerBullet")
 
 	area_entered.connect(_area_entered)
 	body_entered.connect(_body_entered)
