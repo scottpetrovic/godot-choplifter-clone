@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfrjxjsajl6ho"]
+
+[ext_resource type="Script" path="res://Objects/Prisoner/prisoner.gd" id="1_fs72g"]
+[ext_resource type="Texture2D" uid="uid://bjoxcg0w2hb02" path="res://icon.svg" id="1_nmfua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_017jk"]
+size = Vector2(2, 6)
+
+[node name="Prisoner" type="Area2D"]
+script = ExtResource("1_fs72g")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.015625, 0.046875)
+texture = ExtResource("1_nmfua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_017jk")
+
+[node name="StateMachine" type="Node" parent="."]
