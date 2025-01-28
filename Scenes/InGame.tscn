@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=21 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="3_sxh35"]
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_c1w48"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="7_k0cwt"]
+[ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="10_gufnw"]
 [ext_resource type="Script" path="res://GUI/basic_gui_info.gd" id="10_nwxal"]
 [ext_resource type="Script" path="res://GUI/gui_health.gd" id="11_aw3g5"]
 [ext_resource type="Script" path="res://Scenes/level_complete.gd" id="11_qn1pq"]
@@ -68,16 +69,25 @@ script = ExtResource("5_c1w48")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+color = Color(0.121569, 0.376471, 0.431373, 1)
+
 [node name="Info" type="Label" parent="GUI"]
-offset_left = 6.0
-offset_top = 3.0
-offset_right = 60.0
-offset_bottom = 39.0
-theme_override_font_sizes/font_size = 8
+texture_filter = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 61.0
+offset_bottom = 16.0
+theme = ExtResource("10_gufnw")
 text = "123"
 script = ExtResource("10_nwxal")
 
 [node name="Health" type="Label" parent="GUI"]
+texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -86,7 +96,6 @@ offset_top = 2.0
 offset_right = -5.0
 offset_bottom = 16.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 8
 text = "Health: 3"
 horizontal_alignment = 2
 script = ExtResource("11_aw3g5")

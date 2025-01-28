@@ -34,6 +34,11 @@ Prisoner=""
 EnemyBullet=""
 PlayerBullet=""
 
+[gui]
+
+theme/custom="res://GUI/pixel-art-theme.tres"
+theme/default_font_subpixel_positioning=0
+
 [input]
 
 shoot={

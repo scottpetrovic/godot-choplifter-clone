@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b1ikqqgrqbgyp"]
+
+[ext_resource type="FontFile" uid="uid://cvx6lws6jsris" path="res://GUI/PressStart2P-Regular.ttf" id="1_jecva"]
+
+[resource]
+default_font = ExtResource("1_jecva")
+Label/font_sizes/font_size = 5
+Label/fonts/font = ExtResource("1_jecva")
