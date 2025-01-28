@@ -1,10 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfrjxjsajl6ho"]
+[gd_scene load_steps=9 format=3 uid="uid://dfrjxjsajl6ho"]
 
 [ext_resource type="Script" path="res://Objects/Prisoner/prisoner.gd" id="1_fs72g"]
 [ext_resource type="Texture2D" uid="uid://bjoxcg0w2hb02" path="res://icon.svg" id="1_nmfua"]
+[ext_resource type="Texture2D" uid="uid://b2r40x266vudk" path="res://Objects/Prisoner/prisoner-idle.png" id="3_80r5k"]
+[ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="4_l0vxc"]
+[ext_resource type="Texture2D" uid="uid://cv7d0mjjndpnf" path="res://Objects/Prisoner/prisoner-run-2.png" id="5_nrgsr"]
+[ext_resource type="Script" path="res://Objects/Prisoner/animated_sprite_2d.gd" id="6_wibmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_017jk"]
 size = Vector2(2, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ls6ih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_80r5k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_l0vxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrgsr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
 
 [node name="Prisoner" type="Area2D" groups=["Prisoner"]]
 script = ExtResource("1_fs72g")
@@ -19,3 +45,11 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_017jk")
 
 [node name="StateMachine" type="Node" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ls6ih")
+animation = &"walk"
+frame = 1
+frame_progress = 0.7881
+script = ExtResource("6_wibmk")

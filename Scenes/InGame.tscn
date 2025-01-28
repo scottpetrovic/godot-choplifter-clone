@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=22 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="15_ravql"]
 [ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="16_nb7ei"]
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="17_y4y5a"]
+[ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="19_2fi0f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
@@ -166,3 +167,6 @@ motion_mirroring = Vector2(158, 0)
 texture_filter = 1
 texture = ExtResource("17_y4y5a")
 centered = false
+
+[node name="Prisoner" parent="." instance=ExtResource("19_2fi0f")]
+position = Vector2(240, 117)

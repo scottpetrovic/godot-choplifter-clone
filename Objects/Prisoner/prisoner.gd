@@ -1,3 +1,4 @@
+class_name Prisoner
 extends Area2D
 
 @export var move_speed = 13.0  # Speed at which prisoner moves to helicopter
@@ -7,14 +8,30 @@ var _distance_to_player: float = 0.0
 
 var _objective: Constants.PrisonerObjective = Constants.PrisonerObjective.GET_IN_HELICOPTOR
 
+enum PrisonerBehaviorState {
+	IDLE,
+	WALK
+}
+var prisoner_state: PrisonerBehaviorState = PrisonerBehaviorState.IDLE
+
+
+enum PrisonerDirection {
+	LEFT,
+	RIGHT
+}
+var prisoner_facing_direction: PrisonerDirection = PrisonerDirection.LEFT
+
 func set_objective(obj: Constants.PrisonerObjective) -> void:
 	_objective = obj
 
 func _process(delta: float) -> void:
 	
+	prisoner_state = PrisonerBehaviorState.IDLE
+	
 	# the base is always to the right, so run that
 	if _objective == Constants.PrisonerObjective.GET_IN_BASE:
 		global_position.x += move_speed * delta
+		prisoner_state = PrisonerBehaviorState.WALK
 		return
 	
 	# The helicoptor could be on either side, so go that direction 
@@ -37,3 +54,10 @@ func walk_toward_player(delta: float) -> void:
 		
 		# Move towards player
 		global_position.x += direction.x * move_speed * delta
+		
+		prisoner_state = PrisonerBehaviorState.WALK
+		
+		if direction.x > 0:
+			prisoner_facing_direction = PrisonerDirection.RIGHT
+		else:
+			prisoner_facing_direction = PrisonerDirection.LEFT
