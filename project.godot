@@ -25,6 +25,7 @@ EventBus="*res://Globals/EventBus.gd"
 window/size/viewport_width=160
 window/size/viewport_height=144
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [global_group]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=20 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -13,12 +13,15 @@
 [ext_resource type="Script" path="res://GUI/gui_health.gd" id="11_aw3g5"]
 [ext_resource type="Script" path="res://Scenes/level_complete.gd" id="11_qn1pq"]
 [ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="12_gu644"]
+[ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="14_ca041"]
+[ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="15_ravql"]
+[ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="16_nb7ei"]
+[ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="17_y4y5a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf4po"]
-size = Vector2(531.5, 23)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
-size = Vector2(27, 13)
+size = Vector2(22, 10)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w7glb")
@@ -33,23 +36,23 @@ smooth_speed = 12.0
 position = Vector2(-19, 111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(161.25, 11.5)
-shape = SubResource("RectangleShape2D_gf4po")
+position = Vector2(188.625, 10)
+shape = SubResource("WorldBoundaryShape2D_gq0ya")
 
 [node name="PrisonerCamp" parent="." groups=["PrisonerCamp"] instance=ExtResource("7_k0cwt")]
-position = Vector2(107, 111)
+position = Vector2(107, 121)
 
 [node name="HomeBase" parent="." instance=ExtResource("3_1418p")]
-position = Vector2(320, 111)
+position = Vector2(307, 123)
 
 [node name="Helicopter_Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(320, 104)
+position = Vector2(310, 114)
 script = ExtResource("1_j28tu")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Helicopter_Player"]
-position = Vector2(-0.5, 0.5)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_wgnhy")
 
 [node name="Sprite" type="Sprite2D" parent="Helicopter_Player"]
@@ -100,80 +103,57 @@ horizontal_alignment = 1
 script = ExtResource("11_qn1pq")
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("12_gu644")]
-position = Vector2(184, 109)
+position = Vector2(154, 119)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+[node name="StaticBG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/StaticBG"]
+offset_left = -128.0
+offset_right = 440.0
+offset_bottom = 147.0
+color = Color(0.768627, 0.941176, 0.760784, 1)
+metadata/_edit_lock_ = true
+
 [node name="ParallaxLayerBG" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(230, 0)
+motion_mirroring = Vector2(168, 0)
 
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
-offset_left = -13.0
-offset_top = 50.0
-offset_right = 29.0
-offset_bottom = 67.0
-color = Color(0.61339, 0.61339, 0.61339, 1)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG"]
+texture_filter = 1
+position = Vector2(0, 61)
+texture = ExtResource("14_ca041")
+centered = false
 
-[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
-offset_left = 48.0
-offset_top = 50.0
-offset_right = 90.0
-offset_bottom = 67.0
-color = Color(0.61339, 0.61339, 0.61339, 1)
+[node name="ParallaxLayerBG2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(159, 0)
 
-[node name="ColorRect3" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
-offset_left = 106.0
-offset_top = 50.0
-offset_right = 148.0
-offset_bottom = 67.0
-color = Color(0.61339, 0.61339, 0.61339, 1)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG2"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(0, 84)
+texture = ExtResource("15_ravql")
+centered = false
 
-[node name="ColorRect4" type="ColorRect" parent="ParallaxBackground/ParallaxLayerBG"]
-offset_left = 160.0
-offset_top = 50.0
-offset_right = 202.0
-offset_bottom = 67.0
-color = Color(0.61339, 0.61339, 0.61339, 1)
+[node name="ParallaxGround" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(158, 0)
 
-[node name="ParallaxGround" type="Parallax2D" parent="ParallaxBackground"]
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxGround"]
-offset_left = -124.0
-offset_top = 111.0
-offset_right = 408.0
-offset_bottom = 146.0
-color = Color(0.886262, 0.886262, 0.886261, 1)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxGround"]
+texture_filter = 1
+position = Vector2(0, 120)
+texture = ExtResource("16_nb7ei")
+centered = false
 
 [node name="ParallaxLayerFG" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, 80)
-motion_scale = Vector2(1.2, 1.2)
-motion_mirroring = Vector2(230, 0)
+position = Vector2(0, 136)
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(158, 0)
 
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
-offset_left = -13.0
-offset_top = 50.0
-offset_right = 29.0
-offset_bottom = 67.0
-color = Color(0.154876, 0.154876, 0.154876, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
-offset_left = 48.0
-offset_top = 50.0
-offset_right = 90.0
-offset_bottom = 67.0
-color = Color(0.154876, 0.154876, 0.154876, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
-offset_left = 106.0
-offset_top = 50.0
-offset_right = 148.0
-offset_bottom = 67.0
-color = Color(0.154876, 0.154876, 0.154876, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="ParallaxBackground/ParallaxLayerFG"]
-offset_left = 160.0
-offset_top = 50.0
-offset_right = 202.0
-offset_bottom = 67.0
-color = Color(0.154876, 0.154876, 0.154876, 1)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerFG"]
+texture_filter = 1
+texture = ExtResource("17_y4y5a")
+centered = false

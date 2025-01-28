@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://x6wr2j5y1f47"]
+[gd_scene load_steps=4 format=3 uid="uid://x6wr2j5y1f47"]
 
 [ext_resource type="Script" path="res://Objects/EnemyBullet/enemy_bullet.gd" id="1_bkk1y"]
+[ext_resource type="Script" path="res://Objects/EnemyBullet/Sprite_Blink.gd" id="2_k5384"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gftbx"]
 size = Vector2(2, 2)
@@ -20,9 +21,12 @@ offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.968444, 7.18111e-05, 0.734694, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_gftbx")
 
 [node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="BulletBlinkLogic" type="Node" parent="."]
+script = ExtResource("2_k5384")
