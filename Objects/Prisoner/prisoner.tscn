@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfrjxjsajl6ho"]
+[gd_scene load_steps=8 format=3 uid="uid://dfrjxjsajl6ho"]
 
 [ext_resource type="Script" path="res://Objects/Prisoner/prisoner.gd" id="1_fs72g"]
-[ext_resource type="Texture2D" uid="uid://bjoxcg0w2hb02" path="res://icon.svg" id="1_nmfua"]
 [ext_resource type="Texture2D" uid="uid://b2r40x266vudk" path="res://Objects/Prisoner/prisoner-idle.png" id="3_80r5k"]
 [ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="4_l0vxc"]
 [ext_resource type="Texture2D" uid="uid://cv7d0mjjndpnf" path="res://Objects/Prisoner/prisoner-run-2.png" id="5_nrgsr"]
@@ -34,11 +33,6 @@ animations = [{
 
 [node name="Prisoner" type="Area2D" groups=["Prisoner"]]
 script = ExtResource("1_fs72g")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(0.015625, 0.046875)
-texture = ExtResource("1_nmfua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

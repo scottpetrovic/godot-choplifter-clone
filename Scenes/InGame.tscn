@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=24 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -11,10 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="7_k0cwt"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="10_gufnw"]
 [ext_resource type="Script" path="res://GUI/basic_gui_info.gd" id="10_nwxal"]
-[ext_resource type="Script" path="res://GUI/gui_health.gd" id="11_aw3g5"]
 [ext_resource type="Script" path="res://Scenes/level_complete.gd" id="11_qn1pq"]
 [ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="12_gu644"]
+[ext_resource type="Script" path="res://GUI/InGame/health_bar.gd" id="14_0d7vi"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="14_ca041"]
+[ext_resource type="Texture2D" uid="uid://ltqfvn4u5tfx" path="res://GUI/health bar/health-container.png" id="14_ewlpw"]
+[ext_resource type="Texture2D" uid="uid://c7iqs81mtye7m" path="res://GUI/health bar/health-bar.png" id="14_o42fi"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="15_ravql"]
 [ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="16_nb7ei"]
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="17_y4y5a"]
@@ -73,6 +75,7 @@ script = ExtResource("5_c1w48")
 [node name="ColorRect" type="ColorRect" parent="GUI"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = -88.0
 offset_bottom = 21.0
 grow_horizontal = 2
 color = Color(0.121569, 0.376471, 0.431373, 1)
@@ -87,20 +90,6 @@ theme = ExtResource("10_gufnw")
 text = "123"
 script = ExtResource("10_nwxal")
 
-[node name="Health" type="Label" parent="GUI"]
-texture_filter = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -47.0
-offset_top = 2.0
-offset_right = -5.0
-offset_bottom = 16.0
-grow_horizontal = 0
-text = "Health: 3"
-horizontal_alignment = 2
-script = ExtResource("11_aw3g5")
-
 [node name="LevelOverMessage" type="Label" parent="GUI"]
 visible = false
 offset_left = 10.0
@@ -111,6 +100,40 @@ theme_override_font_sizes/font_size = 10
 text = "LEVEL FAIL/COMPLETE"
 horizontal_alignment = 1
 script = ExtResource("11_qn1pq")
+
+[node name="HealthBar" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 1.0
+offset_right = 158.0
+offset_bottom = 11.0
+script = ExtResource("14_0d7vi")
+metadata/_edit_group_ = true
+
+[node name="HealthBar" type="Sprite2D" parent="GUI/HealthBar"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(2.32, 2.31)
+texture = ExtResource("14_o42fi")
+centered = false
+region_enabled = true
+region_rect = Rect2(50, 50, 64.98, 4.685)
+
+[node name="HealthBarContainer" type="NinePatchRect" parent="GUI/HealthBar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ewlpw")
+region_rect = Rect2(-0.0494795, -0.331854, 70.7593, 11.3018)
+patch_margin_left = 5
+patch_margin_top = 4
+patch_margin_right = 7
+patch_margin_bottom = 6
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("12_gu644")]
 position = Vector2(154, 119)
