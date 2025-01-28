@@ -9,7 +9,6 @@ extends Area2D
 
 var health: int = 3
 
-
 func _ready() -> void:
 	area_entered.connect(_area_enter)
 
@@ -18,9 +17,9 @@ func _area_enter(_area: Area2D) -> void:
 		health -= 1
 		
 		# enemy death
-		# TODO: give player points for this?
 		# TODO: create explosion effect
 		if health <= 0:
+			Constants.level_score += 20
 			queue_free()
 
 func _process(delta: float) -> void:

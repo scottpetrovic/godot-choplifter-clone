@@ -17,11 +17,12 @@ var player_direction: PlayerFacingDirection = PlayerFacingDirection.LEFT
 var level_total_remaining_prisoners: int = 0
 var level_total_prisoners_saved: int = 0
 
+var level_score: int = 0
+
 func prisoner_captured() -> void:
 	level_total_remaining_prisoners -= 1
 	player_reference.prisoners_in_helicopter += 1
 	
-
 
 func _process(delta: float) -> void:
 	if is_instance_valid(player_reference) && player_reference:
