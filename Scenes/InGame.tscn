@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=26 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -21,7 +21,8 @@
 [ext_resource type="Script" path="res://GUI/level_score.gd" id="16_bf1n3"]
 [ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="16_nb7ei"]
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="17_y4y5a"]
-[ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="19_2fi0f"]
+[ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="22_1w4ju"]
+[ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="23_y3qan"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
@@ -203,5 +204,10 @@ texture_filter = 1
 texture = ExtResource("17_y4y5a")
 centered = false
 
-[node name="Prisoner" parent="." instance=ExtResource("19_2fi0f")]
-position = Vector2(240, 117)
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="CloudDecoration" parent="Decorations" instance=ExtResource("22_1w4ju")]
+position = Vector2(163, 31)
+
+[node name="Bird" parent="Decorations" instance=ExtResource("23_y3qan")]
+position = Vector2(238, 37)

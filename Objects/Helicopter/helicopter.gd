@@ -13,12 +13,12 @@ var max_elevation: float = 6 # 0 is at the very top of the screen
 var max_health: int = 4
 var health: int = max_health
 
-func hit() -> void:
+func hit(damage: int = 1) -> void:
 	
 	if health <= 0:
 		return  # we are already dead, no point in taking more damage
 
-	health -= 1
+	health -= damage
 	
 	if health <= 0:
 		visible = false # hide the player
