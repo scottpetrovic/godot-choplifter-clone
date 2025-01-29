@@ -1,4 +1,6 @@
-extends Label
+extends Control
+
+@onready var level_over_message: Label = $LevelOverMessage
 
 func _ready() -> void:
 	EventBus.LevelComplete.connect(_level_complete)
@@ -6,9 +8,9 @@ func _ready() -> void:
 	visible = false
 	
 func _level_fail() -> void:
-	text = 'LEVEL FAILED'
+	level_over_message.text = 'LEVEL FAILED'
 	visible = true
 	
 func _level_complete() -> void:
-	text = 'LEVEL COMPLETE'
+	level_over_message.text = 'LEVEL COMPLETE'
 	visible = true

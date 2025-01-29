@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5k2nrhianro"]
+
+[ext_resource type="Script" path="res://Objects/BulletImpact/bullet_impact.gd" id="1_cedbd"]
+[ext_resource type="Texture2D" uid="uid://bb3r1d546cjp4" path="res://Objects/BulletImpact/bullet-impact.png" id="1_xt7nu"]
+
+[node name="BulletImpact" type="Node2D"]
+script = ExtResource("1_cedbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_xt7nu")

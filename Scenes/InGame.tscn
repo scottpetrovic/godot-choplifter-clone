@@ -98,16 +98,31 @@ theme = ExtResource("10_gufnw")
 text = "123"
 script = ExtResource("10_nwxal")
 
-[node name="LevelOverMessage" type="Label" parent="GUI"]
-visible = false
-offset_left = 10.0
-offset_top = 59.0
-offset_right = 150.0
-offset_bottom = 71.0
-theme_override_font_sizes/font_size = 10
-text = "LEVEL FAIL/COMPLETE"
-horizontal_alignment = 1
+[node name="LevelFinishMessage" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_bottom = -26.0
+grow_vertical = 2
 script = ExtResource("11_qn1pq")
+metadata/_edit_group_ = true
+
+[node name="LevelMessage" type="ColorRect" parent="GUI/LevelFinishMessage"]
+offset_right = 161.0
+offset_bottom = 25.0
+color = Color(0.121569, 0.376471, 0.431373, 1)
+
+[node name="LevelOverMessage" type="Label" parent="GUI/LevelFinishMessage"]
+texture_filter = 1
+offset_top = 3.0
+offset_right = 161.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "LEVEL COMPLETE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HealthBar" type="Control" parent="GUI"]
 layout_mode = 3

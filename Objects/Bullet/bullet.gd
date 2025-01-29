@@ -1,11 +1,14 @@
 class_name Bullet
 extends Area2D
 
-# either LEFT, DOWN, RIGHT
-var _shoot_direction: Constants.PlayerFacingDirection = Constants.PlayerFacingDirection.LEFT
 @onready var lifetime_timer: Timer = $LifetimeTimer
 
+# either LEFT, DOWN, RIGHT
+var _shoot_direction: Constants.PlayerFacingDirection = Constants.PlayerFacingDirection.LEFT
 const BULLET_SPEED = 80
+
+const BULLET_IMPACT = preload("res://Objects/BulletImpact/BulletImpact.tscn")
+
 
 func set_shoot_direction(direc: Constants.PlayerFacingDirection) -> void:
 	_shoot_direction = direc
@@ -30,13 +33,21 @@ func _area_entered(area: Area2D) -> void:
 		if area.has_method("hit"):
 			area.hit(1)
 			
+		create_bullet_impact(global_position)
 		queue_free()
-	
+
+func create_bullet_impact(pos: Vector2) -> void:
+	var impact = BULLET_IMPACT.instantiate()
+	get_tree().current_scene.add_child(impact)
+	impact.global_position = pos
+
 func _body_entered(body: Node2D) -> void:
 	
 	# player bullet cannot hurt ourself
 	if body == Constants.player_reference:
 		return
+		
+	create_bullet_impact(global_position)
 	
 	# probably hit the ground rigid body
 	queue_free()
