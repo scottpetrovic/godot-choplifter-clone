@@ -24,9 +24,9 @@ func _update_offset(delta: float) -> void:
 	# if we are facing right, we want to see more of the screen to the left for example
 	var anim_delta = delta * 3
 	if Constants.player_reference:
-		if Constants.player_direction == Constants.PlayerFacingDirection.LEFT:
+		if Constants.player_reference.facing_direction() == Constants.PlayerFacingDirection.LEFT:
 			offset.x = lerpf(offset.x, -40, anim_delta )
-		elif Constants.player_direction == Constants.PlayerFacingDirection.RIGHT:
+		elif Constants.player_reference.facing_direction() == Constants.PlayerFacingDirection.RIGHT:
 			offset.x = lerpf(offset.x, 40, anim_delta)
 		else:
 			offset.x = lerpf(offset.x, 0, anim_delta)

@@ -15,10 +15,10 @@ func _update_sprite_rotation(delta: float) -> void:
 
 func _update_sprite_source() -> void:
 	# upate texture depending on what direction player is facing
-	if Constants.player_direction == Constants.PlayerFacingDirection.LEFT:
+	if Constants.player_reference.facing_direction() == Constants.PlayerFacingDirection.LEFT:
 		texture = load("res://Objects/Helicopter/helicopter-facing-left.png")
 		flip_h = false
-	elif Constants.player_direction == Constants.PlayerFacingDirection.RIGHT:
+	elif Constants.player_reference.facing_direction() == Constants.PlayerFacingDirection.RIGHT:
 		texture =  load("res://Objects/Helicopter/helicopter-facing-left.png")
 		flip_h = true
 	else:

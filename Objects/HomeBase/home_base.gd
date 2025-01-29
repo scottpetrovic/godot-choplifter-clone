@@ -11,16 +11,8 @@ const PRISONER = preload("res://Objects/Prisoner/prisoner.tscn")
 
 var _player_on_helipad: bool = false
 
-
-# TODO See if player is landed
-# if there are no more prisoners to bring back, and no prisoners in helicopter, show win message
-
-# if our helicopter has prisoners, slowly release them to the base
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	prisoner_release_timer.wait_time = 1.5
+	prisoner_release_timer.wait_time = 1.0
 	prisoner_release_timer.one_shot = true
 	prisoner_release_timer.stop()
 
@@ -68,6 +60,8 @@ func _slowly_drop_off_prisoners() -> void:
 		var pris = PRISONER.instantiate()
 		pris.set_objective(Constants.PrisonerObjective.GET_IN_BASE)
 		add_child(pris)
+		pris.global_position = Constants.player_reference.global_position
+		pris.global_position.x += 10
 		Constants.player_reference.prisoners_in_helicopter -= 1
 		prisoner_release_timer.start()
 		

@@ -12,6 +12,9 @@ var current_direction = Constants.PlayerFacingDirection.RIGHT
 func get_direction() -> Constants.PlayerFacingDirection:
 	return current_direction
 	
+func set_direction(direct: Constants.PlayerFacingDirection) -> void:
+	current_direction = direct
+	
 func update_facing_direction(action: String, is_double_tap: bool):
 	
 	if is_double_tap == false: return

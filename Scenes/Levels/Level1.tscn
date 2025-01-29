@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=26 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_mxh4y"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_gyv33"]
@@ -23,10 +23,20 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r6scf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_45tmy"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4wmv2"]
+normal = Vector2(-1, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
 size = Vector2(22, 10)
 
 [node name="Level1" type="Node2D"]
+
+[node name="CommonLevelLogic" type="Node" parent="."]
 script = ExtResource("1_mxh4y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -35,12 +45,37 @@ script = ExtResource("2_gyv33")
 target_path = NodePath("../Helicopter_Player")
 smooth_speed = 12.0
 
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="LevelBoundary" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="LevelBoundary"]
 position = Vector2(-19, 111)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/Ground"]
 position = Vector2(188.625, 10)
 shape = SubResource("WorldBoundaryShape2D_gq0ya")
+
+[node name="Ceiling" type="StaticBody2D" parent="LevelBoundary"]
+position = Vector2(187, 18)
+rotation = 3.14159
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/Ceiling"]
+shape = SubResource("WorldBoundaryShape2D_r6scf")
+
+[node name="RightBoundary" type="StaticBody2D" parent="LevelBoundary"]
+position = Vector2(423, 68)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/RightBoundary"]
+shape = SubResource("WorldBoundaryShape2D_45tmy")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="LevelBoundary"]
+position = Vector2(5, 68)
+rotation = -3.14159
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/LeftBoundary"]
+shape = SubResource("WorldBoundaryShape2D_4wmv2")
 
 [node name="PrisonerCamp" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_oxr3t")]
 position = Vector2(107, 121)
