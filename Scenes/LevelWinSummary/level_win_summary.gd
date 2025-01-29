@@ -7,13 +7,13 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	level_win_label.text = 'LEVEL ' +str(Constants.current_level) + ' COMPLETE'
+	level_win_label.text = 'LEVEL ' +str(Constants.current_level+1) + ' COMPLETE'
 	next_level_button.pressed.connect(next_level_click)
 	main_menu_button.pressed.connect(main_menu_click)
 	
 
 func next_level_click() -> void:
-	pass
+	print('go to next level now')
 
 
 func main_menu_click() -> void:
