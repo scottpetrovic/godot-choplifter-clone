@@ -3,12 +3,30 @@ extends Node
 var bullet_scene: PackedScene = preload("res://Objects/Bullet/Bullet.tscn")
 const PLAYER_BOMB: PackedScene = preload("res://Objects/BombPlayer/PlayerBomb.tscn")
 
+@onready var bullet_timer: Timer = $BulletTimer
+@onready var bomb_timer: Timer = $BombTimer
+
+func _ready() -> void:
+	# Set the timer wait times
+	bullet_timer.wait_time = 0.3  # 0.3 seconds between shots
+	bomb_timer.wait_time = 2.0    # 2 seconds between bombs
+	
+	# Make sure they're configured as one-shot timers
+	bullet_timer.one_shot = true
+	bomb_timer.one_shot = true
+
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("shoot"):
+	# Handle shooting
+	if Input.is_action_just_pressed("shoot") and not bullet_timer.time_left:
 		shoot()
-	if Input.is_action_just_pressed("shoot_bomb") && \
-		Constants.level_active_powerup == Constants.PowerUpType.BOMBS:
+		bullet_timer.start()
+	
+	# Handle bombing
+	if Input.is_action_just_pressed("shoot_bomb") and \
+		Constants.level_active_powerup == Constants.PowerUpType.BOMBS and \
+		not bomb_timer.time_left:
 		drop_bomb()
+		bomb_timer.start()
 
 func drop_bomb():
 	var _bomb = PLAYER_BOMB.instantiate()

@@ -74,6 +74,10 @@ script = ExtResource("3_f8pat")
 [node name="HelicopterShootLogic" type="Node" parent="Helicopter_Player"]
 script = ExtResource("5_c1w48")
 
+[node name="BulletTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
+
+[node name="BombTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="GUI"]
