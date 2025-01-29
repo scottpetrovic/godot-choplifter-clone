@@ -10,6 +10,8 @@ extends Area2D
 var health: int = 3
 
 func _ready() -> void:
+	add_to_group("Enemy")
+
 	area_entered.connect(_area_enter)
 
 func _area_enter(_area: Area2D) -> void:

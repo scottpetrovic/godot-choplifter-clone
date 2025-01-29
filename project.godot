@@ -33,6 +33,7 @@ PrisonerCamp=""
 Prisoner=""
 EnemyBullet=""
 PlayerBullet=""
+Enemy=""
 
 [gui]
 

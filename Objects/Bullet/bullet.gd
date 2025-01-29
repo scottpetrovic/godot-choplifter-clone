@@ -24,8 +24,9 @@ func _ready() -> void:
 	lifetime_timer.start()
 
 func _area_entered(area: Area2D) -> void:
-	pass
-	#print('area contact')
+	
+	if area.is_in_group("Enemy"):
+		queue_free()
 	
 func _body_entered(body: Node2D) -> void:
 	pass
