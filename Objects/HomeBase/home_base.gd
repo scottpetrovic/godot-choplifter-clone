@@ -46,7 +46,7 @@ func _helipad_exit(body: Node2D) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	# if we are on helipad and we have prisoners to drop off
 	# start dropping them off

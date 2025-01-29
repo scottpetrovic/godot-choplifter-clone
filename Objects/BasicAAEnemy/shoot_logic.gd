@@ -12,7 +12,7 @@ func _ready() -> void:
 	shoot_timer.one_shot = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if enemy_base.is_player_in_range() && shoot_timer.is_stopped():
 		var bull: EnemyBullet = ENEMY_BULLET.instantiate()
 		bull.global_position = spawn_point.global_position

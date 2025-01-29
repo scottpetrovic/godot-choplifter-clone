@@ -26,11 +26,20 @@ func _ready() -> void:
 func _area_entered(area: Area2D) -> void:
 	
 	if area.is_in_group("Enemy"):
+		
+		if area.has_method("hit"):
+			area.hit(1)
+			
 		queue_free()
 	
 func _body_entered(body: Node2D) -> void:
-	pass
-	#print('body entered ' + body.name)
+	
+	# player bullet cannot hurt ourself
+	if body == Constants.player_reference:
+		return
+	
+	# probably hit the ground rigid body
+	queue_free()
 
 func _process(delta: float) -> void:
 	match _shoot_direction:

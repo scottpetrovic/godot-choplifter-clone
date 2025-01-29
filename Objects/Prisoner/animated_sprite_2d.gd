@@ -4,7 +4,7 @@ extends AnimatedSprite2D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# update animation
 	if prisoner.prisoner_state == prisoner.PrisonerBehaviorState.IDLE:
 		play("idle")

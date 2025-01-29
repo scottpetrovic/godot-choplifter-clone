@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://48sw4ag2adss"]
+
+[ext_resource type="Script" path="res://Objects/BombPlayer/player_bomb.gd" id="1_k40o2"]
+[ext_resource type="Texture2D" uid="uid://dxvnv1e8iug1w" path="res://Objects/BombPlayer/bomb.png" id="1_m8ffw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy6jg"]
+size = Vector2(12, 6)
+
+[node name="PlayerBomb" type="Area2D"]
+script = ExtResource("1_k40o2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_m8ffw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cy6jg")

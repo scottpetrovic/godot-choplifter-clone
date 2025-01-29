@@ -24,12 +24,12 @@ func _ready() -> void:
 
 func _area_enter(_area: Area2D) -> void:
 
-	if _area.name == "Bullet" && _is_door_destroyed == false:
+	if _area.is_in_group("PlayerBullet") && _is_door_destroyed == false:
 		_is_door_destroyed = true
 		door_rect.modulate = "#000000"
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	# if the door is destroyed, we have prisoners in camp, and player is on the ground
 	# we can try to release players

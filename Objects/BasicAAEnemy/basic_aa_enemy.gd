@@ -14,17 +14,24 @@ func _ready() -> void:
 
 	area_entered.connect(_area_enter)
 
+
+func hit(damage: int = 1):
+	health -= damage
+	
+	# enemy death
+	# TODO: create explosion effect
+	if health <= 0:
+		Constants.level_score += 20
+		queue_free()
+
+
 func _area_enter(_area: Area2D) -> void:
 	if _area.is_in_group("PlayerBullet"):
-		health -= 1
+		hit(1)
 		
-		# enemy death
-		# TODO: create explosion effect
-		if health <= 0:
-			Constants.level_score += 20
-			queue_free()
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	
 	# logic with when enemy will start following player based on distance
 	if is_player_in_range():

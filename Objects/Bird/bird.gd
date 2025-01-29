@@ -16,29 +16,23 @@ func _ready():
 	initial_y = position.y
 	
 	body_entered.connect(_body_enter)
-	area_entered.connect(_area_enter)
 
 
-func _area_enter(_area: Area2D) -> void:
+func hit(damage: int = 1) -> void:
+	health -= damage
 	
-	if _area.is_in_group("PlayerBullet") && health > 0:
-		
-		health -= 1
-		
-		if health <= 0:
-			Constants.level_score += 20
-			queue_free()
-	
+	if health <= 0:
+		Constants.level_score += 20
+		queue_free()
 
 
 func _body_enter(_body: Node2D) -> void:
+	
+	# if we run into the player, hurt the player, but also kill the bird
 	if _body == Constants.player_reference:
 		var player: HelicopterPlayer = Constants.player_reference
 		player.hit()
-		
-		# delete bird since we ran into it
-		# TODO: maybe explosion of sorts
-		queue_free()
+		hit(5) # this will kill the bird
 
 func _process(delta):
 	# Increment time

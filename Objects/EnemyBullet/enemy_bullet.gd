@@ -5,7 +5,6 @@ extends Area2D
 const BULLET_SPEED = 120
 const GRAVITY = 200  # Adjust this value to control gravity strength
 var velocity: Vector2
-var _rotation: float = 0
 
 func _ready() -> void:
 	add_to_group("EnemyBullet")
