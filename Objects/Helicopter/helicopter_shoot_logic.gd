@@ -16,6 +16,11 @@ func _ready() -> void:
 	bomb_timer.one_shot = true
 
 func _process(_delta: float) -> void:
+	
+	# level is over stop, shooting
+	if Constants.player_reference.enable_movement == false:
+		return
+	
 	# Handle shooting
 	if Input.is_action_just_pressed("shoot") and not bullet_timer.time_left:
 		shoot()

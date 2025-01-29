@@ -1,7 +1,7 @@
 class_name Prisoner
 extends Area2D
 
-@export var move_speed = 13.0  # Speed at which prisoner moves to helicopter
+@export var move_speed = 16.0  # Speed at which prisoner moves to helicopter
 @export var distance_to_watch_for_player: int = 60 # in pixels
 
 var _distance_to_player: float = 0.0
@@ -38,8 +38,12 @@ func _process(delta: float) -> void:
 		# if we are inside helicoptor, signal that we are saved
 		var _distance_to_be_saved: float = 10
 		if _distance_to_player < _distance_to_be_saved:
-			Constants.prisoner_captured()
+			_prisoner_captured()
 			queue_free()
+
+func _prisoner_captured() -> void:
+	Constants.level_total_remaining_prisoners -= 1
+	Constants.player_reference.prisoners_in_helicopter += 1
 
 func _update_facing_direction() -> void:
 	# base HQ is always on right side for now

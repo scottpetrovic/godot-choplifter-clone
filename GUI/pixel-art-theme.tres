@@ -4,5 +4,6 @@
 
 [resource]
 default_font = ExtResource("1_jecva")
+Button/font_sizes/font_size = 4
 Label/font_sizes/font_size = 5
 Label/fonts/font = ExtResource("1_jecva")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=29 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
-[ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
+[ext_resource type="Script" path="res://Scenes/InGame/LevelLogic.gd" id="1_w7glb"]
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="2_4bt8x"]
 [ext_resource type="Script" path="res://Objects/Helicopter/Helicopter-Sprite.gd" id="3_0c4em"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="3_1418p"]
@@ -10,21 +10,22 @@
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_c1w48"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="7_k0cwt"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="10_gufnw"]
-[ext_resource type="Script" path="res://GUI/basic_gui_info.gd" id="10_nwxal"]
-[ext_resource type="Script" path="res://Scenes/level_complete.gd" id="11_qn1pq"]
+[ext_resource type="Script" path="res://GUI/InGame/basic_gui_info.gd" id="10_nwxal"]
 [ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="12_gu644"]
 [ext_resource type="Script" path="res://GUI/InGame/health_bar.gd" id="14_0d7vi"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="14_ca041"]
-[ext_resource type="Texture2D" uid="uid://ltqfvn4u5tfx" path="res://GUI/health bar/health-container.png" id="14_ewlpw"]
-[ext_resource type="Texture2D" uid="uid://c7iqs81mtye7m" path="res://GUI/health bar/health-bar.png" id="14_o42fi"]
+[ext_resource type="Texture2D" uid="uid://ltqfvn4u5tfx" path="res://GUI/InGame/health bar/health-container.png" id="14_ewlpw"]
+[ext_resource type="Texture2D" uid="uid://c7iqs81mtye7m" path="res://GUI/InGame/health bar/health-bar.png" id="14_o42fi"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="15_ravql"]
-[ext_resource type="Script" path="res://GUI/level_score.gd" id="16_bf1n3"]
+[ext_resource type="Script" path="res://GUI/InGame/level_score.gd" id="16_bf1n3"]
 [ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="16_nb7ei"]
-[ext_resource type="Script" path="res://GUI/power_up.gd" id="17_5x3v4"]
+[ext_resource type="Script" path="res://GUI/InGame/power_up.gd" id="17_5x3v4"]
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="17_y4y5a"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="22_1w4ju"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="23_y3qan"]
 [ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="24_t7nrw"]
+[ext_resource type="Script" path="res://Scenes/InGame/shortcuts_for_testing.gd" id="26_34v11"]
+[ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="27_elqdb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
@@ -77,107 +78,6 @@ script = ExtResource("5_c1w48")
 [node name="BulletTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
 
 [node name="BombTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
-
-[node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="GUI"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -84.0
-offset_bottom = 11.0
-grow_horizontal = 2
-color = Color(0.121569, 0.376471, 0.431373, 1)
-
-[node name="Info" type="Label" parent="GUI"]
-texture_filter = 1
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 72.0
-offset_bottom = 9.0
-theme = ExtResource("10_gufnw")
-text = "123"
-script = ExtResource("10_nwxal")
-
-[node name="LevelFinishMessage" type="Control" parent="GUI"]
-layout_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -26.0
-offset_bottom = -26.0
-grow_vertical = 2
-script = ExtResource("11_qn1pq")
-metadata/_edit_group_ = true
-
-[node name="LevelMessage" type="ColorRect" parent="GUI/LevelFinishMessage"]
-offset_right = 161.0
-offset_bottom = 25.0
-color = Color(0.121569, 0.376471, 0.431373, 1)
-
-[node name="LevelOverMessage" type="Label" parent="GUI/LevelFinishMessage"]
-texture_filter = 1
-offset_top = 3.0
-offset_right = 161.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 10
-text = "LEVEL COMPLETE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HealthBar" type="Control" parent="GUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 86.0
-offset_top = 1.0
-offset_right = 158.0
-offset_bottom = 11.0
-script = ExtResource("14_0d7vi")
-metadata/_edit_group_ = true
-
-[node name="HealthBar" type="Sprite2D" parent="GUI/HealthBar"]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(2.32, 2.31)
-texture = ExtResource("14_o42fi")
-centered = false
-region_enabled = true
-region_rect = Rect2(50, 50, 64.98, 4.685)
-
-[node name="HealthBarContainer" type="NinePatchRect" parent="GUI/HealthBar"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_ewlpw")
-region_rect = Rect2(-0.0494795, -0.331854, 70.7593, 11.3018)
-patch_margin_left = 5
-patch_margin_top = 4
-patch_margin_right = 7
-patch_margin_bottom = 6
-
-[node name="Score" type="Label" parent="GUI"]
-texture_filter = 1
-offset_left = 124.0
-offset_top = 12.0
-offset_right = 156.0
-offset_bottom = 17.0
-theme_override_colors/font_color = Color(0.176471, 0.105882, 0.0156863, 1)
-text = "000234"
-horizontal_alignment = 2
-script = ExtResource("16_bf1n3")
-
-[node name="PowerUp" type="Label" parent="GUI"]
-texture_filter = 1
-offset_left = 87.0
-offset_top = 12.0
-offset_right = 119.0
-offset_bottom = 17.0
-theme_override_colors/font_color = Color(0.176471, 0.105882, 0.0156863, 1)
-text = "B"
-script = ExtResource("17_5x3v4")
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("12_gu644")]
 position = Vector2(47, 117)
@@ -245,3 +145,86 @@ position = Vector2(96, 37)
 
 [node name="PowerUp" parent="." instance=ExtResource("24_t7nrw")]
 position = Vector2(228, 108)
+
+[node name="ShortcutsForTesting" type="Node" parent="."]
+script = ExtResource("26_34v11")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -84.0
+offset_bottom = 11.0
+grow_horizontal = 2
+color = Color(0.121569, 0.376471, 0.431373, 1)
+
+[node name="Info" type="Label" parent="HUD"]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 72.0
+offset_bottom = 9.0
+theme = ExtResource("10_gufnw")
+text = "123"
+script = ExtResource("10_nwxal")
+
+[node name="HealthBar" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 1.0
+offset_right = 158.0
+offset_bottom = 11.0
+script = ExtResource("14_0d7vi")
+metadata/_edit_group_ = true
+
+[node name="HealthBar" type="Sprite2D" parent="HUD/HealthBar"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(2.32, 2.31)
+texture = ExtResource("14_o42fi")
+centered = false
+region_enabled = true
+region_rect = Rect2(50, 50, 64.98, 4.685)
+
+[node name="HealthBarContainer" type="NinePatchRect" parent="HUD/HealthBar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ewlpw")
+region_rect = Rect2(-0.0494795, -0.331854, 70.7593, 11.3018)
+patch_margin_left = 5
+patch_margin_top = 4
+patch_margin_right = 7
+patch_margin_bottom = 6
+
+[node name="Score" type="Label" parent="HUD"]
+texture_filter = 1
+offset_left = 124.0
+offset_top = 12.0
+offset_right = 156.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.176471, 0.105882, 0.0156863, 1)
+text = "000234"
+horizontal_alignment = 2
+script = ExtResource("16_bf1n3")
+
+[node name="PowerUp" type="Label" parent="HUD"]
+texture_filter = 1
+offset_left = 87.0
+offset_top = 12.0
+offset_right = 119.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.176471, 0.105882, 0.0156863, 1)
+text = "B"
+script = ExtResource("17_5x3v4")
+
+[node name="LevelObjectives" type="CanvasLayer" parent="."]
+
+[node name="LevelObjectives" parent="LevelObjectives" instance=ExtResource("27_elqdb")]
+visible = false

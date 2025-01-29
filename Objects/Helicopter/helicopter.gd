@@ -7,11 +7,16 @@ var direction_input: Vector2 = Vector2.ZERO
 var prisoners_in_helicopter: int = 0
 
 # helps keeps us on screen mostly so we don't go above screen
-var max_elevation: float = 6 # 0 is at the very top of the screen
-
+var max_elevation: float = 20 # 0 is at the very top of the screen
 
 var max_health: int = 4
 var health: int = max_health
+
+# for resetting player when/if we die
+var _starting_position: Vector2 = Vector2.ZERO
+
+# disable movement once level is over/complete
+var enable_movement: bool = true
 
 func hit(damage: int = 1) -> void:
 	
@@ -22,25 +27,40 @@ func hit(damage: int = 1) -> void:
 	
 	if health <= 0:
 		visible = false # hide the player
-		_turn_off_collisions()
 		EventBus.LevelFailed.emit()
 
-func _turn_off_collisions() -> void:
-	process_mode = Node.PROCESS_MODE_DISABLED # stop collisions
+
+func reset_player_after_loss() -> void:
+	visible = true
+	enable_movement = true
+	global_position = _starting_position
+	health = max_health
+	Constants.level_active_powerup = Constants.PowerUpType.NONE
+	prisoners_in_helicopter = 0 # they died in the helicopter if they existed
 
 
 func is_alive() -> bool:
 	return health > 0
 
-func _init() -> void:
+func _ready() -> void:
 	# allow other objects to reference player in future
 	Constants.player_reference = self
+	_starting_position = global_position
 	
+	EventBus.LevelComplete.connect(_level_complete)
+	EventBus.LevelFailed.connect(_level_fail)
+
+
+func _level_complete() -> void:
+	enable_movement = false
+	
+func _level_fail() -> void:
+	enable_movement = false
 
 func _physics_process(_delta):
 	
-	# we are dead, stop processing input
-	if health <= 0: 
+	# we are dead, or level is over. stop processing input
+	if health <= 0 || enable_movement == false: 
 		return
 	
 	# Get input values (-1, 0, or 1 for each axis)

@@ -9,7 +9,6 @@ const BULLET_SPEED = 80
 
 const BULLET_IMPACT = preload("res://Objects/BulletImpact/BulletImpact.tscn")
 
-
 func set_shoot_direction(direc: Constants.PlayerFacingDirection) -> void:
 	_shoot_direction = direc
 
