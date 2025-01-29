@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=28 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_j28tu"]
 [ext_resource type="Script" path="res://Scenes/LevelLogic.gd" id="1_w7glb"]
@@ -20,9 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="15_ravql"]
 [ext_resource type="Script" path="res://GUI/level_score.gd" id="16_bf1n3"]
 [ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="16_nb7ei"]
+[ext_resource type="Script" path="res://GUI/power_up.gd" id="17_5x3v4"]
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="17_y4y5a"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="22_1w4ju"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="23_y3qan"]
+[ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="24_t7nrw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
@@ -139,7 +141,7 @@ patch_margin_bottom = 6
 
 [node name="Score" type="Label" parent="GUI"]
 texture_filter = 1
-offset_left = 116.0
+offset_left = 124.0
 offset_top = 12.0
 offset_right = 156.0
 offset_bottom = 17.0
@@ -148,8 +150,18 @@ text = "000234"
 horizontal_alignment = 2
 script = ExtResource("16_bf1n3")
 
+[node name="PowerUp" type="Label" parent="GUI"]
+texture_filter = 1
+offset_left = 87.0
+offset_top = 12.0
+offset_right = 119.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.176471, 0.105882, 0.0156863, 1)
+text = "B"
+script = ExtResource("17_5x3v4")
+
 [node name="BasicAAEnemy" parent="." instance=ExtResource("12_gu644")]
-position = Vector2(154, 119)
+position = Vector2(47, 117)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -211,3 +223,6 @@ position = Vector2(36, 31)
 
 [node name="Bird" parent="Decorations" instance=ExtResource("23_y3qan")]
 position = Vector2(96, 37)
+
+[node name="PowerUp" parent="." instance=ExtResource("24_t7nrw")]
+position = Vector2(228, 108)
