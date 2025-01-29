@@ -207,7 +207,7 @@ centered = false
 [node name="Decorations" type="Node2D" parent="."]
 
 [node name="CloudDecoration" parent="Decorations" instance=ExtResource("22_1w4ju")]
-position = Vector2(163, 31)
+position = Vector2(36, 31)
 
 [node name="Bird" parent="Decorations" instance=ExtResource("23_y3qan")]
-position = Vector2(238, 37)
+position = Vector2(96, 37)

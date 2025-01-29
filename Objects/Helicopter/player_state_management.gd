@@ -2,55 +2,38 @@ class_name HelicopterDirectionState
 extends Node
 
 # Time tracking for direction changes
-var last_input_time = 0.0
-var input_pressed = false
-var _input_tap_direction: int = 0
-var tap_threshold = 0.2  # Adjust this value for what counts as a "tap"
+var last_tap_time = 0.0
+var last_tap_direction = ""  # Store the action name instead of direction value
+var double_tap_threshold = 0.2  # Adjust this value for what counts as a "double tap"
 
 # State variables
 var current_direction = Constants.PlayerFacingDirection.RIGHT
 
-signal direction_changed(new_direction)
-signal hostages_changed(count)
-
-func set_direction(direction: Constants.PlayerFacingDirection):
-	if current_direction != direction:
-		current_direction = direction
-		direction_changed.emit(current_direction)
-
 func get_direction() -> Constants.PlayerFacingDirection:
 	return current_direction
 	
-func update_facing_direction():
-	if _input_tap_direction < 0:
-		# left clicked
-		if get_direction() == Constants.PlayerFacingDirection.RIGHT:
-			set_direction(Constants.PlayerFacingDirection.DOWN)
-		elif get_direction() == Constants.PlayerFacingDirection.DOWN:
-			set_direction(Constants.PlayerFacingDirection.LEFT)
-		# if facing left, stay left (no change needed)
-	elif _input_tap_direction > 0:
-		# right clicked
-		if get_direction() == Constants.PlayerFacingDirection.LEFT:
-			set_direction(Constants.PlayerFacingDirection.DOWN)
-		elif get_direction() == Constants.PlayerFacingDirection.DOWN:
-			set_direction(Constants.PlayerFacingDirection.RIGHT)
-		# if facing right, stay right (no change needed)
+func update_facing_direction(action: String, is_double_tap: bool):
+	
+	if is_double_tap == false: return
+
+	match action:
+		"ui_down": current_direction = Constants.PlayerFacingDirection.DOWN
+		"ui_left": current_direction =  Constants.PlayerFacingDirection.LEFT
+		"ui_right": current_direction = Constants.PlayerFacingDirection.RIGHT
 
 func _process(delta: float) -> void:
-	_handle_input_direction_or_movement_logic(delta)
+	handle_input_direction_or_movement_logic(delta)
 	
-func _handle_input_direction_or_movement_logic(delta: float) -> void:
-		# Handle direction changes based on taps
-	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
-		input_pressed = true
-		_input_tap_direction = Constants.player_reference.direction_input.x
-		last_input_time = 0.0
-	elif Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
-		if last_input_time <= tap_threshold:
-			update_facing_direction()
-		input_pressed = false
+func handle_input_direction_or_movement_logic(_delta: float) -> void:
+	var current_time = Time.get_ticks_msec() / 1000.0
 	
-	# Update timer if input is being held
-	if input_pressed:
-		last_input_time += delta
+	# Check for double-taps on all directions
+	for action in ["ui_down", "ui_left", "ui_right"]:
+		if Input.is_action_just_pressed(action):
+			var in_double_tap_threshold = (current_time - last_tap_time) <= double_tap_threshold
+			var is_double_tap_success = action == last_tap_direction and in_double_tap_threshold
+			
+			update_facing_direction(action, is_double_tap_success)
+			last_tap_direction = action
+			last_tap_time = current_time
+			return
