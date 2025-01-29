@@ -35,6 +35,11 @@ func start_new_game() -> void:
 func go_to_main_menu() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu/MainMenu.tscn")
 
+func go_to_level_win_summary() -> void:
+	get_tree().change_scene_to_file("res://Scenes/LevelWinSummary/LevelWinSummary.tscn")
+
+func go_to_gameover_screen() -> void:
+	get_tree().change_scene_to_file("res://Scenes/GameOver/GameOver.tscn")
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(player_reference) && player_reference:

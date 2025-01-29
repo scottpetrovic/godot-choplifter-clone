@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var level_objectives: Control = $LevelObjectives/LevelObjectives
+@onready var level_objectives: CanvasLayer = $LevelObjectives
+
 
 
 func _ready():
@@ -15,16 +16,16 @@ func _level_fail() -> void:
 	await get_tree().create_timer(5.0).timeout
 	
 	if Constants.lives_left <= 0:
-		get_tree().change_scene_to_file("res://Scenes/GameOver/GameOver.tscn")
+		Constants.go_to_gameover_screen()
 		return
 	
 	Constants.lives_left -= 1
 	Constants.player_reference.reset_player_after_loss()
-	level_objectives.show_screen_on_level_fail()
+	level_objectives.get_node("layout").show_screen_on_level_fail()
 
 func _level_complete() -> void:
 	await get_tree().create_timer(5.0).timeout
-	get_tree().change_scene_to_file("res://Scenes/LevelWinSummary/LevelWinSummary.tscn")
+	Constants.go_to_level_win_summary()
 	
 
 func _caculate_total_prisoners_for_level() -> int:

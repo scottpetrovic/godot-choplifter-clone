@@ -145,7 +145,5 @@ script = ExtResource("18_jak01")
 
 [node name="HUD" parent="." instance=ExtResource("19_4j8la")]
 
-[node name="LevelObjectives" type="CanvasLayer" parent="."]
+[node name="LevelObjectives" parent="." instance=ExtResource("26_10erh")]
 visible = false
-
-[node name="LevelObjectives" parent="LevelObjectives" instance=ExtResource("26_10erh")]
