@@ -18,7 +18,7 @@ func _ready() -> void:
 	door.area_entered.connect(_area_enter)
 	
 	# prisoners come out at a staggered pace
-	prisoner_release_timer.wait_time = 1.0
+	prisoner_release_timer.wait_time = 0.5
 	prisoner_release_timer.one_shot = true
 	
 

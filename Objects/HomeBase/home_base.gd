@@ -12,7 +12,7 @@ const PRISONER = preload("res://Objects/Prisoner/prisoner.tscn")
 var _player_on_helipad: bool = false
 
 func _ready() -> void:
-	prisoner_release_timer.wait_time = 1.0
+	prisoner_release_timer.wait_time = 0.5
 	prisoner_release_timer.one_shot = true
 	prisoner_release_timer.stop()
 
