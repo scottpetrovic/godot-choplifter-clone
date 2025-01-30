@@ -1,10 +1,10 @@
-class_name BasicAAEnemy
 extends Area2D
 
-var health: int = 3
+@export var health: int = 10
+@export var points_when_destroyed = 200
 
 func _ready() -> void:
-	add_to_group("Enemy")
+	get_parent().add_to_group("Enemy")
 	area_entered.connect(_area_enter)
 
 
@@ -14,7 +14,7 @@ func hit(damage: int = 1):
 	# enemy death
 	if health <= 0:
 		Constants.spawn_explosion(global_position)
-		Constants.level_score += 20
+		Constants.level_score += points_when_destroyed
 		queue_free()
 
 

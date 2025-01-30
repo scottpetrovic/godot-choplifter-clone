@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var shoot_timer: Timer = $ShootTimer
-@onready var enemy_base: BasicAAEnemy = $".."
+@onready var attack_logic: Node = $"../AttackLogic"
 @onready var spawn_point: Marker2D = $SpawnPoint
 
 const ENEMY_BULLET = preload("res://Objects/EnemyBullet/EnemyBullet.tscn")
@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if enemy_base.is_player_in_range() && shoot_timer.is_stopped():
+	
+	if attack_logic.is_player_in_range() && shoot_timer.is_stopped():
 		var bull: EnemyBullet = ENEMY_BULLET.instantiate()
 		bull.global_position = spawn_point.global_position
 		

@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jbtse7pfrxo2"]
+[gd_scene load_steps=8 format=3 uid="uid://jbtse7pfrxo2"]
 
 [ext_resource type="Texture2D" uid="uid://bc0685ihxy6ju" path="res://Objects/Tank/tank-gun.png" id="1_1isf3"]
+[ext_resource type="Script" path="res://Objects/Tank/attack_logic.gd" id="1_gd10c"]
+[ext_resource type="Script" path="res://Objects/Tank/HealthLogic.gd" id="1_l5iku"]
+[ext_resource type="Script" path="res://Objects/BasicAAEnemy/shoot_logic.gd" id="1_xgd7s"]
 [ext_resource type="Texture2D" uid="uid://i5iq7502iwrq" path="res://Objects/Tank/tank-base.png" id="2_6vp8w"]
 [ext_resource type="Script" path="res://Objects/Tank/patrol_movement_logic.gd" id="3_bltqv"]
 
@@ -8,21 +11,36 @@
 size = Vector2(36, 14)
 
 [node name="Tank" type="Area2D"]
+script = ExtResource("1_l5iku")
+
+[node name="AttackLogic" type="Node" parent="."]
+script = ExtResource("1_gd10c")
+
+[node name="PatrolMovementLogic" type="Node" parent="."]
+script = ExtResource("3_bltqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wgs0p")
 
-[node name="GunSprite" type="Sprite2D" parent="."]
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(2, -4)
+script = ExtResource("1_xgd7s")
+metadata/_edit_group_ = true
+
+[node name="SpawnPoint" type="Marker2D" parent="Gun"]
+position = Vector2(0, -18)
+
+[node name="ShootTimer" type="Timer" parent="Gun"]
+wait_time = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Gun"]
 texture_filter = 1
-position = Vector2(0, -12)
+position = Vector2(-1, -9)
 texture = ExtResource("1_1isf3")
 
 [node name="BaseTank" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_6vp8w")
-
-[node name="PatrolMovementLogic" type="Node" parent="."]
-script = ExtResource("3_bltqv")
 
 [node name="WaitTimer" type="Timer" parent="."]
