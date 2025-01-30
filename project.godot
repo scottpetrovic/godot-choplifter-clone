@@ -24,6 +24,8 @@ EventBus="*res://Globals/EventBus.gd"
 
 window/size/viewport_width=160
 window/size/viewport_height=144
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
@@ -68,3 +70,7 @@ test_lose={
 2d_physics/layer_1="Default"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Bullet"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
