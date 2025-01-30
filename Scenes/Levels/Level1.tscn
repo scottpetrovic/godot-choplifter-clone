@@ -186,9 +186,6 @@ position = Vector2(-289, 31)
 [node name="Bird" parent="Decorations" instance=ExtResource("16_dwkki")]
 position = Vector2(96, 37)
 
-[node name="PowerUp" parent="." instance=ExtResource("17_ha4y7")]
-position = Vector2(-83, 55)
-
 [node name="ShortcutsForTesting" type="Node" parent="."]
 script = ExtResource("18_jak01")
 
@@ -212,6 +209,9 @@ position = Vector2(252, 109)
 [node name="FoliageBackground2" parent="Decoration" instance=ExtResource("22_yv8hv")]
 texture_filter = 1
 position = Vector2(127, 109)
+
+[node name="PowerUp" parent="." instance=ExtResource("17_ha4y7")]
+position = Vector2(251, 107)
 
 [node name="Hill" parent="." instance=ExtResource("23_wni47")]
 position = Vector2(-156, 66)

@@ -28,6 +28,10 @@ func hit(damage: int = 1) -> void:
 	if health <= 0:
 		visible = false # hide the player
 		EventBus.LevelFailed.emit()
+		# gets 2 explosions for being more dramatic
+		var offset_explosion = Vector2(global_position.x+20, global_position.y)
+		Constants.spawn_explosion(global_position)
+		Constants.spawn_explosion(offset_explosion)
 
 
 func reset_player_after_loss() -> void:

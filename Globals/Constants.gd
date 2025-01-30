@@ -15,6 +15,11 @@ var global_score: int = 0
 var level_paths: Array[String] = [
 	"res://Scenes/Levels/Level1.tscn",
 	"res://Scenes/Levels/Level2.tscn"]
+	
+
+# objects to spawn (maybe put in separate global if this gets too large
+const EXPLOSION = preload("res://Objects/Explosion/Explosion.tscn")
+	
 
 # active level specific data 
 # These will get wiped out when resetting or changing levels
@@ -52,3 +57,9 @@ func go_to_level_win_summary() -> void:
 
 func go_to_gameover_screen() -> void:
 	get_tree().change_scene_to_file("res://Scenes/GameOver/GameOver.tscn")
+
+
+func spawn_explosion(pos: Vector2) -> void:
+	var expl: Node2D = EXPLOSION.instantiate()
+	get_tree().current_scene.add_child(expl)
+	expl.global_position = pos

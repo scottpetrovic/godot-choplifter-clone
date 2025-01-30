@@ -27,6 +27,7 @@ func _area_enter(_area: Area2D) -> void:
 	if _area.is_in_group("PlayerBullet") && _is_door_destroyed == false:
 		_is_door_destroyed = true
 		door_rect.modulate = "#000000"
+		Constants.spawn_explosion(global_position)
 
 
 func _process(_delta: float) -> void:

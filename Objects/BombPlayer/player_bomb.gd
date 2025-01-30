@@ -31,11 +31,12 @@ func _body_entered(_body: Node2D) -> void:
 	if _body == Constants.player_reference:
 		return
 		
-	# TODO explosion: 	
-	# probably hit the floor
+	Constants.spawn_explosion(global_position)
 	queue_free()
 
 func _on_area_entered(area: Area2D):
+	
+	Constants.spawn_explosion(global_position)
 	
 	# do damage to area if it can be hurt
 	if area.has_method("hit"):
