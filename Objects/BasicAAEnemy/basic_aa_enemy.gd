@@ -56,6 +56,9 @@ func _follow_player(type: String) -> void:
 		var angle = (Constants.player_reference.global_position - global_position).angle()
 		var degrees = rad_to_deg(angle)
 		var snapped_degrees = round(degrees / 45.0) * 45.0
-		gun.rotation = deg_to_rad(snapped_degrees) 
-		gun.rotation += PI/2 # fix for 2D sprites to align
+		
+		# when snapped, can only fire at 45 degree angles facing up
+		if snapped_degrees == -45 || snapped_degrees == -90  || snapped_degrees == -135:
+			gun.rotation = deg_to_rad(snapped_degrees) 
+			gun.rotation += PI/2 # fix for 2D sprites to align
 	

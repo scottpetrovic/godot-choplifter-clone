@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=31 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_mxh4y"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_gyv33"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://ch2yn16apmlhw" path="res://Objects/PalmTree/PalmTree.tscn" id="21_pfm12"]
 [ext_resource type="PackedScene" uid="uid://cn0p087fabvau" path="res://Objects/FoliageBackground/FoliageBackground.tscn" id="22_yv8hv"]
 [ext_resource type="PackedScene" uid="uid://cplmkmu8xo4d6" path="res://Objects/Hill/Hill.tscn" id="23_wni47"]
+[ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="24_3huar"]
+[ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="25_gfiea"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="26_10erh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
@@ -117,7 +119,7 @@ script = ExtResource("9_3jq70")
 [node name="BombTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("10_ydp4p")]
-position = Vector2(47, 117)
+position = Vector2(11, 117)
 
 [node name="BasicAAEnemy2" parent="." instance=ExtResource("10_ydp4p")]
 position = Vector2(-269, 117)
@@ -211,7 +213,13 @@ texture_filter = 1
 position = Vector2(127, 109)
 
 [node name="PowerUp" parent="." instance=ExtResource("17_ha4y7")]
-position = Vector2(251, 107)
+position = Vector2(177, 107)
 
 [node name="Hill" parent="." instance=ExtResource("23_wni47")]
 position = Vector2(-156, 66)
+
+[node name="TurretSmallEnemy" parent="." instance=ExtResource("24_3huar")]
+position = Vector2(104, 78)
+
+[node name="SatelliteDish" parent="." instance=ExtResource("25_gfiea")]
+position = Vector2(-85, 53)

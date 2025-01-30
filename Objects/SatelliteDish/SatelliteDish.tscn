@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhn3mqhtbi18w"]
+
+[ext_resource type="Texture2D" uid="uid://dfw30xf2pl733" path="res://Objects/SatelliteDish/satellite-dish-1.png" id="1_40esv"]
+[ext_resource type="Script" path="res://Objects/SatelliteDish/satellite_dish.gd" id="1_f8fl0"]
+[ext_resource type="Texture2D" uid="uid://cwfvk73tep5e1" path="res://Objects/SatelliteDish/satellite-dish-2.png" id="2_hyubh"]
+[ext_resource type="Texture2D" uid="uid://baai7nkl1agpr" path="res://Objects/SatelliteDish/satellite-dish-5.png" id="3_3ukn2"]
+[ext_resource type="Texture2D" uid="uid://dmpd0fxwionil" path="res://Objects/SatelliteDish/satellite-dish-4.png" id="4_cfqca"]
+[ext_resource type="Texture2D" uid="uid://co4n6f7cpwuhs" path="res://Objects/SatelliteDish/satellite-dish-3.png" id="5_ljxhb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcb2e"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_40esv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hyubh")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_3ukn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hyubh")
+}, {
+"duration": 2.0,
+"texture": ExtResource("1_40esv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cfqca")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_ljxhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cfqca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otcr1"]
+size = Vector2(14, 15)
+
+[node name="SatelliteDish" type="Area2D"]
+script = ExtResource("1_f8fl0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qcb2e")
+autoplay = "default"
+frame_progress = 0.395075
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 7.5)
+shape = SubResource("RectangleShape2D_otcr1")
