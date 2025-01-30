@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=29 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_mxh4y"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_gyv33"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_4j8la"]
 [ext_resource type="PackedScene" uid="uid://ch2yn16apmlhw" path="res://Objects/PalmTree/PalmTree.tscn" id="21_pfm12"]
 [ext_resource type="PackedScene" uid="uid://cn0p087fabvau" path="res://Objects/FoliageBackground/FoliageBackground.tscn" id="22_yv8hv"]
+[ext_resource type="PackedScene" uid="uid://cplmkmu8xo4d6" path="res://Objects/Hill/Hill.tscn" id="23_wni47"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="26_10erh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
@@ -73,7 +74,7 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape2D_45tmy")
 
 [node name="LeftBoundary" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(5, 68)
+position = Vector2(-328, 68)
 rotation = -3.14159
 metadata/_edit_group_ = true
 
@@ -82,6 +83,10 @@ shape = SubResource("WorldBoundaryShape2D_4wmv2")
 
 [node name="PrisonerCamp" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_oxr3t")]
 position = Vector2(107, 121)
+prisoners_held_captive = 6
+
+[node name="PrisonerCamp2" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_oxr3t")]
+position = Vector2(-208, 121)
 
 [node name="HomeBase" parent="." instance=ExtResource("4_g3ihl")]
 position = Vector2(307, 123)
@@ -113,6 +118,9 @@ script = ExtResource("9_3jq70")
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("10_ydp4p")]
 position = Vector2(47, 117)
+
+[node name="BasicAAEnemy2" parent="." instance=ExtResource("10_ydp4p")]
+position = Vector2(-269, 117)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -172,11 +180,14 @@ centered = false
 [node name="CloudDecoration" parent="Decorations" instance=ExtResource("15_rxvsl")]
 position = Vector2(36, 31)
 
+[node name="CloudDecoration2" parent="Decorations" instance=ExtResource("15_rxvsl")]
+position = Vector2(-289, 31)
+
 [node name="Bird" parent="Decorations" instance=ExtResource("16_dwkki")]
 position = Vector2(96, 37)
 
 [node name="PowerUp" parent="." instance=ExtResource("17_ha4y7")]
-position = Vector2(228, 108)
+position = Vector2(-83, 55)
 
 [node name="ShortcutsForTesting" type="Node" parent="."]
 script = ExtResource("18_jak01")
@@ -201,3 +212,6 @@ position = Vector2(252, 109)
 [node name="FoliageBackground2" parent="Decoration" instance=ExtResource("22_yv8hv")]
 texture_filter = 1
 position = Vector2(127, 109)
+
+[node name="Hill" parent="." instance=ExtResource("23_wni47")]
+position = Vector2(-156, 66)
