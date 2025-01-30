@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=28 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_mxh4y"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_gyv33"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="17_ha4y7"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_jak01"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_4j8la"]
+[ext_resource type="PackedScene" uid="uid://ch2yn16apmlhw" path="res://Objects/PalmTree/PalmTree.tscn" id="21_pfm12"]
+[ext_resource type="PackedScene" uid="uid://cn0p087fabvau" path="res://Objects/FoliageBackground/FoliageBackground.tscn" id="22_yv8hv"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="26_10erh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
@@ -35,6 +37,7 @@ normal = Vector2(-1, 0)
 size = Vector2(22, 10)
 
 [node name="Level1" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [120.0]
 
 [node name="CommonLevelLogic" type="Node" parent="."]
 script = ExtResource("1_mxh4y")
@@ -182,3 +185,19 @@ script = ExtResource("18_jak01")
 
 [node name="LevelObjectives" parent="." instance=ExtResource("26_10erh")]
 visible = false
+
+[node name="Decoration" type="Node2D" parent="."]
+
+[node name="PalmTree" parent="Decoration" instance=ExtResource("21_pfm12")]
+position = Vector2(194, 101)
+
+[node name="PalmTree2" parent="Decoration" instance=ExtResource("21_pfm12")]
+position = Vector2(63, 104)
+
+[node name="FoliageBackground" parent="Decoration" instance=ExtResource("22_yv8hv")]
+texture_filter = 1
+position = Vector2(252, 109)
+
+[node name="FoliageBackground2" parent="Decoration" instance=ExtResource("22_yv8hv")]
+texture_filter = 1
+position = Vector2(127, 109)

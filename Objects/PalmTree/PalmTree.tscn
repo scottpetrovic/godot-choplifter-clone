@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch2yn16apmlhw"]
+
+[ext_resource type="Texture2D" uid="uid://dw58ecu0vp3ek" path="res://Objects/PalmTree/palm-tree.png" id="1_0m88o"]
+
+[node name="PalmTree" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0m88o")
+centered = false

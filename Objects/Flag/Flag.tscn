@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://8q02bct56r24"]
+
+[ext_resource type="Texture2D" uid="uid://vslcr4cyeyrl" path="res://Objects/Flag/flag-1.png" id="1_y7vkj"]
+[ext_resource type="Texture2D" uid="uid://ubfgylfhb7ps" path="res://Objects/Flag/flag-2.png" id="2_ea3md"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvhq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y7vkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ea3md")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Flag" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hvhq0")
+autoplay = "default"
+frame_progress = 0.0814279

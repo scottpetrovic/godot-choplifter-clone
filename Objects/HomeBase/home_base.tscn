@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljmiqq5cc458"]
+[gd_scene load_steps=6 format=3 uid="uid://bljmiqq5cc458"]
 
 [ext_resource type="Script" path="res://Objects/HomeBase/home_base.gd" id="1_gxgtj"]
 [ext_resource type="Texture2D" uid="uid://bqbouojy14p6n" path="res://Environment/base-hq.png" id="2_oetfx"]
+[ext_resource type="PackedScene" uid="uid://8q02bct56r24" path="res://Objects/Flag/Flag.tscn" id="3_vyhga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeqgx"]
 size = Vector2(17, 13.5)
@@ -31,3 +32,12 @@ position = Vector2(6, -3)
 shape = SubResource("RectangleShape2D_1xsyw")
 
 [node name="PrisonerReleaseTimer" type="Timer" parent="."]
+
+[node name="Flag" parent="." instance=ExtResource("3_vyhga")]
+position = Vector2(46, -49)
+
+[node name="Flag2" parent="." instance=ExtResource("3_vyhga")]
+position = Vector2(-31, -5)
+
+[node name="Flag3" parent="." instance=ExtResource("3_vyhga")]
+position = Vector2(114, -5)

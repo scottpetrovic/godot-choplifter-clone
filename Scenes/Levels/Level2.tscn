@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://noh2oanq4n4f"]
+[gd_scene load_steps=27 format=3 uid="uid://noh2oanq4n4f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_ctqbm"]
@@ -16,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="14_ox816"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="15_1m7df"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="16_fwqhj"]
+[ext_resource type="PackedScene" uid="uid://ch2yn16apmlhw" path="res://Objects/PalmTree/PalmTree.tscn" id="17_jrc4c"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_do2m5"]
+[ext_resource type="PackedScene" uid="uid://cn0p087fabvau" path="res://Objects/FoliageBackground/FoliageBackground.tscn" id="18_h8mks"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_bp1ly"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="20_gtw5i"]
 
@@ -135,6 +137,17 @@ position = Vector2(0, 61)
 texture = ExtResource("11_wl17g")
 centered = false
 
+[node name="ParallaxLayerBG2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(159, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG2"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(0, 84)
+texture = ExtResource("12_v06gp")
+centered = false
+
 [node name="ParallaxGround" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(158, 0)
 
@@ -149,18 +162,6 @@ position = Vector2(0, 136)
 motion_scale = Vector2(1.4, 1.4)
 motion_mirroring = Vector2(158, 0)
 
-[node name="ParallaxLayerBG2" type="ParallaxLayer" parent="ParallaxBackground/ParallaxLayerFG"]
-position = Vector2(0, -136)
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(159, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerFG/ParallaxLayerBG2"]
-texture_filter = 1
-texture_repeat = 3
-position = Vector2(0, 84)
-texture = ExtResource("12_v06gp")
-centered = false
-
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerFG"]
 texture_filter = 1
 texture = ExtResource("14_ox816")
@@ -173,6 +174,18 @@ position = Vector2(36, 31)
 
 [node name="Bird" parent="Decorations" instance=ExtResource("16_fwqhj")]
 position = Vector2(96, 37)
+
+[node name="PalmTree" parent="Decorations" instance=ExtResource("17_jrc4c")]
+position = Vector2(-3, 100)
+
+[node name="PalmTree2" parent="Decorations" instance=ExtResource("17_jrc4c")]
+position = Vector2(122, 100)
+
+[node name="FoliageBackground" parent="Decorations" instance=ExtResource("18_h8mks")]
+position = Vector2(175, 109)
+
+[node name="FoliageBackground2" parent="Decorations" instance=ExtResource("18_h8mks")]
+position = Vector2(-80, 109)
 
 [node name="ShortcutsForTesting" type="Node" parent="."]
 script = ExtResource("18_do2m5")

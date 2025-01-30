@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn0p087fabvau"]
+
+[ext_resource type="Texture2D" uid="uid://uxnkfb1s2kho" path="res://Objects/FoliageBackground/foliage-background.png" id="1_hsb5h"]
+
+[node name="FoliageBackground" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_hsb5h")
+centered = false
