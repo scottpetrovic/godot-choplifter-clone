@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=32 format=3 uid="uid://bdk61kute821m"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_mxh4y"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_gyv33"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="24_3huar"]
 [ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="25_gfiea"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="26_10erh"]
+[ext_resource type="PackedScene" uid="uid://jbtse7pfrxo2" path="res://Objects/Tank/Tank.tscn" id="26_b1gaj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gq0ya"]
 
@@ -223,3 +224,6 @@ position = Vector2(104, 78)
 
 [node name="SatelliteDish" parent="." instance=ExtResource("25_gfiea")]
 position = Vector2(-85, 53)
+
+[node name="Tank" parent="." instance=ExtResource("26_b1gaj")]
+position = Vector2(211, 122)

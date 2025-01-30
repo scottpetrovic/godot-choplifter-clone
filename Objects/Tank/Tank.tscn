@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://jbtse7pfrxo2"]
+
+[ext_resource type="Texture2D" uid="uid://bc0685ihxy6ju" path="res://Objects/Tank/tank-gun.png" id="1_1isf3"]
+[ext_resource type="Texture2D" uid="uid://i5iq7502iwrq" path="res://Objects/Tank/tank-base.png" id="2_6vp8w"]
+[ext_resource type="Script" path="res://Objects/Tank/patrol_movement_logic.gd" id="3_bltqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgs0p"]
+size = Vector2(36, 14)
+
+[node name="Tank" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wgs0p")
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+texture = ExtResource("1_1isf3")
+
+[node name="BaseTank" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_6vp8w")
+
+[node name="PatrolMovementLogic" type="Node" parent="."]
+script = ExtResource("3_bltqv")
+
+[node name="WaitTimer" type="Timer" parent="."]
