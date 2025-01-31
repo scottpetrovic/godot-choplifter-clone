@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="1_n8sof"]
 [ext_resource type="Script" path="res://Scenes/LevelObjectives/level_objectives.gd" id="1_pu78u"]
-[ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="3_l6smr"]
 [ext_resource type="Texture2D" uid="uid://br3fy80y6omvp" path="res://Objects/Helicopter/propellor-1.png" id="5_kj65n"]
+[ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="6_0uaep"]
 [ext_resource type="Texture2D" uid="uid://vuvmpxupwr28" path="res://Objects/Helicopter/propellor-2.png" id="6_pbcdy"]
 [ext_resource type="Texture2D" uid="uid://dvr65gvs50pvv" path="res://Objects/Helicopter/propellor-3.png" id="7_cnudt"]
 
@@ -65,9 +65,6 @@ theme_override_font_sizes/font_size = 8
 text = "x 12"
 horizontal_alignment = 1
 
-[node name="Prisoner" parent="." instance=ExtResource("3_l6smr")]
-position = Vector2(50, 88)
-
 [node name="PressShootMessage" type="Label" parent="."]
 offset_top = 120.0
 offset_right = 160.0
@@ -85,3 +82,7 @@ position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_0bjhw")
 autoplay = "default"
 frame_progress = 0.405165
+
+[node name="Prisoner-run-1" type="Sprite2D" parent="."]
+position = Vector2(52, 87)
+texture = ExtResource("6_0uaep")
