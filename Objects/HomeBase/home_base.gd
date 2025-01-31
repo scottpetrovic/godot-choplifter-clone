@@ -11,6 +11,8 @@ const PRISONER = preload("res://Objects/Prisoner/prisoner.tscn")
 
 var _player_on_helipad: bool = false
 
+var finished_collecting_prisoners: bool = false
+
 func _ready() -> void:
 	prisoner_release_timer.wait_time = 0.5
 	prisoner_release_timer.one_shot = true
@@ -25,7 +27,7 @@ func _ready() -> void:
 func _door_enter(_area: Area2D) -> void:
 	if _area.is_in_group("Prisoner"):
 		Constants.level_total_prisoners_saved += 1
-		Constants.level_score += 20 # points for bringing prisoner back
+		Constants.global_score += 20 # points for bringing prisoner back
 		_area.queue_free()
 
 func _helipad_enter(body: Node2D) -> void:
@@ -50,7 +52,12 @@ func _process(_delta: float) -> void:
 	if _player_on_helipad && \
 		Constants.player_reference.prisoners_in_helicopter == 0 && \
 		Constants.level_total_remaining_prisoners == 0:
-		EventBus.LevelComplete.emit()
+		
+		# make sure this event only fires one time
+		if finished_collecting_prisoners == false:
+			finished_collecting_prisoners = true
+			EventBus.LevelComplete.emit()
+			
 
 
 func _slowly_drop_off_prisoners() -> void:

@@ -20,9 +20,6 @@ func _ready():
 	Constants.level_min_prisoners_to_success = min_prisoners_required_for_success
 
 func _level_fail() -> void:
-	if EventBus.LevelFailed.is_connected(_level_fail):
-		EventBus.LevelFailed.disconnect(_level_fail)
-		
 	await get_tree().create_timer(5.0).timeout
 	
 	if Constants.lives_left <= 0:
@@ -34,14 +31,8 @@ func _level_fail() -> void:
 	level_objectives.get_node("layout").show_screen_on_level_fail()
 
 func _level_complete() -> void:
-	
-	# the event complete seems to be firing multiple times
-	# so this disconnection should help prevent that
-	if EventBus.LevelComplete.is_connected(_level_complete):
-		EventBus.LevelComplete.disconnect(_level_complete)
-		
 	Constants.go_to_level_win_summary()
-	
+
 
 func _caculate_total_prisoners_for_level() -> int:
 	var prisoner_camps: Array[Node] = get_tree().get_nodes_in_group("PrisonerCamp")

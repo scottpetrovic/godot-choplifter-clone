@@ -22,7 +22,7 @@ func hit(damage: int = 1) -> void:
 	health -= damage
 	
 	if health <= 0:
-		Constants.level_score += 20
+		Constants.global_score += 20
 		queue_free()
 
 

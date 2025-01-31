@@ -14,7 +14,7 @@ func hit(damage: int = 1):
 	# enemy death
 	if health <= 0:
 		Constants.spawn_explosion(global_position)
-		Constants.level_score += points_when_destroyed
+		Constants.global_score += points_when_destroyed
 		queue_free()
 
 

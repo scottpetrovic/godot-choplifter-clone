@@ -7,10 +7,9 @@ enum PowerUpType { NONE,BOMBS }
 # global way for other objects to reference player
 var player_reference: HelicopterPlayer = null
 
-var starting_lives: int = 5
+var starting_lives: int = 1
 var lives_left: int = starting_lives
 var current_level: int = 1
-var global_score: int = 0
 
 var level_data: Array = [
 		{
@@ -31,12 +30,11 @@ var level_total_remaining_prisoners: int = 0
 var level_total_prisoners_saved: int = 0
 var level_active_powerup: PowerUpType = PowerUpType.NONE
 var level_min_prisoners_to_success: int = 0 # level will set this when loaded
-var level_score: int = 0
+var global_score: int = 0
 
 func reset_existing_level() -> void:
 	level_active_powerup = PowerUpType.NONE
 	level_total_prisoners_saved = 0
-	level_score = 0
 	lives_left = starting_lives
 	get_tree().change_scene_to_file(level_data[current_level].level_scene)
 

@@ -4,7 +4,6 @@ extends Control
 @onready var level_message: Label = $LevelMessage
 
 
-@onready var level_score: Label = $LevelScore
 @onready var prisoners_saved: Label = $PrisonersSaved
 @onready var global_score: Label = $GlobalScore
 
@@ -36,7 +35,6 @@ func _updates_for_failure() -> void:
 	retry_level_button.pressed.connect(Constants.reset_existing_level)
 	
 	# hide score related UI elements
-	level_score.visible = false
 	global_score.visible = false
 	prisoners_saved.visible = false
 	
@@ -56,6 +54,5 @@ func _updates_for_success() -> void:
 	retry_level_button.visible = false # cannot retry level when we win
 
 	# scores for level
-	level_score.text = 'LEVEL SCORE: ' + str(Constants.level_score).pad_zeros(7)
-	global_score.text = 'TOTAL SCORE: ' + str(Constants.global_score).pad_zeros(7)
+	global_score.text = 'SCORE: ' + str(Constants.global_score).pad_zeros(7)
 	prisoners_saved.text = 'PRISONERS RESCUED: ' + str(Constants.level_total_prisoners_saved)

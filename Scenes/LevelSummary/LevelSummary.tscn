@@ -70,14 +70,6 @@ text = "Retry Level"
 layout_mode = 2
 text = "Main Menu"
 
-[node name="LevelScore" type="Label" parent="."]
-layout_mode = 0
-offset_top = 54.0
-offset_right = 160.0
-offset_bottom = 59.0
-text = "Level Score: 000000"
-horizontal_alignment = 1
-
 [node name="PrisonersSaved" type="Label" parent="."]
 layout_mode = 0
 offset_top = 66.0
@@ -91,5 +83,5 @@ layout_mode = 0
 offset_top = 77.0
 offset_right = 160.0
 offset_bottom = 82.0
-text = "Total Score: 0001322"
+text = " Score: 0001322"
 horizontal_alignment = 1

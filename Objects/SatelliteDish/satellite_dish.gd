@@ -17,7 +17,7 @@ func hit(damage: int = 1) -> void:
 	health -=1
 	
 	if health <= 0:
-		Constants.level_score += 20
+		Constants.global_score += 20
 		Constants.spawn_explosion(global_position)
 		queue_free()
 

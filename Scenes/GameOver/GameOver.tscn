@@ -40,7 +40,7 @@ horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Retry"
+text = "Retry Level"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
