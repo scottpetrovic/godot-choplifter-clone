@@ -7,15 +7,21 @@ enum PowerUpType { NONE,BOMBS }
 # global way for other objects to reference player
 var player_reference: HelicopterPlayer = null
 
-var starting_lives: int = 2
+var starting_lives: int = 5
 var lives_left: int = starting_lives
 var current_level: int = 0
 var global_score: int = 0
 
-var level_paths: Array[String] = [
-	"res://Scenes/Levels/Level1.tscn",
-	"res://Scenes/Levels/Level2.tscn"]
-	
+var level_data: Array = [
+		{
+			"level_scene": "res://Scenes/Levels/Level1.tscn",
+			"minimum_prisoners_needed": 12
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level2.tscn",
+			"minimum_prisoners_needed": 12
+		}
+	]
 
 # objects to spawn (maybe put in separate global if this gets too large
 const EXPLOSION = preload("res://Objects/Explosion/Explosion.tscn")
@@ -32,10 +38,10 @@ func reset_existing_level() -> void:
 	level_active_powerup = PowerUpType.NONE
 	level_score = 0
 	lives_left = starting_lives
-	get_tree().change_scene_to_file(level_paths[current_level])
+	get_tree().change_scene_to_file(level_data[current_level].level_scene)
 
 func does_next_level_exist() -> bool:
-	return current_level < level_paths.size()-1
+	return current_level < level_data.size()-1
 
 func go_to_next_level() -> void:
 	current_level += 1

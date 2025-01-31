@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbovci8t6ej4m"]
+[gd_scene load_steps=4 format=3 uid="uid://dbovci8t6ej4m"]
 
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="1_n8sof"]
 [ext_resource type="Script" path="res://Scenes/LevelObjectives/level_objectives.gd" id="1_pu78u"]
+[ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="3_l6smr"]
 
 [node name="LevelObjectives" type="CanvasLayer"]
 
@@ -18,32 +19,44 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -4.0
-offset_bottom = 31.0
+offset_top = -40.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 18
 script = ExtResource("1_pu78u")
 metadata/_edit_group_ = true
 
 [node name="CurrentLevel" type="Label" parent="layout"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "LEVEL 1"
 horizontal_alignment = 1
 
 [node name="LivesLeft" type="Label" parent="layout"]
 layout_mode = 2
-text = "3 x Lives"
+theme_override_font_sizes/font_size = 8
+text = "x 3"
 horizontal_alignment = 1
 
 [node name="PrisonersLeft" type="Label" parent="layout"]
 layout_mode = 2
-text = "3 x Prisoners"
+theme_override_font_sizes/font_size = 8
+text = "x 12"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(79, 52)
+position = Vector2(49, 63)
 texture = ExtResource("1_n8sof")
 
-[node name="NextSceneTimer" type="Timer" parent="."]
+[node name="Prisoner" parent="." instance=ExtResource("3_l6smr")]
+position = Vector2(50, 88)
+
+[node name="PressShootMessage" type="Label" parent="."]
+offset_top = 120.0
+offset_right = 160.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 8
+text = "PRESS SHOOT"
+horizontal_alignment = 1
