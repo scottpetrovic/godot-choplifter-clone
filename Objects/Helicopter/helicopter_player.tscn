@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dji0dxgas7tf8"]
+[gd_scene load_steps=12 format=3 uid="uid://dji0dxgas7tf8"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_woa6i"]
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="2_dlh3d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dvr65gvs50pvv" path="res://Objects/Helicopter/propellor-3.png" id="4_ubtri"]
 [ext_resource type="Script" path="res://Objects/Helicopter/player_state_management.gd" id="4_y2gou"]
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_jjg38"]
+[ext_resource type="Script" path="res://Objects/Helicopter/movement_logic.gd" id="9_pl8pb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
 size = Vector2(22, 10)
@@ -57,3 +58,6 @@ script = ExtResource("5_jjg38")
 [node name="BulletTimer" type="Timer" parent="HelicopterShootLogic"]
 
 [node name="BombTimer" type="Timer" parent="HelicopterShootLogic"]
+
+[node name="MovementLogic" type="Node" parent="."]
+script = ExtResource("9_pl8pb")
