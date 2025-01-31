@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg73e0287m8u6"]
 
-[ext_resource type="Script" path="res://Scenes/LevelWinSummary/level_win_summary.gd" id="1_ake3q"]
+[ext_resource type="Script" path="res://Scenes/LevelSummary/level_summary.gd" id="1_ake3q"]
 
-[node name="LevelWinSummary" type="Control"]
+[node name="LevelSummary" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,25 +26,45 @@ layout_mode = 2
 offset_top = 17.0
 offset_right = 160.0
 offset_bottom = 22.0
+theme_override_font_sizes/font_size = 6
 text = "LEVEL 1 COMPLETE"
 horizontal_alignment = 1
 
+[node name="LevelMessage" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 19.0
+offset_top = 36.0
+offset_right = 141.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 5
+text = "GOOD JOB"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 33.0
-offset_bottom = 68.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -55.0
+offset_right = 26.0
+offset_bottom = -9.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 8
+grow_vertical = 0
+theme_override_constants/separation = 5
 metadata/_edit_group_ = true
 
 [node name="NextLevelButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Next Level"
+
+[node name="RetryLevelButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Retry Level"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -52,24 +72,24 @@ text = "Main Menu"
 
 [node name="LevelScore" type="Label" parent="."]
 layout_mode = 0
-offset_top = 28.0
+offset_top = 54.0
 offset_right = 160.0
-offset_bottom = 33.0
+offset_bottom = 59.0
 text = "Level Score: 000000"
 horizontal_alignment = 1
 
 [node name="PrisonersSaved" type="Label" parent="."]
 layout_mode = 0
-offset_top = 38.0
+offset_top = 66.0
 offset_right = 160.0
-offset_bottom = 43.0
+offset_bottom = 71.0
 text = "Prisoners Saved: 0"
 horizontal_alignment = 1
 
 [node name="GlobalScore" type="Label" parent="."]
 layout_mode = 0
-offset_top = 51.92
+offset_top = 77.0
 offset_right = 160.0
-offset_bottom = 56.92
+offset_bottom = 82.0
 text = "Total Score: 0001322"
 horizontal_alignment = 1

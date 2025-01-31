@@ -5,6 +5,7 @@ extends Node
 
 @onready var helicopter_player: HelicopterPlayer = $"../Helicopter_Player"
 
+@export var min_prisoners_required_for_success: int = 4
 
 func _ready():
 	await get_tree().process_frame # make sure all children loaded before continuing
@@ -16,7 +17,7 @@ func _ready():
 	# set player reference for level as constant
 	Constants.player_reference = helicopter_player
 	Constants.player_reference.set_facing_direction(starting_direction)
-
+	Constants.level_min_prisoners_to_success = min_prisoners_required_for_success
 
 func _level_fail() -> void:
 	if EventBus.LevelFailed.is_connected(_level_fail):
