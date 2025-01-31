@@ -47,7 +47,7 @@ position = Vector2(-41, 10)
 shape = SubResource("WorldBoundaryShape2D_opyom")
 
 [node name="Ceiling" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(-61, 18)
+position = Vector2(-61, 20)
 rotation = 3.14159
 metadata/_edit_group_ = true
 

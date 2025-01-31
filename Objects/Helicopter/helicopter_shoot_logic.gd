@@ -8,8 +8,8 @@ const PLAYER_BOMB: PackedScene = preload("res://Objects/BombPlayer/PlayerBomb.ts
 
 func _ready() -> void:
 	# Set the timer wait times
-	bullet_timer.wait_time = 0.3  # 0.3 seconds between shots
-	bomb_timer.wait_time = 2.0    # 2 seconds between bombs
+	bullet_timer.wait_time = 0.2  # seconds between shots
+	bomb_timer.wait_time = 1.5    # seconds between bombs
 	
 	# Make sure they're configured as one-shot timers
 	bullet_timer.one_shot = true

@@ -7,11 +7,12 @@ extends VBoxContainer
 
 @onready var level_objectives: CanvasLayer = $".."
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level_objectives.visible = true
+	
+	# don't allow player to move/shoot while objectives
+	# screen is on
+	Constants.player_reference.enable_movement = false
 
 
 func show_screen_on_level_fail() -> void:
@@ -27,4 +28,7 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		level_objectives.visible = false
+		
+		# player can start moving and shooting now
+		Constants.player_reference.enable_movement = true
 		

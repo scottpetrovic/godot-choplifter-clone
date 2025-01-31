@@ -51,7 +51,7 @@ position = Vector2(188.625, 10)
 shape = SubResource("WorldBoundaryShape2D_gq0ya")
 
 [node name="Ceiling" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(187, 18)
+position = Vector2(187, 21)
 rotation = 3.14159
 metadata/_edit_group_ = true
 
