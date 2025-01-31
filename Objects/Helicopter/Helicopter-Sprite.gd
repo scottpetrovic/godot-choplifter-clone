@@ -1,5 +1,7 @@
 extends Sprite2D
 
+@onready var propeller: AnimatedSprite2D = $Propeller
+@onready var helicopter_player: HelicopterPlayer = $".."
 
 func _update_sprite_rotation(delta: float) -> void:
 	var player_x_velocity: float = Constants.player_reference.velocity.x
@@ -29,3 +31,11 @@ func _update_sprite_source() -> void:
 func _process(delta: float) -> void:
 	_update_sprite_rotation(delta)
 	_update_sprite_source()
+	_update_propeller()
+	
+	
+func _update_propeller() -> void:
+	if helicopter_player.is_on_floor():
+		propeller.stop()
+	else:
+		propeller.play()

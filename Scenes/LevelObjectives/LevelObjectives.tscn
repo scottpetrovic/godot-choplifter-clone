@@ -1,8 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbovci8t6ej4m"]
+[gd_scene load_steps=8 format=3 uid="uid://dbovci8t6ej4m"]
 
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="1_n8sof"]
 [ext_resource type="Script" path="res://Scenes/LevelObjectives/level_objectives.gd" id="1_pu78u"]
 [ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="3_l6smr"]
+[ext_resource type="Texture2D" uid="uid://br3fy80y6omvp" path="res://Objects/Helicopter/propellor-1.png" id="5_kj65n"]
+[ext_resource type="Texture2D" uid="uid://vuvmpxupwr28" path="res://Objects/Helicopter/propellor-2.png" id="6_pbcdy"]
+[ext_resource type="Texture2D" uid="uid://dvr65gvs50pvv" path="res://Objects/Helicopter/propellor-3.png" id="7_cnudt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0bjhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kj65n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pbcdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cnudt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
 
 [node name="LevelObjectives" type="CanvasLayer"]
 
@@ -45,11 +65,6 @@ theme_override_font_sizes/font_size = 8
 text = "x 12"
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(49, 63)
-texture = ExtResource("1_n8sof")
-
 [node name="Prisoner" parent="." instance=ExtResource("3_l6smr")]
 position = Vector2(50, 88)
 
@@ -60,3 +75,13 @@ offset_bottom = 125.0
 theme_override_font_sizes/font_size = 8
 text = "PRESS SHOOT"
 horizontal_alignment = 1
+
+[node name="Helicopter" type="Sprite2D" parent="."]
+position = Vector2(51, 63)
+texture = ExtResource("1_n8sof")
+
+[node name="Propeller" type="AnimatedSprite2D" parent="Helicopter"]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_0bjhw")
+autoplay = "default"
+frame_progress = 0.0792087

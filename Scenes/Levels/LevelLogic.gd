@@ -3,13 +3,18 @@ extends Node
 @onready var level_objectives: CanvasLayer = $"../LevelObjectives"
 @export var starting_direction: Constants.PlayerFacingDirection = Constants.PlayerFacingDirection.LEFT
 
+@onready var helicopter_player: HelicopterPlayer = $"../Helicopter_Player"
+
+
 func _ready():
 	await get_tree().process_frame # make sure all children loaded before continuing
 	Constants.level_total_remaining_prisoners = _caculate_total_prisoners_for_level()
 	
 	EventBus.LevelComplete.connect(_level_complete)
 	EventBus.LevelFailed.connect(_level_fail)
-
+	
+	# set player reference for level as constant
+	Constants.player_reference = helicopter_player
 	Constants.player_reference.set_facing_direction(starting_direction)
 
 

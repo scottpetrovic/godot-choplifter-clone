@@ -1,14 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://noh2oanq4n4f"]
+[gd_scene load_steps=22 format=3 uid="uid://noh2oanq4n4f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
 [ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_ctqbm"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="3_bknii"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="4_a1jjh"]
-[ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="5_o4myt"]
-[ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="6_pf51c"]
-[ext_resource type="Script" path="res://Objects/Helicopter/Helicopter-Sprite.gd" id="7_4n3v4"]
-[ext_resource type="Script" path="res://Objects/Helicopter/player_state_management.gd" id="8_s2buh"]
-[ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="9_1hbg3"]
+[ext_resource type="PackedScene" uid="uid://dji0dxgas7tf8" path="res://Objects/Helicopter/helicopter_player.tscn" id="5_gjsc1"]
 [ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="10_buhvf"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="11_wl17g"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="12_v06gp"]
@@ -31,9 +27,6 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1wjrd"]
 normal = Vector2(-1, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
-size = Vector2(22, 10)
 
 [node name="Level2" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [120.0]
@@ -86,30 +79,8 @@ position = Vector2(-24, 118)
 [node name="HomeBase" parent="." instance=ExtResource("4_a1jjh")]
 position = Vector2(-203, 123)
 
-[node name="Helicopter_Player" type="CharacterBody2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-196, 114)
-script = ExtResource("5_o4myt")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Helicopter_Player"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_wgnhy")
-
-[node name="Sprite" type="Sprite2D" parent="Helicopter_Player"]
-texture_filter = 1
-texture = ExtResource("6_pf51c")
-script = ExtResource("7_4n3v4")
-
-[node name="HelicopterDirectionLogic" type="Node" parent="Helicopter_Player"]
-script = ExtResource("8_s2buh")
-
-[node name="HelicopterShootLogic" type="Node" parent="Helicopter_Player"]
-script = ExtResource("9_1hbg3")
-
-[node name="BulletTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
-
-[node name="BombTimer" type="Timer" parent="Helicopter_Player/HelicopterShootLogic"]
+[node name="Helicopter_Player" parent="." instance=ExtResource("5_gjsc1")]
+position = Vector2(-199, 114)
 
 [node name="BasicAAEnemy" parent="." instance=ExtResource("10_buhvf")]
 position = Vector2(47, 117)

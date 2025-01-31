@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dji0dxgas7tf8"]
+
+[ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_woa6i"]
+[ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="2_dlh3d"]
+[ext_resource type="Texture2D" uid="uid://br3fy80y6omvp" path="res://Objects/Helicopter/propellor-1.png" id="2_extvt"]
+[ext_resource type="Texture2D" uid="uid://vuvmpxupwr28" path="res://Objects/Helicopter/propellor-2.png" id="3_fh4hc"]
+[ext_resource type="Script" path="res://Objects/Helicopter/Helicopter-Sprite.gd" id="3_jssxi"]
+[ext_resource type="Texture2D" uid="uid://dvr65gvs50pvv" path="res://Objects/Helicopter/propellor-3.png" id="4_ubtri"]
+[ext_resource type="Script" path="res://Objects/Helicopter/player_state_management.gd" id="4_y2gou"]
+[ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_jjg38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
+size = Vector2(22, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cohrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_extvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fh4hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ubtri")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="Helicopter_Player" type="CharacterBody2D"]
+script = ExtResource("1_woa6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_wgnhy")
+
+[node name="HelicopterBaseSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_dlh3d")
+script = ExtResource("3_jssxi")
+metadata/_edit_group_ = true
+
+[node name="Propeller" type="AnimatedSprite2D" parent="HelicopterBaseSprite"]
+position = Vector2(0, -4.92)
+sprite_frames = SubResource("SpriteFrames_cohrs")
+autoplay = "default"
+frame_progress = 0.42214
+
+[node name="HelicopterDirectionLogic" type="Node" parent="."]
+script = ExtResource("4_y2gou")
+
+[node name="HelicopterShootLogic" type="Node" parent="."]
+script = ExtResource("5_jjg38")
+
+[node name="BulletTimer" type="Timer" parent="HelicopterShootLogic"]
+
+[node name="BombTimer" type="Timer" parent="HelicopterShootLogic"]
