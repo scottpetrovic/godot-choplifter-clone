@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b73cdxs78o7tl"]
+
+[ext_resource type="Script" path="res://Scenes/main_camera.gd" id="1_dlvu6"]
+[ext_resource type="Script" path="res://Objects/LevelCamera/camera_shake.gd" id="2_t12g1"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(132, 72)
+script = ExtResource("1_dlvu6")
+target_path = NodePath("../Helicopter_Player")
+smooth_speed = 12.0
+
+[node name="CameraShake" type="Node" parent="."]
+script = ExtResource("2_t12g1")

@@ -61,6 +61,9 @@ func go_to_level_win_summary() -> void:
 func go_to_gameover_screen() -> void:
 	get_tree().change_scene_to_file("res://Scenes/GameOver/GameOver.tscn")
 
+func add_camera_shake(amount: float = 0.4) -> void:
+	var camera_node: Camera2D = get_viewport().get_camera_2d()
+	camera_node.get_node("CameraShake").add_trauma(amount)
 
 func spawn_explosion(pos: Vector2) -> void:
 	var expl: Node2D = EXPLOSION.instantiate()

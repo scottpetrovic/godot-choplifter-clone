@@ -39,6 +39,7 @@ func drop_bomb():
 	_bomb.global_position = Constants.player_reference.global_position
 
 func shoot() -> void:
+	Constants.add_camera_shake(0.2)
 	var bullet: Bullet = bullet_scene.instantiate()
 	bullet.set_shoot_direction(Constants.player_reference.facing_direction())
 	get_tree().current_scene.add_child(bullet)

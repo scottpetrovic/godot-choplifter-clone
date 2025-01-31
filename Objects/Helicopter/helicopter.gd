@@ -23,6 +23,8 @@ func hit(damage: int = 1) -> void:
 
 	health -= damage
 	
+	Constants.add_camera_shake(0.8)
+	
 	if health <= 0:
 		visible = false # hide the player
 		EventBus.LevelFailed.emit()

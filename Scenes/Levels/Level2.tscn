@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://noh2oanq4n4f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
-[ext_resource type="Script" path="res://Scenes/main_camera.gd" id="2_ctqbm"]
+[ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="2_0lit7"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="3_bknii"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="4_a1jjh"]
 [ext_resource type="PackedScene" uid="uid://dji0dxgas7tf8" path="res://Objects/Helicopter/helicopter_player.tscn" id="5_gjsc1"]
@@ -35,11 +35,7 @@ metadata/_edit_horizontal_guides_ = [120.0]
 script = ExtResource("1_uinmi")
 starting_direction = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(132, 72)
-script = ExtResource("2_ctqbm")
-target_path = NodePath("../Helicopter_Player")
-smooth_speed = 12.0
+[node name="Camera2D" parent="." instance=ExtResource("2_0lit7")]
 
 [node name="LevelBoundary" type="Node2D" parent="."]
 
