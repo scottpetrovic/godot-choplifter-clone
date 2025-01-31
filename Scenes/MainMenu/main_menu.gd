@@ -1,9 +1,6 @@
 extends Control
 
-@onready var start_button: Button = $VBoxContainer/StartButton
-
-func _ready() -> void:
-	start_button.pressed.connect(_start_game)
-
-func _start_game() -> void:
-	Constants.start_new_game()
+func _process(_delta: float) -> void:
+	
+	if Input.is_action_just_pressed("shoot"):
+		Constants.start_new_game()

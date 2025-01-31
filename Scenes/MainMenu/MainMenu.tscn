@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bedmxlh3oya4j"]
+[gd_scene load_steps=3 format=3 uid="uid://bedmxlh3oya4j"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_f34ra"]
+[ext_resource type="Texture2D" uid="uid://cqjonx0h6b08x" path="res://Scenes/MainMenu/main-menu.png" id="2_qeomy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,33 +12,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f34ra")
 
+[node name="Graphic" type="Sprite2D" parent="."]
+position = Vector2(80, 72)
+texture = ExtResource("2_qeomy")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 131.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.151146, 0.308725, 0.304382, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 8
-metadata/_edit_group_ = true
-
-[node name="GameTitle" type="Label" parent="VBoxContainer"]
+[node name="StartLabel" type="Label" parent="."]
 layout_mode = 2
-text = "Game Title"
+offset_top = 135.0
+offset_right = 160.0
+offset_bottom = 140.0
+text = "PRESS SHOOT TO STAHT"
 horizontal_alignment = 1
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Start"
