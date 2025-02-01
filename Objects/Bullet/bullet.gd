@@ -9,11 +9,17 @@ const BULLET_SPEED = 80
 
 const BULLET_IMPACT = preload("res://Objects/BulletImpact/BulletImpact.tscn")
 
+# take it in from player
+var starting_velocity_x: float = 0.0
+
 func set_shoot_direction(direc: Constants.PlayerFacingDirection) -> void:
 	_shoot_direction = direc
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	# add a bit of player's velocity to bullet to go opposite direction
+	starting_velocity_x = -Constants.player_reference.velocity.x
 	
 	add_to_group("PlayerBullet")
 
@@ -45,19 +51,20 @@ func _body_entered(body: Node2D) -> void:
 	# player bullet cannot hurt ourself
 	if body == Constants.player_reference:
 		return
-		
+
 	create_bullet_impact(global_position)
 	
 	# probably hit the ground rigid body
 	queue_free()
 
 func _process(delta: float) -> void:
+	
 	match _shoot_direction:
 		Constants.PlayerFacingDirection.LEFT:
-			position.x -= BULLET_SPEED * delta
+			position.x -= (BULLET_SPEED + starting_velocity_x) * delta 
 			position.y += BULLET_SPEED * delta
 		Constants.PlayerFacingDirection.RIGHT:
-			position.x += BULLET_SPEED * delta
+			position.x += (BULLET_SPEED + starting_velocity_x) * delta
 			position.y += BULLET_SPEED * delta
 		Constants.PlayerFacingDirection.DOWN:
 			position.y += BULLET_SPEED * delta
