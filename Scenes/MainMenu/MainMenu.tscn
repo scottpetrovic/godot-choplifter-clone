@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bedmxlh3oya4j"]
+[gd_scene load_steps=4 format=3 uid="uid://bedmxlh3oya4j"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_f34ra"]
 [ext_resource type="Texture2D" uid="uid://cqjonx0h6b08x" path="res://Scenes/MainMenu/main-menu.png" id="2_qeomy"]
+[ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="3_sqte0"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,6 +18,7 @@ position = Vector2(80, 72)
 texture = ExtResource("2_qeomy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +34,10 @@ layout_mode = 2
 offset_top = 119.0
 offset_right = 160.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 7
-text = "PRESS SHOOT"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.376471, 0.431373, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "PRESS SHOOT TO START"
 horizontal_alignment = 1
+script = ExtResource("3_sqte0")

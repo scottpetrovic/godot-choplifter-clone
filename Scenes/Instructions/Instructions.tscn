@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://be3u4bdwjwwyw"]
+
+[ext_resource type="Script" path="res://Scenes/Instructions/instructions.gd" id="1_bcd21"]
+[ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="1_vwn6x"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bcd21")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.151146, 0.308725, 0.304382, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 159.0
+offset_bottom = 17.0
+text = "INSTRUCTIONS"
+horizontal_alignment = 1
+
+[node name="ContinueText" type="Label" parent="."]
+layout_mode = 0
+offset_top = 127.0
+offset_right = 160.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 4
+text = "PRESS SHOOT TO CONTINUE"
+horizontal_alignment = 1
+script = ExtResource("1_vwn6x")
+
+[node name="Instructions1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 22.0
+offset_right = 144.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 4
+text = "SAVE AS MANY HOSTAGES AS POSSIBLE AND RETURN TO BASE IN YOUR HELICOPTER.
+
+IF YOU DIE WITH HOSTAGES IN YOUR HELICOPTER, THOSE HOSTAGES WILL DIE AS WELL.
+
+DOUBLE TAP DIRECTION KEYS TO SWITCH SHOOTING DIRECTION.
+
+HOSTAGES  WILL COME OUT TO YOU WHEN YOU DESTROY A DOOR.
+"
+autowrap_mode = 2

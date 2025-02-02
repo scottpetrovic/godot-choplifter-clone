@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbovci8t6ej4m"]
+[gd_scene load_steps=9 format=3 uid="uid://dbovci8t6ej4m"]
 
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="1_n8sof"]
 [ext_resource type="Script" path="res://Scenes/LevelObjectives/level_objectives.gd" id="1_pu78u"]
+[ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="2_27v8i"]
 [ext_resource type="Texture2D" uid="uid://br3fy80y6omvp" path="res://Objects/Helicopter/propellor-1.png" id="5_kj65n"]
 [ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="6_0uaep"]
 [ext_resource type="Texture2D" uid="uid://vuvmpxupwr28" path="res://Objects/Helicopter/propellor-2.png" id="6_pbcdy"]
@@ -69,9 +70,10 @@ horizontal_alignment = 1
 offset_top = 120.0
 offset_right = 160.0
 offset_bottom = 125.0
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 6
 text = "PRESS SHOOT"
 horizontal_alignment = 1
+script = ExtResource("2_27v8i")
 
 [node name="Helicopter" type="Sprite2D" parent="."]
 position = Vector2(51, 63)

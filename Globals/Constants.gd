@@ -51,6 +51,10 @@ func start_new_game() -> void:
 	level_total_prisoners_saved = 0
 	reset_existing_level()
 
+
+func go_to_instructions_screen() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Instructions/Instructions.tscn")
+
 func go_to_main_menu() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu/MainMenu.tscn")
 
