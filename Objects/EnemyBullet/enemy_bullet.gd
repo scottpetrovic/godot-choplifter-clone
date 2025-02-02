@@ -2,8 +2,8 @@ class_name EnemyBullet
 extends Area2D
 
 @onready var lifetime_timer: Timer = $LifetimeTimer
-const BULLET_SPEED = 120
-const GRAVITY = 180  # Adjust this value to control gravity strength
+const BULLET_SPEED = 170
+const GRAVITY = 170  # Adjust this value to control gravity strength
 var velocity: Vector2
 
 func _ready() -> void:

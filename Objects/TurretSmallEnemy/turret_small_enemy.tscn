@@ -14,6 +14,7 @@ script = ExtResource("1_eyxaa")
 
 [node name="AttackLogic" type="Node" parent="."]
 script = ExtResource("2_70u6j")
+is_tank_shooting = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3ptbe")
