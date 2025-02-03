@@ -1,20 +1,24 @@
-[gd_scene load_steps=22 format=3 uid="uid://noh2oanq4n4f"]
+[gd_scene load_steps=28 format=4 uid="uid://noh2oanq4n4f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
 [ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="2_0lit7"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="3_bknii"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="4_a1jjh"]
+[ext_resource type="TileSet" uid="uid://dprf5unha483p" path="res://Tilemap/tileset-first-environment.tres" id="4_e8b4t"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_boundary_arrow.gd" id="5_0atce"]
+[ext_resource type="PackedScene" uid="uid://jbtse7pfrxo2" path="res://Objects/Tank/Tank.tscn" id="5_gj0us"]
 [ext_resource type="PackedScene" uid="uid://dji0dxgas7tf8" path="res://Objects/Helicopter/helicopter_player.tscn" id="5_gjsc1"]
+[ext_resource type="Texture2D" uid="uid://ipodk1iihti5" path="res://GUI/turn-around-arrow.png" id="6_ii1o2"]
 [ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="10_buhvf"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="11_wl17g"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="12_v06gp"]
-[ext_resource type="Texture2D" uid="uid://ckejv6r0mc53w" path="res://Environment/bg-parallax-3.png" id="13_gtxtd"]
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="14_ox816"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="15_1m7df"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="16_fwqhj"]
-[ext_resource type="PackedScene" uid="uid://ch2yn16apmlhw" path="res://Objects/PalmTree/PalmTree.tscn" id="17_jrc4c"]
+[ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="16_i031g"]
+[ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="17_axu1w"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_do2m5"]
-[ext_resource type="PackedScene" uid="uid://cn0p087fabvau" path="res://Objects/FoliageBackground/FoliageBackground.tscn" id="18_h8mks"]
+[ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="18_y1b1a"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_bp1ly"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="20_gtw5i"]
 
@@ -22,11 +26,17 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3o8b"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pm64p"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jsjp5"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1wjrd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utm31"]
+size = Vector2(11, 119)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yp5l4"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xww18"]
+size = Vector2(11, 119)
 
 [node name="Level2" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [120.0]
@@ -35,7 +45,55 @@ metadata/_edit_horizontal_guides_ = [120.0]
 script = ExtResource("1_uinmi")
 starting_direction = 2
 
-[node name="Camera2D" parent="." instance=ExtResource("2_0lit7")]
+[node name="BackgroundElementGrouping" type="Node" parent="."]
+
+[node name="BaseBackgroundLayer" type="CanvasLayer" parent="BackgroundElementGrouping"]
+layer = -100
+
+[node name="BackgroundSky" type="ColorRect" parent="BackgroundElementGrouping/BaseBackgroundLayer"]
+offset_left = -1305.0
+offset_top = 3.0
+offset_right = 782.0
+offset_bottom = 151.0
+color = Color(0.768627, 0.941176, 0.760784, 1)
+
+[node name="BackgroundParallaxLayer" type="ParallaxBackground" parent="BackgroundElementGrouping"]
+layer = -50
+
+[node name="ParallaxLayerBG" type="ParallaxLayer" parent="BackgroundElementGrouping/BackgroundParallaxLayer"]
+position = Vector2(0, -8)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(168, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundElementGrouping/BackgroundParallaxLayer/ParallaxLayerBG"]
+texture_filter = 1
+position = Vector2(0, 61)
+texture = ExtResource("11_wl17g")
+centered = false
+
+[node name="ParallaxLayerBG2" type="ParallaxLayer" parent="BackgroundElementGrouping/BackgroundParallaxLayer"]
+position = Vector2(0, -8)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(159, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundElementGrouping/BackgroundParallaxLayer/ParallaxLayerBG2"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(0, 84)
+texture = ExtResource("12_v06gp")
+centered = false
+
+[node name="TileBaseGround" type="TileMapLayer" parent="BackgroundElementGrouping"]
+z_index = -1
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAAAAAcAAAABAAEAAAAAAAgAAAABAAIAAAABAAcAAAABAAEAAAABAAgAAAABAAIAAAACAAcAAAABAAEAAAACAAgAAAABAAIAAAADAAcAAAABAAEAAAADAAgAAAABAAIAAAAEAAcAAAABAAEAAAAEAAgAAAABAAIAAAAFAAcAAAABAAEAAAAFAAgAAAABAAIAAAAGAAcAAAABAAEAAAAGAAgAAAABAAIAAAAHAAcAAAABAAEAAAAHAAgAAAABAAIAAAAIAAcAAAABAAEAAAAIAAgAAAABAAIAAAAJAAcAAAABAAEAAAAJAAgAAAABAAIAAAAKAAcAAAABAAEAAAAKAAgAAAABAAIAAAALAAcAAAABAAEAAAALAAgAAAABAAIAAAAMAAcAAAABAAEAAAAMAAgAAAABAAIAAAANAAcAAAABAAEAAAANAAgAAAABAAIAAAAOAAcAAAABAAEAAAAOAAgAAAABAAIAAAAPAAcAAAABAAEAAAAPAAgAAAABAAIAAAAQAAcAAAABAAEAAAAQAAgAAAABAAIAAAARAAcAAAABAAEAAAARAAgAAAABAAIAAAASAAcAAAABAAEAAAASAAgAAAABAAIAAAATAAcAAAABAAEAAAATAAgAAAABAAIAAAAUAAcAAAABAAEAAAAUAAgAAAABAAIAAAAVAAcAAAABAAEAAAAVAAgAAAABAAIAAAAWAAcAAAABAAEAAAAWAAgAAAABAAIAAAAXAAcAAAABAAEAAAAXAAgAAAABAAIAAAAYAAcAAAABAAEAAAAYAAgAAAABAAIAAAAZAAcAAAABAAEAAAAZAAgAAAABAAIAAAAaAAcAAAABAAEAAAAaAAgAAAABAAIAAAAbAAcAAAABAAEAAAAbAAgAAAABAAIAAAAcAAcAAAABAAEAAAAcAAgAAAABAAIAAAAdAAcAAAABAAEAAAAdAAgAAAABAAIAAAAeAAcAAAABAAEAAAAeAAgAAAABAAIAAAAfAAcAAAABAAEAAAAfAAgAAAABAAIAAAAgAAcAAAABAAEAAAAgAAgAAAABAAIAAAAhAAcAAAABAAEAAAAhAAgAAAABAAIAAAAiAAcAAAABAAEAAAAiAAgAAAABAAIAAAAjAAcAAAABAAEAAAAjAAgAAAABAAIAAAAkAAcAAAABAAEAAAAkAAgAAAABAAIAAAAlAAcAAAABAAEAAAAlAAgAAAABAAIAAAAmAAcAAAABAAEAAAAmAAgAAAABAAIAAAAnAAcAAAABAAEAAAAnAAgAAAABAAIAAAAoAAcAAAABAAEAAAAoAAgAAAABAAIAAAApAAcAAAABAAEAAAApAAgAAAABAAIAAAAqAAcAAAABAAEAAAAqAAgAAAABAAIAAAD//wcAAAABAAEAAAD//wgAAAABAAIAAAD+/wcAAAABAAEAAAD+/wgAAAABAAIAAAD9/wcAAAABAAEAAAD9/wgAAAABAAIAAAD8/wcAAAABAAEAAAD8/wgAAAABAAIAAAD7/wcAAAABAAEAAAD7/wgAAAABAAIAAAD6/wcAAAABAAEAAAD6/wgAAAABAAIAAAD5/wcAAAABAAEAAAD5/wgAAAABAAIAAAD4/wcAAAABAAEAAAD4/wgAAAABAAIAAAD3/wcAAAABAAEAAAD3/wgAAAABAAIAAAD2/wcAAAABAAEAAAD2/wgAAAABAAIAAAD1/wcAAAABAAEAAAD1/wgAAAABAAIAAAD0/wcAAAABAAEAAAD0/wgAAAABAAIAAADz/wcAAAABAAEAAADz/wgAAAABAAIAAADy/wcAAAABAAEAAADy/wgAAAABAAIAAADx/wcAAAABAAEAAADx/wgAAAABAAIAAADw/wcAAAABAAEAAADw/wgAAAABAAIAAADv/wcAAAABAAEAAADv/wgAAAABAAIAAADu/wcAAAABAAEAAADu/wgAAAABAAIAAADt/wcAAAABAAEAAADt/wgAAAABAAIAAADs/wcAAAABAAEAAADs/wgAAAABAAIAAADr/wcAAAABAAEAAADr/wgAAAABAAIAAADq/wcAAAADAAEAAADq/wgAAAABAAIAAADp/wgAAAAEAAEAAADo/wgAAAAEAAEAAADn/wcAAAAFAAEAAADn/wgAAAABAAIAAADm/wcAAAABAAEAAADm/wgAAAABAAIAAADl/wcAAAABAAEAAADl/wgAAAABAAIAAADk/wcAAAABAAEAAADk/wgAAAABAAIAAADj/wcAAAABAAEAAADj/wgAAAABAAIAAADi/wcAAAABAAEAAADi/wgAAAABAAIAAADh/wcAAAABAAEAAADh/wgAAAABAAIAAADg/wcAAAABAAEAAADg/wgAAAABAAIAAADf/wcAAAABAAEAAADf/wgAAAABAAIAAADe/wcAAAABAAEAAADe/wgAAAABAAIAAADd/wcAAAABAAEAAADd/wgAAAABAAIAAADc/wcAAAABAAEAAADc/wgAAAABAAIAAADb/wcAAAABAAEAAADb/wgAAAABAAIAAADa/wcAAAABAAEAAADa/wgAAAABAAIAAADZ/wcAAAABAAEAAADZ/wgAAAABAAIAAADY/wcAAAABAAEAAADY/wgAAAABAAIAAADX/wcAAAABAAEAAADX/wgAAAABAAIAAADW/wcAAAABAAEAAADW/wgAAAABAAIAAADV/wcAAAABAAEAAADV/wgAAAABAAIAAADU/wcAAAABAAEAAADU/wgAAAABAAIAAADT/wcAAAABAAEAAADT/wgAAAABAAIAAADS/wcAAAABAAEAAADS/wgAAAABAAIAAADR/wcAAAABAAEAAADR/wgAAAABAAIAAADQ/wcAAAABAAEAAADQ/wgAAAABAAIAAADP/wcAAAABAAEAAADP/wgAAAABAAIAAADO/wcAAAABAAEAAADO/wgAAAABAAIAAADN/wcAAAABAAEAAADN/wgAAAABAAIAAADM/wcAAAABAAEAAADM/wgAAAABAAIAAADL/wcAAAABAAEAAADL/wgAAAABAAIAAADK/wcAAAABAAEAAADK/wgAAAABAAIAAADJ/wcAAAABAAEAAADJ/wgAAAABAAIAAADI/wcAAAABAAEAAADI/wgAAAABAAIAAADH/wcAAAABAAEAAADH/wgAAAABAAIAAADG/wcAAAABAAEAAADG/wgAAAABAAIAAADF/wcAAAABAAEAAADF/wgAAAABAAIAAADE/wcAAAABAAEAAADE/wgAAAABAAIAAADD/wcAAAABAAEAAADD/wgAAAABAAIAAADC/wcAAAABAAEAAADC/wgAAAABAAIAAADB/wcAAAABAAEAAADB/wgAAAABAAIAAADA/wcAAAABAAEAAADA/wgAAAABAAIAAAC//wcAAAABAAEAAAC//wgAAAABAAIAAAC+/wcAAAABAAEAAAC+/wgAAAABAAIAAAC9/wcAAAABAAEAAAC9/wgAAAABAAIAAAC8/wcAAAABAAEAAAC8/wgAAAABAAIAAAC7/wcAAAABAAEAAAC7/wgAAAABAAIAAAC6/wcAAAABAAEAAAC6/wgAAAABAAIAAAC5/wcAAAABAAEAAAC5/wgAAAABAAIAAAC4/wcAAAABAAEAAAC4/wgAAAABAAIAAAArAAcAAAABAAEAAAArAAgAAAABAAIAAAAsAAcAAAABAAEAAAAsAAgAAAABAAIAAAAtAAcAAAABAAEAAAAtAAgAAAABAAIAAAAuAAcAAAABAAEAAAAuAAgAAAABAAIAAAAvAAcAAAABAAEAAAAvAAgAAAABAAIAAAAwAAcAAAABAAEAAAAwAAgAAAABAAIAAAC3/wcAAAABAAEAAAC3/wgAAAABAAIAAAC2/wcAAAABAAEAAAC2/wgAAAABAAIAAAC1/wcAAAABAAEAAAC1/wgAAAABAAIAAAC0/wcAAAABAAEAAAC0/wgAAAABAAIAAACz/wcAAAABAAEAAACz/wgAAAABAAIAAACy/wcAAAABAAEAAACy/wgAAAABAAIAAADb/wYAAAAFAAEAAADa/wUAAAAFAAEAAADY/wQAAAAFAAEAAADZ/wUAAAAEAAEAAADa/wYAAAAEAAIAAADZ/wYAAAAEAAIAAADY/wYAAAAEAAIAAADY/wUAAAAEAAIAAADX/wUAAAAEAAIAAADX/wYAAAAEAAIAAAAIAAYAAAADAAEAAAAJAAUAAAADAAEAAAAKAAQAAAADAAEAAAALAAMAAAADAAEAAAANAAIAAAADAAEAAAAOAAIAAAAFAAEAAAAOAAMAAAAFAAIAAAAOAAQAAAAFAAIAAAAOAAUAAAAFAAIAAAAOAAYAAAAFAAIAAAANAAYAAAAEAAIAAAANAAUAAAAEAAIAAAANAAQAAAAEAAIAAAANAAMAAAAEAAIAAAAMAAMAAAAEAAEAAAAMAAQAAAAEAAIAAAALAAQAAAAEAAIAAAALAAUAAAAEAAIAAAAKAAUAAAAEAAIAAAAKAAYAAAAEAAIAAAAJAAYAAAAEAAIAAAALAAYAAAAEAAIAAAAMAAYAAAAEAAIAAAAMAAUAAAAEAAIAAAAYAAYAAAADAAIAAAAYAAUAAAADAAIAAAAYAAQAAAADAAIAAAAYAAMAAAADAAIAAAAYAAIAAAADAAEAAAAZAAIAAAAEAAEAAAAaAAIAAAAFAAEAAAAbAAMAAAAFAAEAAAAcAAQAAAAFAAEAAAAdAAUAAAAFAAEAAAAeAAYAAAAFAAEAAAAZAAQAAAAEAAIAAAAZAAMAAAAEAAIAAAAaAAMAAAAEAAIAAAAaAAQAAAAEAAIAAAAZAAUAAAAEAAIAAAAZAAYAAAAEAAIAAAAaAAYAAAAEAAIAAAAaAAUAAAAEAAIAAAAbAAUAAAAEAAIAAAAbAAQAAAAEAAIAAAAcAAUAAAAEAAIAAAAcAAYAAAAEAAIAAAAdAAYAAAAEAAIAAAAbAAYAAAAEAAIAAADX/wQAAAAEAAEAAADW/wQAAAAEAAEAAADV/wMAAAAFAAEAAADU/wMAAAAEAAEAAADT/wMAAAAEAAEAAADS/wMAAAADAAEAAADR/wQAAAADAAEAAADQ/wUAAAAEAAEAAADP/wUAAAADAAEAAADP/wYAAAADAAIAAADQ/wYAAAAEAAIAAADR/wYAAAAEAAIAAADS/wYAAAAEAAIAAADT/wYAAAAEAAIAAADU/wYAAAAEAAIAAADV/wYAAAAEAAIAAADW/wYAAAAEAAIAAADW/wUAAAAEAAIAAADV/wUAAAAEAAIAAADU/wUAAAAEAAIAAADT/wUAAAAEAAIAAADV/wQAAAAEAAIAAADU/wQAAAAEAAIAAADT/wQAAAAEAAIAAADS/wQAAAAEAAIAAADR/wUAAAAEAAIAAADS/wUAAAAEAAIAAADD/wYAAAAFAAIAAADD/wUAAAAFAAEAAADC/wUAAAAEAAEAAADB/wUAAAAEAAEAAADA/wUAAAAEAAEAAAC//wUAAAAEAAEAAAC+/wUAAAAEAAEAAAC+/wYAAAAEAAIAAAC//wYAAAAEAAIAAADA/wYAAAAEAAIAAADB/wYAAAAEAAIAAADC/wYAAAAEAAIAAAC9/wUAAAAEAAEAAAC8/wYAAAAEAAIAAAC7/wYAAAAEAAIAAAC6/wYAAAAEAAIAAAC9/wYAAAAEAAIAAAC8/wUAAAAEAAEAAAC7/wUAAAAEAAEAAAC6/wUAAAAEAAEAAAC5/wUAAAADAAEAAAC4/wYAAAAEAAEAAAC3/wYAAAAEAAEAAAC2/wYAAAADAAEAAAC5/wYAAAAEAAIAAACx/wcAAAABAAEAAACx/wgAAAABAAIAAACw/wcAAAABAAEAAACw/wgAAAABAAIAAACv/wcAAAABAAEAAACv/wgAAAABAAIAAACu/wcAAAABAAEAAACu/wgAAAABAAIAAAAxAAcAAAABAAEAAAAxAAgAAAABAAIAAAAyAAcAAAABAAEAAAAyAAgAAAABAAIAAAAzAAcAAAABAAEAAAAzAAgAAAABAAIAAAA0AAcAAAABAAEAAAA0AAgAAAABAAIAAAA1AAcAAAABAAEAAAA1AAgAAAABAAIAAACt/wcAAAABAAEAAACt/wgAAAABAAIAAACs/wcAAAABAAEAAACs/wgAAAABAAIAAACr/wcAAAABAAEAAACr/wgAAAABAAIAAAA=")
+tile_set = ExtResource("4_e8b4t")
+
+[node name="TileGroundDecorations" type="TileMapLayer" parent="BackgroundElementGrouping"]
+z_index = -1
+position = Vector2(0, -8.225)
+tile_map_data = PackedByteArray("AADt/wcAAAABAAUAAADu/wcAAAACAAUAAADs/wcAAAABAAUAABDr/wcAAAACAAUAABDd/wYAAAABAAMAAADd/wcAAAABAAQAAADe/wYAAAACAAMAAADe/wcAAAACAAQAAAD8/wYAAAABAAMAAAD8/wcAAAABAAQAAAD9/wYAAAACAAMAAAD9/wcAAAACAAQAAAAFAAYAAAABAAMAAAAFAAcAAAABAAQAAAAGAAYAAAACAAMAAAAGAAcAAAACAAQAAAApAAYAAAABAAMAAAApAAcAAAABAAQAAAAqAAYAAAACAAMAAAAqAAcAAAACAAQAAAAnAAgAAAADAAQAAAADAAgAAAADAAQAAADB/wQAAAABAAMAAADB/wUAAAABAAQAAADC/wQAAAACAAMAAADC/wUAAAACAAQAAADA/wYAAAADAAQAAAA=")
+tile_set = ExtResource("4_e8b4t")
 
 [node name="LevelBoundary" type="Node2D" parent="."]
 
@@ -55,104 +113,106 @@ metadata/_edit_group_ = true
 shape = SubResource("WorldBoundaryShape2D_s3o8b")
 
 [node name="RightBoundary" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(150, 68)
+position = Vector2(723, 68)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/RightBoundary"]
-shape = SubResource("WorldBoundaryShape2D_pm64p")
+shape = SubResource("WorldBoundaryShape2D_jsjp5")
+
+[node name="TurnAroundIndicator" type="Area2D" parent="LevelBoundary/RightBoundary"]
+script = ExtResource("5_0atce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/RightBoundary/TurnAroundIndicator"]
+position = Vector2(-7.5, -8)
+shape = SubResource("RectangleShape2D_utm31")
+
+[node name="Arrow" type="Sprite2D" parent="LevelBoundary/RightBoundary/TurnAroundIndicator"]
+position = Vector2(23, -4)
+texture = ExtResource("6_ii1o2")
+
+[node name="BlinkTimer" type="Timer" parent="LevelBoundary/RightBoundary/TurnAroundIndicator"]
 
 [node name="LeftBoundary" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(-246, 68)
+position = Vector2(-1241, 53)
 rotation = -3.14159
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/LeftBoundary"]
-shape = SubResource("WorldBoundaryShape2D_1wjrd")
+shape = SubResource("WorldBoundaryShape2D_yp5l4")
+
+[node name="TurnAroundIndicator" type="Area2D" parent="LevelBoundary/LeftBoundary"]
+script = ExtResource("5_0atce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/LeftBoundary/TurnAroundIndicator"]
+position = Vector2(-7.5, -7.49999)
+shape = SubResource("RectangleShape2D_xww18")
+
+[node name="Arrow" type="Sprite2D" parent="LevelBoundary/LeftBoundary/TurnAroundIndicator"]
+position = Vector2(23, -4)
+texture = ExtResource("6_ii1o2")
+
+[node name="BlinkTimer" type="Timer" parent="LevelBoundary/LeftBoundary/TurnAroundIndicator"]
 
 [node name="PrisonerCamp2" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_bknii")]
-position = Vector2(-24, 118)
+position = Vector2(-463, 118)
+prisoners_held_captive = 3
+
+[node name="BasicAAEnemy" parent="PrisonerCamp2" instance=ExtResource("10_buhvf")]
+position = Vector2(-45, -2)
+
+[node name="BasicAAEnemy2" parent="PrisonerCamp2" instance=ExtResource("10_buhvf")]
+position = Vector2(-348, -2)
+
+[node name="BasicAAEnemy3" parent="PrisonerCamp2" instance=ExtResource("10_buhvf")]
+position = Vector2(-443, -2)
+
+[node name="BasicAAEnemy4" parent="PrisonerCamp2" instance=ExtResource("10_buhvf")]
+position = Vector2(-637, -33)
+
+[node name="PrisonerCamp5" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_bknii")]
+position = Vector2(-1032, 87)
+prisoners_held_captive = 3
+
+[node name="TurretSmallEnemy" parent="PrisonerCamp5" instance=ExtResource("16_i031g")]
+position = Vector2(-7, -48)
+
+[node name="TurretSmallEnemy2" parent="PrisonerCamp5" instance=ExtResource("16_i031g")]
+position = Vector2(-124, 16)
 
 [node name="HomeBase" parent="." instance=ExtResource("4_a1jjh")]
 position = Vector2(-203, 123)
 
-[node name="Helicopter_Player" parent="." instance=ExtResource("5_gjsc1")]
-position = Vector2(-199, 114)
-
 [node name="BasicAAEnemy" parent="." instance=ExtResource("10_buhvf")]
-position = Vector2(47, 117)
+position = Vector2(262, 116)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="BasicAAEnemy2" parent="." instance=ExtResource("10_buhvf")]
+position = Vector2(354, 116)
 
-[node name="StaticBG" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-metadata/_edit_lock_ = true
+[node name="BasicAAEnemy3" parent="." instance=ExtResource("10_buhvf")]
+position = Vector2(528, 116)
 
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/StaticBG"]
-offset_left = -128.0
-offset_right = 440.0
-offset_bottom = 147.0
-color = Color(0.768627, 0.941176, 0.760784, 1)
-metadata/_edit_lock_ = true
-
-[node name="ParallaxLayerBG" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(168, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG"]
-texture_filter = 1
-position = Vector2(0, 61)
-texture = ExtResource("11_wl17g")
-centered = false
-
-[node name="ParallaxLayerBG2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(159, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG2"]
-texture_filter = 1
-texture_repeat = 3
-position = Vector2(0, 84)
-texture = ExtResource("12_v06gp")
-centered = false
-
-[node name="ParallaxGround" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(158, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxGround"]
-texture_filter = 1
-position = Vector2(0, 120)
-texture = ExtResource("13_gtxtd")
-centered = false
-
-[node name="ParallaxLayerFG" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, 136)
-motion_scale = Vector2(1.4, 1.4)
-motion_mirroring = Vector2(158, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerFG"]
-texture_filter = 1
-texture = ExtResource("14_ox816")
-centered = false
+[node name="BasicAAEnemy4" parent="." instance=ExtResource("10_buhvf")]
+position = Vector2(640, 116)
 
 [node name="Decorations" type="Node2D" parent="."]
 
 [node name="CloudDecoration" parent="Decorations" instance=ExtResource("15_1m7df")]
-position = Vector2(36, 31)
+position = Vector2(-71, 43)
 
 [node name="Bird" parent="Decorations" instance=ExtResource("16_fwqhj")]
-position = Vector2(96, 37)
+position = Vector2(-442, 29)
 
-[node name="PalmTree" parent="Decorations" instance=ExtResource("17_jrc4c")]
-position = Vector2(-3, 100)
+[node name="Bird5" parent="Decorations" instance=ExtResource("16_fwqhj")]
+position = Vector2(-979, 27)
 
-[node name="PalmTree2" parent="Decorations" instance=ExtResource("17_jrc4c")]
-position = Vector2(122, 100)
+[node name="Bird2" parent="Decorations" instance=ExtResource("16_fwqhj")]
+position = Vector2(-23, 46)
 
-[node name="FoliageBackground" parent="Decorations" instance=ExtResource("18_h8mks")]
-position = Vector2(175, 109)
+[node name="Bird3" parent="Decorations" instance=ExtResource("16_fwqhj")]
+position = Vector2(331, 25)
 
-[node name="FoliageBackground2" parent="Decorations" instance=ExtResource("18_h8mks")]
-position = Vector2(-80, 109)
+[node name="Bird4" parent="Decorations" instance=ExtResource("16_fwqhj")]
+position = Vector2(532, 33)
 
 [node name="ShortcutsForTesting" type="Node" parent="."]
 script = ExtResource("18_do2m5")
@@ -161,3 +221,54 @@ script = ExtResource("18_do2m5")
 
 [node name="LevelObjectives" parent="." instance=ExtResource("20_gtw5i")]
 visible = false
+
+[node name="TurretSmallEnemy" parent="." instance=ExtResource("16_i031g")]
+position = Vector2(-469, 70)
+
+[node name="PrisonerCamp" parent="." instance=ExtResource("3_bknii")]
+position = Vector2(303, 120)
+prisoners_held_captive = 3
+
+[node name="SatelliteDish" parent="PrisonerCamp" instance=ExtResource("17_axu1w")]
+position = Vector2(-13, -61)
+
+[node name="PrisonerCamp3" parent="." instance=ExtResource("3_bknii")]
+position = Vector2(575, 120)
+prisoners_held_captive = 3
+
+[node name="TurretSmallEnemy" parent="PrisonerCamp3" instance=ExtResource("16_i031g")]
+position = Vector2(-7, -48)
+
+[node name="PrisonerCamp4" parent="." instance=ExtResource("3_bknii")]
+position = Vector2(601, 120)
+prisoners_held_captive = 3
+
+[node name="TurretSmallEnemy" parent="PrisonerCamp4" instance=ExtResource("16_i031g")]
+position = Vector2(-7, -48)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_0lit7")]
+
+[node name="Tank" parent="." instance=ExtResource("5_gj0us")]
+position = Vector2(-2, 128)
+
+[node name="Tank2" parent="." instance=ExtResource("5_gj0us")]
+position = Vector2(556, 133)
+
+[node name="PowerUp" parent="." instance=ExtResource("18_y1b1a")]
+position = Vector2(-1208, 107)
+
+[node name="Helicopter_Player" parent="." instance=ExtResource("5_gjsc1")]
+position = Vector2(-199, 114)
+
+[node name="ForegroundParallaxLayer" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayerFG" type="ParallaxLayer" parent="ForegroundParallaxLayer"]
+position = Vector2(0, 136)
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(158, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForegroundParallaxLayer/ParallaxLayerFG"]
+texture_filter = 1
+texture = ExtResource("14_ox816")
+centered = false

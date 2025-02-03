@@ -162,9 +162,6 @@ position = Vector2(-1018, 121)
 [node name="HomeBase" parent="." instance=ExtResource("4_g3ihl")]
 position = Vector2(471, 123)
 
-[node name="Helicopter_Player" parent="." instance=ExtResource("5_7fywa")]
-position = Vector2(476, 114)
-
 [node name="BasicAAEnemy" parent="." instance=ExtResource("10_ydp4p")]
 position = Vector2(-53, 117)
 
@@ -234,6 +231,9 @@ position = Vector2(-401, 74)
 
 [node name="TurretSmallEnemy3" parent="." instance=ExtResource("24_3huar")]
 position = Vector2(-690, 74)
+
+[node name="Helicopter_Player" parent="." instance=ExtResource("5_7fywa")]
+position = Vector2(476, 114)
 
 [node name="ForegroundParallaxLayer" type="ParallaxBackground" parent="."]
 layer = 0

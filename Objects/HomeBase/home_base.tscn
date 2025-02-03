@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://8q02bct56r24" path="res://Objects/Flag/Flag.tscn" id="3_vyhga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeqgx"]
-size = Vector2(17, 13.5)
+size = Vector2(17, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xsyw"]
 size = Vector2(34, 4)
@@ -22,13 +22,13 @@ texture = ExtResource("2_oetfx")
 position = Vector2(38, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(15.5, -0.75)
+position = Vector2(15.5, -4.5)
 shape = SubResource("RectangleShape2D_aeqgx")
 
 [node name="Helipad" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Helipad"]
-position = Vector2(6, -3)
+position = Vector2(7, -2)
 shape = SubResource("RectangleShape2D_1xsyw")
 
 [node name="PrisonerReleaseTimer" type="Timer" parent="."]
