@@ -19,7 +19,7 @@ func set_shoot_direction(direc: Constants.PlayerFacingDirection) -> void:
 func _ready() -> void:
 	
 	# add a bit of player's velocity to bullet to go opposite direction
-	starting_velocity_x = -Constants.player_reference.velocity.x
+	starting_velocity_x = Constants.player_reference.velocity.x
 	
 	add_to_group("PlayerBullet")
 
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	
 	match _shoot_direction:
 		Constants.PlayerFacingDirection.LEFT:
-			position.x -= (BULLET_SPEED + starting_velocity_x) * delta 
+			position.x -= (BULLET_SPEED - starting_velocity_x) * delta 
 			position.y += BULLET_SPEED * delta
 		Constants.PlayerFacingDirection.RIGHT:
 			position.x += (BULLET_SPEED + starting_velocity_x) * delta
