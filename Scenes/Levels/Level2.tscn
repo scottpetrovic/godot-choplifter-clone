@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://noh2oanq4n4f"]
+[gd_scene load_steps=29 format=4 uid="uid://noh2oanq4n4f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
 [ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="2_0lit7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="14_ox816"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="15_1m7df"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="16_fwqhj"]
+[ext_resource type="PackedScene" uid="uid://bpr2o3ckt6a1o" path="res://Objects/CloudStorm/cloud_storm.tscn" id="16_g02lo"]
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="16_i031g"]
 [ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="17_axu1w"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_do2m5"]
@@ -259,6 +260,9 @@ position = Vector2(-1208, 107)
 
 [node name="Helicopter_Player" parent="." instance=ExtResource("5_gjsc1")]
 position = Vector2(-199, 114)
+
+[node name="CloudStorm" parent="." instance=ExtResource("16_g02lo")]
+position = Vector2(-256, 36)
 
 [node name="ForegroundParallaxLayer" type="ParallaxBackground" parent="."]
 layer = 0

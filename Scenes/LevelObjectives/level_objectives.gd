@@ -12,7 +12,8 @@ func _ready() -> void:
 	
 	# don't allow player to move/shoot while objectives
 	# screen is on
-	Constants.player_reference.enable_movement = false
+	if Constants.player_reference:
+		Constants.player_reference.enable_movement = false
 
 
 func show_screen_on_level_fail() -> void:

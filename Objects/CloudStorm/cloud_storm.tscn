@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpr2o3ckt6a1o"]
+
+[ext_resource type="Texture2D" uid="uid://d16pclqg8qsnj" path="res://Objects/CloudStorm/cloud-storm-1.png" id="1_7n7er"]
+[ext_resource type="Script" path="res://Objects/CloudStorm/cloud_storm.gd" id="1_kxysf"]
+[ext_resource type="Texture2D" uid="uid://dltqo046h8x27" path="res://Objects/CloudStorm/cloud-storm-2.png" id="2_kwm0b"]
+[ext_resource type="Texture2D" uid="uid://c3l5xsvte764i" path="res://Objects/CloudStorm/lightning.png" id="3_vxdtn"]
+[ext_resource type="Script" path="res://Objects/CloudStorm/lightning_sprite.gd" id="5_dmwut"]
+[ext_resource type="Script" path="res://Objects/CloudStorm/side_movement.gd" id="5_xcnvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl0dh"]
+size = Vector2(28, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woouk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7n7er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kwm0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CloudStorm" type="Area2D"]
+script = ExtResource("1_kxysf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 6.5)
+shape = SubResource("RectangleShape2D_rl0dh")
+
+[node name="LightningSprite" type="Sprite2D" parent="."]
+position = Vector2(3, 2)
+texture = ExtResource("3_vxdtn")
+offset = Vector2(0, 6)
+script = ExtResource("5_dmwut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_woouk")
+autoplay = "default"
+frame_progress = 0.622339
+
+[node name="SideMovement" type="Node" parent="."]
+script = ExtResource("5_xcnvu")
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
