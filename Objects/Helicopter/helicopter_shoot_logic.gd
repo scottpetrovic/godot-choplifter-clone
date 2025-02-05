@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		bullet_timer.start()
 	
 	# Handle bombing
-	if Input.is_action_just_pressed("shoot_bomb") and \
+	if Input.is_action_just_pressed("shoot_special") and \
 		Constants.level_active_powerup == Constants.PowerUpType.BOMBS and \
 		not bomb_timer.time_left:
 		drop_bomb()

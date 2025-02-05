@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dji0dxgas7tf8"]
+[gd_scene load_steps=14 format=3 uid="uid://dji0dxgas7tf8"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_woa6i"]
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="2_dlh3d"]
+[ext_resource type="Script" path="res://Objects/Helicopter/rope_power_up.gd" id="2_edety"]
 [ext_resource type="Texture2D" uid="uid://br3fy80y6omvp" path="res://Objects/Helicopter/propellor-1.png" id="2_extvt"]
 [ext_resource type="Texture2D" uid="uid://vuvmpxupwr28" path="res://Objects/Helicopter/propellor-2.png" id="3_fh4hc"]
 [ext_resource type="Script" path="res://Objects/Helicopter/Helicopter-Sprite.gd" id="3_jssxi"]
@@ -12,6 +13,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
 size = Vector2(22, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bvwa"]
+size = Vector2(2, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cohrs"]
 animations = [{
@@ -37,8 +41,22 @@ script = ExtResource("1_woa6i")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_wgnhy")
 
+[node name="RopePowerUp" type="Area2D" parent="."]
+script = ExtResource("2_edety")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopePowerUp"]
+position = Vector2(-1, 18)
+shape = SubResource("RectangleShape2D_6bvwa")
+
+[node name="Sprite" type="ColorRect" parent="RopePowerUp"]
+offset_left = -1.0
+offset_top = 3.0
+offset_bottom = 30.0
+
 [node name="HelicopterBaseSprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0.0434786, 2.98023e-08)
+scale = Vector2(0.913043, 1)
 texture = ExtResource("2_dlh3d")
 script = ExtResource("3_jssxi")
 metadata/_edit_group_ = true

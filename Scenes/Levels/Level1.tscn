@@ -191,7 +191,6 @@ position = Vector2(-100, 61)
 
 [node name="Tank2" parent="." instance=ExtResource("26_b1gaj")]
 position = Vector2(-564, 127)
-health = 100
 
 [node name="TurretSmallEnemy2" parent="." instance=ExtResource("24_3huar")]
 position = Vector2(-401, 59)

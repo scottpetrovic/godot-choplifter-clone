@@ -2,7 +2,7 @@ extends Node
 
 enum PlayerFacingDirection { LEFT,DOWN,RIGHT }
 enum PrisonerObjective { GET_IN_HELICOPTOR,GET_IN_BASE }
-enum PowerUpType { NONE,BOMBS }
+enum PowerUpType { NONE,BOMBS, ROPE }
 
 # global way for other objects to reference player
 var player_reference: HelicopterPlayer = null
