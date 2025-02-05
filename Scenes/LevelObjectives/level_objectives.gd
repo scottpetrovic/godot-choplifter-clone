@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	# don't allow player to move/shoot while objectives
 	# screen is on
-	if Constants.player_reference:
+	if is_instance_valid(Constants.player_reference):
 		Constants.player_reference.enable_movement = false
 
 

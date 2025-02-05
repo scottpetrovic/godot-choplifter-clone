@@ -17,13 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="16_fwqhj"]
 [ext_resource type="PackedScene" uid="uid://bpr2o3ckt6a1o" path="res://Objects/CloudStorm/cloud_storm.tscn" id="16_g02lo"]
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="16_i031g"]
+[ext_resource type="PackedScene" uid="uid://dx3luipu6ocsy" path="res://Objects/PrisonerCampLarge/prisoner_camp_large.tscn" id="17_8b3vf"]
 [ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="17_axu1w"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_do2m5"]
 [ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="18_y1b1a"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_bp1ly"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="20_gtw5i"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_opyom"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3o8b"]
 
@@ -98,13 +97,6 @@ tile_set = ExtResource("4_e8b4t")
 
 [node name="LevelBoundary" type="Node2D" parent="."]
 
-[node name="Ground" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(-19, 111)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/Ground"]
-position = Vector2(-41, 10)
-shape = SubResource("WorldBoundaryShape2D_opyom")
-
 [node name="Ceiling" type="StaticBody2D" parent="LevelBoundary"]
 position = Vector2(-61, 20)
 rotation = 3.14159
@@ -168,17 +160,7 @@ position = Vector2(-348, -2)
 position = Vector2(-443, -2)
 
 [node name="BasicAAEnemy4" parent="PrisonerCamp2" instance=ExtResource("10_buhvf")]
-position = Vector2(-637, -33)
-
-[node name="PrisonerCamp5" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_bknii")]
-position = Vector2(-1032, 87)
-prisoners_held_captive = 3
-
-[node name="TurretSmallEnemy" parent="PrisonerCamp5" instance=ExtResource("16_i031g")]
-position = Vector2(-7, -48)
-
-[node name="TurretSmallEnemy2" parent="PrisonerCamp5" instance=ExtResource("16_i031g")]
-position = Vector2(-124, 16)
+position = Vector2(-646, -33)
 
 [node name="HomeBase" parent="." instance=ExtResource("4_a1jjh")]
 position = Vector2(-203, 123)
@@ -233,19 +215,11 @@ prisoners_held_captive = 3
 [node name="SatelliteDish" parent="PrisonerCamp" instance=ExtResource("17_axu1w")]
 position = Vector2(-13, -61)
 
-[node name="PrisonerCamp3" parent="." instance=ExtResource("3_bknii")]
-position = Vector2(575, 120)
-prisoners_held_captive = 3
+[node name="PrisonerCampLarge" parent="." instance=ExtResource("17_8b3vf")]
+position = Vector2(582, 120)
 
-[node name="TurretSmallEnemy" parent="PrisonerCamp3" instance=ExtResource("16_i031g")]
-position = Vector2(-7, -48)
-
-[node name="PrisonerCamp4" parent="." instance=ExtResource("3_bknii")]
-position = Vector2(601, 120)
-prisoners_held_captive = 3
-
-[node name="TurretSmallEnemy" parent="PrisonerCamp4" instance=ExtResource("16_i031g")]
-position = Vector2(-7, -48)
+[node name="PrisonerCampLarge2" parent="." instance=ExtResource("17_8b3vf")]
+position = Vector2(-1056, 89)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_0lit7")]
 
@@ -257,6 +231,18 @@ position = Vector2(556, 133)
 
 [node name="PowerUp" parent="." instance=ExtResource("18_y1b1a")]
 position = Vector2(-1208, 107)
+
+[node name="TurretSmallEnemy2" parent="." instance=ExtResource("16_i031g")]
+position = Vector2(553, 76)
+
+[node name="TurretSmallEnemy3" parent="." instance=ExtResource("16_i031g")]
+position = Vector2(610, 76)
+
+[node name="TurretSmallEnemy4" parent="." instance=ExtResource("16_i031g")]
+position = Vector2(-1153, 102)
+
+[node name="TurretSmallEnemy5" parent="." instance=ExtResource("16_i031g")]
+position = Vector2(-1056, 31)
 
 [node name="Helicopter_Player" parent="." instance=ExtResource("5_gjsc1")]
 position = Vector2(-199, 114)
@@ -276,3 +262,6 @@ motion_mirroring = Vector2(158, 0)
 texture_filter = 1
 texture = ExtResource("14_ox816")
 centered = false
+
+[node name="PowerUp2" parent="." instance=ExtResource("18_y1b1a")]
+position = Vector2(403, 27)

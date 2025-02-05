@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 		
 
 func trigger_win() -> void:
+	Constants.level_total_prisoners_saved = Constants.level_min_prisoners_to_success
 	EventBus.LevelComplete.emit()
 
 

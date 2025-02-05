@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var health: int = 10
+@export var health: int = 100
 @export var points_when_destroyed = 200
 
 func _ready() -> void:

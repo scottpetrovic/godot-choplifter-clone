@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bljmiqq5cc458"]
+[gd_scene load_steps=9 format=3 uid="uid://bljmiqq5cc458"]
 
 [ext_resource type="Script" path="res://Objects/HomeBase/home_base.gd" id="1_gxgtj"]
-[ext_resource type="Texture2D" uid="uid://bqbouojy14p6n" path="res://Environment/base-hq.png" id="2_oetfx"]
+[ext_resource type="Texture2D" uid="uid://bqbouojy14p6n" path="res://Objects/HomeBase/base-hq.png" id="2_oetfx"]
 [ext_resource type="PackedScene" uid="uid://8q02bct56r24" path="res://Objects/Flag/Flag.tscn" id="3_vyhga"]
+[ext_resource type="Texture2D" uid="uid://dawa5a3x204ls" path="res://Objects/HomeBase/helipad-1.png" id="4_8ah3r"]
+[ext_resource type="Texture2D" uid="uid://w50jhsjoomia" path="res://Objects/HomeBase/helipad-2.png" id="5_hi5nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeqgx"]
 size = Vector2(17, 21)
@@ -10,19 +12,33 @@ size = Vector2(17, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xsyw"]
 size = Vector2(34, 4)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5rse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8ah3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hi5nl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="HomeBase" type="Node2D"]
 script = ExtResource("1_gxgtj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(30, -20)
+position = Vector2(63, -23)
 texture = ExtResource("2_oetfx")
 
 [node name="Door" type="Area2D" parent="."]
 position = Vector2(38, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(15.5, -4.5)
+position = Vector2(19, -2)
 shape = SubResource("RectangleShape2D_aeqgx")
 
 [node name="Helipad" type="Area2D" parent="."]
@@ -34,10 +50,12 @@ shape = SubResource("RectangleShape2D_1xsyw")
 [node name="PrisonerReleaseTimer" type="Timer" parent="."]
 
 [node name="Flag" parent="." instance=ExtResource("3_vyhga")]
-position = Vector2(46, -49)
-
-[node name="Flag2" parent="." instance=ExtResource("3_vyhga")]
-position = Vector2(-31, -5)
+position = Vector2(52, -49)
 
 [node name="Flag3" parent="." instance=ExtResource("3_vyhga")]
-position = Vector2(114, -5)
+position = Vector2(82, -34)
+
+[node name="Helipad2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f5rse")
+autoplay = "default"
+frame_progress = 0.382758

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqbouojy14p6n"
-path="res://.godot/imported/base-hq.png-ba90ab6fa62583afe3233728d85c1571.ctex"
+uid="uid://w50jhsjoomia"
+path="res://.godot/imported/helipad-2.png-cfe99defb55310753b181647b81909d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/base-hq.png"
-dest_files=["res://.godot/imported/base-hq.png-ba90ab6fa62583afe3233728d85c1571.ctex"]
+source_file="res://Objects/HomeBase/helipad-2.png"
+dest_files=["res://.godot/imported/helipad-2.png-cfe99defb55310753b181647b81909d5.ctex"]
 
 [params]
 

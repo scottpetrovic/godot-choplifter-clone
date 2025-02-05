@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="14_kqrlj"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="15_rxvsl"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="16_dwkki"]
-[ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="17_ha4y7"]
+[ext_resource type="PackedScene" uid="uid://dx3luipu6ocsy" path="res://Objects/PrisonerCampLarge/prisoner_camp_large.tscn" id="17_ofytm"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_jak01"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_4j8la"]
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="24_3huar"]
@@ -35,6 +35,9 @@ normal = Vector2(-1, 0)
 
 [node name="Level1" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [120.0]
+
+[node name="ShortcutsForTesting" type="Node" parent="."]
+script = ExtResource("18_jak01")
 
 [node name="Camera2D" parent="." instance=ExtResource("1_kjuh5")]
 
@@ -90,6 +93,7 @@ tile_set = ExtResource("2_dyad5")
 
 [node name="CommonLevelLogic" type="Node" parent="."]
 script = ExtResource("1_mxh4y")
+min_prisoners_required_for_success = 12
 
 [node name="LevelBoundary" type="Node2D" parent="."]
 
@@ -149,10 +153,6 @@ position = Vector2(141, 121)
 position = Vector2(-92, 121)
 prisoners_held_captive = 3
 
-[node name="PrisonerCamp4" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_oxr3t")]
-position = Vector2(-398, 121)
-prisoners_held_captive = 3
-
 [node name="PrisonerCamp5" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_oxr3t")]
 position = Vector2(-691, 121)
 
@@ -170,6 +170,37 @@ position = Vector2(-654, 117)
 
 [node name="BasicAAEnemy2" parent="." instance=ExtResource("10_ydp4p")]
 position = Vector2(-966, 117)
+
+[node name="HUD" parent="." instance=ExtResource("19_4j8la")]
+
+[node name="LevelObjectives" parent="." instance=ExtResource("26_10erh")]
+visible = false
+
+[node name="PrisonerCampLarge" parent="." instance=ExtResource("17_ofytm")]
+position = Vector2(-401, 119)
+prisoners_held_captive = 3
+
+[node name="TurretSmallEnemy" parent="." instance=ExtResource("24_3huar")]
+position = Vector2(-1011, 75)
+
+[node name="TurretSmallEnemy4" parent="." instance=ExtResource("24_3huar")]
+position = Vector2(-1024, 75)
+
+[node name="SatelliteDish" parent="." instance=ExtResource("25_gfiea")]
+position = Vector2(-100, 61)
+
+[node name="Tank2" parent="." instance=ExtResource("26_b1gaj")]
+position = Vector2(-564, 127)
+health = 100
+
+[node name="TurretSmallEnemy2" parent="." instance=ExtResource("24_3huar")]
+position = Vector2(-401, 59)
+
+[node name="TurretSmallEnemy3" parent="." instance=ExtResource("24_3huar")]
+position = Vector2(-690, 74)
+
+[node name="Helicopter_Player" parent="." instance=ExtResource("5_7fywa")]
+position = Vector2(476, 114)
 
 [node name="Decorations" type="Node2D" parent="."]
 
@@ -189,7 +220,7 @@ position = Vector2(-881, 17)
 position = Vector2(223, 37)
 
 [node name="Bird3" parent="Decorations" instance=ExtResource("16_dwkki")]
-position = Vector2(-58, 20)
+position = Vector2(-58, 38)
 
 [node name="Bird4" parent="Decorations" instance=ExtResource("16_dwkki")]
 position = Vector2(-323, 45)
@@ -199,41 +230,6 @@ position = Vector2(-556, 45)
 
 [node name="Bird2" parent="Decorations" instance=ExtResource("16_dwkki")]
 position = Vector2(499, 31)
-
-[node name="ShortcutsForTesting" type="Node" parent="."]
-script = ExtResource("18_jak01")
-
-[node name="HUD" parent="." instance=ExtResource("19_4j8la")]
-
-[node name="LevelObjectives" parent="." instance=ExtResource("26_10erh")]
-visible = false
-
-[node name="PowerUp" parent="." instance=ExtResource("17_ha4y7")]
-position = Vector2(282, 76)
-
-[node name="TurretSmallEnemy" parent="." instance=ExtResource("24_3huar")]
-position = Vector2(-1011, 75)
-
-[node name="TurretSmallEnemy4" parent="." instance=ExtResource("24_3huar")]
-position = Vector2(-1024, 75)
-
-[node name="SatelliteDish" parent="." instance=ExtResource("25_gfiea")]
-position = Vector2(-100, 61)
-
-[node name="Tank" parent="." instance=ExtResource("26_b1gaj")]
-position = Vector2(-210, 127)
-
-[node name="Tank2" parent="." instance=ExtResource("26_b1gaj")]
-position = Vector2(-564, 127)
-
-[node name="TurretSmallEnemy2" parent="." instance=ExtResource("24_3huar")]
-position = Vector2(-401, 74)
-
-[node name="TurretSmallEnemy3" parent="." instance=ExtResource("24_3huar")]
-position = Vector2(-690, 74)
-
-[node name="Helicopter_Player" parent="." instance=ExtResource("5_7fywa")]
-position = Vector2(476, 114)
 
 [node name="ForegroundParallaxLayer" type="ParallaxBackground" parent="."]
 layer = 0
