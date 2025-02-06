@@ -65,10 +65,8 @@ func _slowly_drop_off_prisoners() -> void:
 	if prisoner_release_timer.is_stopped():
 		#create prisoner object and have them head to the right
 		var pris = PRISONER.instantiate()
+		
 		add_child(pris)
-
-		# ensure full node tree is built out for prisoner before accessing
-		await get_tree().process_frame
 
 		pris.set_objective(Constants.PrisonerObjective.GET_IN_BASE)
 		pris.global_position = Constants.player_reference.global_position

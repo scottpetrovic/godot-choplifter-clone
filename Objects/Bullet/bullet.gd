@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func _area_entered(area: Area2D) -> void:
 	
-	if area.is_in_group("Enemy"):
+	if area.is_in_group("Enemy") || area.is_in_group("Prisoner"):
 		
 		if area.has_method("hit"):
 			area.hit(1)

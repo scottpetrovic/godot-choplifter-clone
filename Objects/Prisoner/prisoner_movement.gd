@@ -44,12 +44,7 @@ func _process(delta: float) -> void:
 	if _objective == Constants.PrisonerObjective.GET_IN_HELICOPTOR:
 		_distance_to_player = prisoner.global_position.distance_to(Constants.player_reference.global_position)
 		walk_toward_player(delta)
-		
-		# if we are inside helicoptor, signal that we are saved
-		var _distance_to_be_saved: float = 10
-		if _distance_to_player < _distance_to_be_saved:
-			_prisoner_captured()
-			prisoner.queue_free()
+
 		
 func _update_facing_direction() -> void:
 	# base HQ is always on right side for now
@@ -62,10 +57,6 @@ func _update_facing_direction() -> void:
 			_facing_direction = Constants.PrisonerDirection.RIGHT
 		else:
 			_facing_direction = Constants.PrisonerDirection.LEFT
-
-func _prisoner_captured() -> void:
-	Constants.level_total_remaining_prisoners -= 1
-	Constants.player_reference.prisoners_in_helicopter += 1
 
 
 func _direction_towards_player() -> Vector2:
