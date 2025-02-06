@@ -1,7 +1,10 @@
 extends Node
 
 enum PlayerFacingDirection { LEFT,DOWN,RIGHT }
+
 enum PrisonerObjective { GET_IN_HELICOPTOR,GET_IN_BASE }
+enum PrisonerBehaviorState { IDLE, WALK }
+enum PrisonerDirection { LEFT, RIGHT }
 enum PowerUpType { NONE,BOMBS, ROPE }
 
 # global way for other objects to reference player
