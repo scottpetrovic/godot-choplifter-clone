@@ -16,10 +16,16 @@ var prisoner_state: PrisonerBehaviorState = PrisonerBehaviorState.IDLE
 enum PrisonerDirection { LEFT, RIGHT }
 var prisoner_facing_direction: PrisonerDirection = PrisonerDirection.LEFT
 
+var is_climbing_ladder: bool = false
+
 func set_objective(obj: Constants.PrisonerObjective) -> void:
 	_objective = obj
 
 func _process(delta: float) -> void:
+	
+	# we made contact with a ladder, go up!
+	if is_climbing_ladder:
+		global_position.y -= move_speed * delta
 	
 	prisoner_state = PrisonerBehaviorState.IDLE
 	_update_facing_direction()
@@ -61,6 +67,10 @@ func _update_facing_direction() -> void:
 func _direction_towards_player() -> Vector2:
 	return (Constants.player_reference.global_position - global_position).normalized()
 
+func climb_ladder() -> void:
+	# this gets called when prisoner collides with ladder. logic is in ladder
+	is_climbing_ladder = true
+	
 
 func walk_toward_player(delta: float) -> void:
 	# If player is landed and close enough, move towards them
