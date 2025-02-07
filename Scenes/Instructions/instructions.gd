@@ -1,34 +1,33 @@
 extends Control
 
-@onready var screen_1: Control = $Screen1
-@onready var screen_2: Control = $Screen2
-@onready var screen_3: Control = $Screen3
+@onready var active_text_area: Label = $ActiveTextArea
+var active_text_index: int = 0
+
+var text_screens: Array[String] = [
+	"WELCOME TO THE ELITE TEAM OF PILOTS PRIVATE. I AM COMMANDER MIKHAIL. IT IS TIME TO PUT YOUR TRAINING TO GOOD USE...",
+	"SAVE AS MANY HOSTAGES AS POSSIBLE AND RETURN TO BASE IN YOUR HELICOPTER. IF YOU DIE WITH HOSTAGES IN YOUR HELICOPTER,THOSE HOSTAGES WILL DIE AS WELL...",
+	"DOUBLE TAP DIRECTION KEYS TO SWITCH SHOOTING DIRECTION. HOSTAGES  WILL COME OUT TO YOU WHEN YOU DESTROY A DOOR."	
+	]
 
 func _ready() -> void:
-		screen_1.visible = true
-		screen_2.visible = false
-		screen_3.visible = false
+	_change_to_screen(0)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("shoot"):
-		go_to_next_screen()
-
-func go_to_next_screen() -> void:
+func _change_to_screen(screen_idx: int) -> void:
+	active_text_index = screen_idx
 	
-	print('go to next screen')
-	# go to screen 2
-	if screen_1.visible:
-		screen_1.visible = false
-		screen_2.visible = true
-		screen_3.visible = false
-		return
-
-	# go to screen 3
-	if screen_2.visible:
-		screen_1.visible = false
-		screen_2.visible = false
-		screen_3.visible = true
-		return
-		
-	if screen_3.visible:
+	# if we our index is past the last one, that means we go to the next scene
+	if active_text_index >= text_screens.size():
 		Constants.start_new_game()
+		return
+	
+	active_text_area.text = text_screens[active_text_index]
+	active_text_area.visible_ratio = 0.0
+
+func _process(delta: float) -> void:
+	
+	# slowly reveal text screen if it isn't revealed
+	if active_text_area.visible_ratio < 1.0:
+		active_text_area.visible_ratio += delta * 0.3
+	
+	if Input.is_action_just_pressed("shoot"):
+		_change_to_screen(active_text_index+1)
