@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vnqddtppw2vv"]
+[gd_scene load_steps=13 format=3 uid="uid://vnqddtppw2vv"]
 
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="1_onypu"]
 [ext_resource type="Script" path="res://GUI/HUD/basic_gui_info.gd" id="2_x35vd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ltqfvn4u5tfx" path="res://GUI/HUD/health bar/health-container.png" id="5_muu8v"]
 [ext_resource type="Script" path="res://GUI/HUD/level_score.gd" id="6_lohol"]
 [ext_resource type="Script" path="res://GUI/HUD/power_up.gd" id="7_vdkk1"]
+[ext_resource type="Script" path="res://GUI/HUD/low_health_timer.gd" id="9_fgom8"]
 [ext_resource type="Script" path="res://GUI/HUD/pause_game_label.gd" id="11_jqi2n"]
 [ext_resource type="Texture2D" uid="uid://ddme3t8ulubnl" path="res://GUI/HUD/heart-icon.png" id="11_yyd7g"]
 
@@ -97,6 +98,10 @@ patch_margin_left = 5
 patch_margin_top = 4
 patch_margin_right = 7
 patch_margin_bottom = 6
+
+[node name="LowHealthTimer" type="Timer" parent="HealthBar"]
+wait_time = 0.5
+script = ExtResource("9_fgom8")
 
 [node name="Score" type="Label" parent="."]
 texture_filter = 1
