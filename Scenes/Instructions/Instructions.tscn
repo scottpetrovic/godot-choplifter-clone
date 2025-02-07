@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://be3u4bdwjwwyw"]
+[gd_scene load_steps=4 format=3 uid="uid://be3u4bdwjwwyw"]
 
 [ext_resource type="Script" path="res://Scenes/Instructions/instructions.gd" id="1_bcd21"]
 [ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="1_vwn6x"]
+[ext_resource type="Texture2D" uid="uid://dbun3choplwxf" path="res://Scenes/Instructions/military-commander.png" id="2_s547j"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3
@@ -11,24 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bcd21")
+metadata/_edit_horizontal_guides_ = [104.0]
+metadata/_edit_vertical_guides_ = [13.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.151146, 0.308725, 0.304382, 1)
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 9.0
-offset_right = 159.0
-offset_bottom = 17.0
-text = "INSTRUCTIONS"
-horizontal_alignment = 1
+[node name="Military-commander" type="Sprite2D" parent="."]
+position = Vector2(80, 72)
+texture = ExtResource("2_s547j")
 
 [node name="ContinueText" type="Label" parent="."]
 layout_mode = 0
@@ -40,19 +29,72 @@ text = "PRESS SHOOT TO CONTINUE"
 horizontal_alignment = 1
 script = ExtResource("1_vwn6x")
 
-[node name="Instructions1" type="Label" parent="."]
+[node name="textbox" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.376471, 0.431373, 1)
+
+[node name="textboxseperator" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 95.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.105882, 0.0156863, 1)
+
+[node name="Screen1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Instructions1" type="Label" parent="Screen1"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 22.0
-offset_right = 144.0
-offset_bottom = 123.0
+offset_left = 13.0
+offset_top = 104.0
+offset_right = 153.0
+offset_bottom = 140.0
 theme_override_font_sizes/font_size = 4
-text = "SAVE AS MANY HOSTAGES AS POSSIBLE AND RETURN TO BASE IN YOUR HELICOPTER.
+text = "WELCOME TO THE ELITE TEAM OF PILOTS PRIVATE. I AM COMMANDER MIKHAIL. IT IS TIME TO PUT YOUR TRAINING TO GOOD USE."
+autowrap_mode = 2
 
-IF YOU DIE WITH HOSTAGES IN YOUR HELICOPTER, THOSE HOSTAGES WILL DIE AS WELL.
+[node name="Screen2" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-DOUBLE TAP DIRECTION KEYS TO SWITCH SHOOTING DIRECTION.
+[node name="Instructions2" type="Label" parent="Screen2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 104.0
+offset_right = 159.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 4
+text = "SAVE AS MANY HOSTAGES AS POSSIBLE AND RETURN TO BASE IN YOUR HELICOPTER. IF YOU DIE WITH HOSTAGES IN YOUR HELICOPTER,THOSE HOSTAGES WILL DIE AS WELL.
+"
+autowrap_mode = 2
 
-HOSTAGES  WILL COME OUT TO YOU WHEN YOU DESTROY A DOOR.
+[node name="Screen3" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Instructions2" type="Label" parent="Screen3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 104.0
+offset_right = 159.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 4
+text = "DOUBLE TAP DIRECTION KEYS TO SWITCH SHOOTING DIRECTION. HOSTAGES  WILL COME OUT TO YOU WHEN YOU DESTROY A DOOR.
 "
 autowrap_mode = 2

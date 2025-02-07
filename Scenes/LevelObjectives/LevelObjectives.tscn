@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbovci8t6ej4m"]
+[gd_scene load_steps=10 format=3 uid="uid://dbovci8t6ej4m"]
 
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="1_n8sof"]
 [ext_resource type="Script" path="res://Scenes/LevelObjectives/level_objectives.gd" id="1_pu78u"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="6_0uaep"]
 [ext_resource type="Texture2D" uid="uid://vuvmpxupwr28" path="res://Objects/Helicopter/propellor-2.png" id="6_pbcdy"]
 [ext_resource type="Texture2D" uid="uid://dvr65gvs50pvv" path="res://Objects/Helicopter/propellor-3.png" id="7_cnudt"]
+[ext_resource type="Texture2D" uid="uid://yxgdgaonob3e" path="res://Scenes/LevelObjectives/level-jungle-background.png" id="8_e5knj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bjhw"]
 animations = [{
@@ -40,17 +41,17 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -40.0
-offset_bottom = 20.0
+offset_top = -10.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 12
 script = ExtResource("1_pu78u")
 metadata/_edit_group_ = true
 
 [node name="CurrentLevel" type="Label" parent="layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 6
 text = "LEVEL 1"
 horizontal_alignment = 1
 
@@ -67,16 +68,16 @@ text = "x 12"
 horizontal_alignment = 1
 
 [node name="PressShootMessage" type="Label" parent="."]
-offset_top = 120.0
+offset_top = 122.0
 offset_right = 160.0
-offset_bottom = 125.0
-theme_override_font_sizes/font_size = 6
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 8
 text = "PRESS SHOOT"
 horizontal_alignment = 1
 script = ExtResource("2_27v8i")
 
 [node name="Helicopter" type="Sprite2D" parent="."]
-position = Vector2(51, 63)
+position = Vector2(49, 86)
 texture = ExtResource("1_n8sof")
 
 [node name="Propeller" type="AnimatedSprite2D" parent="Helicopter"]
@@ -86,5 +87,9 @@ autoplay = "default"
 frame_progress = 0.405165
 
 [node name="Prisoner-run-1" type="Sprite2D" parent="."]
-position = Vector2(52, 87)
+position = Vector2(53, 105)
 texture = ExtResource("6_0uaep")
+
+[node name="Level-jungle-background" type="Sprite2D" parent="."]
+position = Vector2(80, 27)
+texture = ExtResource("8_e5knj")
