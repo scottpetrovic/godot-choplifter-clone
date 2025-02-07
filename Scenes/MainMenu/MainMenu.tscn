@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bedmxlh3oya4j"]
+[gd_scene load_steps=7 format=3 uid="uid://bedmxlh3oya4j"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_f34ra"]
-[ext_resource type="Texture2D" uid="uid://cqjonx0h6b08x" path="res://Scenes/MainMenu/main-menu.png" id="2_qeomy"]
+[ext_resource type="Texture2D" uid="uid://ctth7vdunshkb" path="res://Scenes/MainMenu/main-menu-background.png" id="2_153jh"]
+[ext_resource type="Texture2D" uid="uid://bend2oy6h02oq" path="res://Scenes/MainMenu/helicopter.png" id="3_3d274"]
 [ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="3_sqte0"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/helicopter.gd" id="4_5dqac"]
+[ext_resource type="Texture2D" uid="uid://digxi2djn654m" path="res://Scenes/MainMenu/main-menu-logo.png" id="5_y6qm7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,27 +16,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f34ra")
 
-[node name="Graphic" type="Sprite2D" parent="."]
+[node name="Main-menu-background" type="Sprite2D" parent="."]
 position = Vector2(80, 72)
-texture = ExtResource("2_qeomy")
+texture = ExtResource("2_153jh")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 114.0
-offset_bottom = -13.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.151146, 0.308725, 0.304382, 1)
+[node name="Helicopter" type="Sprite2D" parent="."]
+position = Vector2(80, 67)
+texture = ExtResource("3_3d274")
+script = ExtResource("4_5dqac")
+
+[node name="Main-menu-logo" type="Sprite2D" parent="."]
+position = Vector2(77, 25)
+texture = ExtResource("5_y6qm7")
 
 [node name="StartLabel" type="Label" parent="."]
 layout_mode = 2
-offset_top = 119.0
-offset_right = 160.0
-offset_bottom = 128.0
+offset_left = 2.0
+offset_top = 133.0
+offset_right = 162.0
+offset_bottom = 142.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.121569, 0.376471, 0.431373, 1)
 theme_override_constants/outline_size = 4

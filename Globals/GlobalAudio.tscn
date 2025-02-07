@@ -7,4 +7,5 @@ bus = &"Music"
 script = ExtResource("1_7farl")
 
 [node name="SFXChannel1" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 bus = &"SFX"

@@ -12,6 +12,11 @@ func play_sfx_explosion() -> void:
 	sfx_channel_1.stream = load("res://Audio/explosion.wav")
 	sfx_channel_1.play()
 
+func play_sfx_pause() -> void:
+	sfx_channel_1.stop()
+	sfx_channel_1.stream = load("res://Audio/pause.wav")
+	sfx_channel_1.play()
+
 
 func play_title_music() -> void:
 	stop()
