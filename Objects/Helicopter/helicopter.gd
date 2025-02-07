@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 var prisoners_in_helicopter: int = 0
+@onready var sfx_damage: AudioStreamPlayer2D = $SFXDamage
 
 # helps keeps us on screen mostly so we don't go above screen
 #var max_elevation: float = 20 # 0 is at the very top of the screen
@@ -22,6 +23,7 @@ func hit(damage: int = 1) -> void:
 		return  # we are already dead, no point in taking more damage
 
 	health -= damage
+	sfx_damage.play()
 	
 	Constants.add_camera_shake(0.8)
 	

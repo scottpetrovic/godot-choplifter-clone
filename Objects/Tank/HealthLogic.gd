@@ -15,6 +15,7 @@ func hit(damage: int = 1):
 	if health <= 0:
 		Constants.spawn_explosion(global_position)
 		Constants.global_score += points_when_destroyed
+		GlobalAudio.play_sfx_explosion()
 		queue_free()
 
 

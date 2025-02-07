@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://u3rjt55cp4ip"]
+
+[ext_resource type="Script" path="res://Globals/global_audio.gd" id="1_7farl"]
+
+[node name="GlobalMusic" type="AudioStreamPlayer2D"]
+bus = &"Music"
+script = ExtResource("1_7farl")
+
+[node name="SFXChannel1" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

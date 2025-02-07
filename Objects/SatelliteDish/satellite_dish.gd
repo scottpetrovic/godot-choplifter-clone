@@ -19,6 +19,7 @@ func hit(damage: int = 1) -> void:
 	if health <= 0:
 		Constants.global_score += 20
 		Constants.spawn_explosion(global_position)
+		GlobalAudio.play_sfx_explosion()
 		queue_free()
 
 func _body_enter(body: Node2D) -> void:

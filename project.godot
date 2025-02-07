@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Constants="*res://Globals/Constants.gd"
 EventBus="*res://Globals/EventBus.gd"
+GlobalAudio="*res://Globals/GlobalAudio.tscn"
 
 [display]
 

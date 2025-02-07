@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dji0dxgas7tf8"]
+[gd_scene load_steps=15 format=3 uid="uid://dji0dxgas7tf8"]
 
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter.gd" id="1_woa6i"]
 [ext_resource type="PackedScene" uid="uid://cfd0f0qjfb2s3" path="res://Objects/HelicopterRope/rope_power_up.tscn" id="2_ax6m0"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Objects/Helicopter/player_state_management.gd" id="4_y2gou"]
 [ext_resource type="Script" path="res://Objects/Helicopter/helicopter_shoot_logic.gd" id="5_jjg38"]
 [ext_resource type="Script" path="res://Objects/Helicopter/movement_logic.gd" id="9_pl8pb"]
+[ext_resource type="AudioStream" uid="uid://c1le6dq87ktvi" path="res://Audio/bullet.wav" id="11_we7bs"]
+[ext_resource type="AudioStream" uid="uid://b5bw1dg2elqtk" path="res://Audio/hitHurt.wav" id="12_wd7dy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnhy"]
 size = Vector2(22, 10)
@@ -66,3 +68,11 @@ script = ExtResource("5_jjg38")
 
 [node name="MovementLogic" type="Node" parent="."]
 script = ExtResource("9_pl8pb")
+
+[node name="SFXBullet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_we7bs")
+bus = &"SFX"
+
+[node name="SFXDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_wd7dy")
+bus = &"SFX"

@@ -5,6 +5,8 @@ const PLAYER_BOMB: PackedScene = preload("res://Objects/BombPlayer/PlayerBomb.ts
 
 @onready var bullet_timer: Timer = $BulletTimer
 @onready var bomb_timer: Timer = $BombTimer
+@onready var sfx_bullet: AudioStreamPlayer2D = $"../SFXBullet"
+
 
 func _ready() -> void:
 	# Set the timer wait times
@@ -40,6 +42,7 @@ func drop_bomb():
 
 func shoot() -> void:
 	Constants.add_camera_shake(0.2)
+	sfx_bullet.play()
 	var bullet: Bullet = bullet_scene.instantiate()
 	bullet.set_shoot_direction(Constants.player_reference.facing_direction())
 	get_tree().current_scene.add_child(bullet)

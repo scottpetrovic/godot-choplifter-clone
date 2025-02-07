@@ -20,6 +20,7 @@ func _body_enter(body: Node2D) -> void:
 		if body == Constants.player_reference:
 			Constants.level_total_remaining_prisoners -= 1
 			Constants.player_reference.prisoners_in_helicopter += 1
+			GlobalAudio.play_sfx_prisoner_pickup()
 			queue_free()
 
 func hit(damage: int = 1) -> void:

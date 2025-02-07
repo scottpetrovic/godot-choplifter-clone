@@ -18,6 +18,9 @@ func _ready():
 	Constants.player_reference = helicopter_player
 	Constants.player_reference.set_facing_direction(starting_direction)
 	Constants.level_min_prisoners_to_success = min_prisoners_required_for_success
+	
+	# eventually make this smarter based on the environment
+	GlobalAudio.play_environment_1_music()
 
 func _level_fail() -> void:
 	await get_tree().create_timer(5.0).timeout
