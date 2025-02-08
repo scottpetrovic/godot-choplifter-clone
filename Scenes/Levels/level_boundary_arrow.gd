@@ -4,6 +4,8 @@ enum ArrowDirection {LEFT, RIGHT}
 
 @onready var blink_timer: Timer = $BlinkTimer
 @onready var arrow: Sprite2D = $Arrow
+@onready var hit_boundary_sfx: AudioStreamPlayer2D = $"../HitBoundarySFX"
+
 
 var is_player_in_area: bool = false
 
@@ -31,6 +33,10 @@ func _body_exit(_body: Node2D) -> void:
 func _show_indicator(_show: bool) -> void:
 	arrow.visible = _show
 	
+
 func _on_blink_timer_timeout() -> void:
 	if is_player_in_area:
 		arrow.visible = !arrow.visible
+		
+		if arrow.visible:
+			hit_boundary_sfx.play()

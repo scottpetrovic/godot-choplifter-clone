@@ -1,14 +1,13 @@
-[gd_scene load_steps=29 format=4 uid="uid://noh2oanq4n4f"]
+[gd_scene load_steps=24 format=4 uid="uid://noh2oanq4n4f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
 [ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="2_0lit7"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="3_bknii"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="4_a1jjh"]
 [ext_resource type="TileSet" uid="uid://dprf5unha483p" path="res://Tilemap/tileset-first-environment.tres" id="4_e8b4t"]
-[ext_resource type="Script" path="res://Scenes/Levels/level_boundary_arrow.gd" id="5_0atce"]
 [ext_resource type="PackedScene" uid="uid://jbtse7pfrxo2" path="res://Objects/Tank/Tank.tscn" id="5_gj0us"]
 [ext_resource type="PackedScene" uid="uid://dji0dxgas7tf8" path="res://Objects/Helicopter/helicopter_player.tscn" id="5_gjsc1"]
-[ext_resource type="Texture2D" uid="uid://ipodk1iihti5" path="res://GUI/turn-around-arrow.png" id="6_ii1o2"]
+[ext_resource type="PackedScene" uid="uid://b6nu6s1gamsbq" path="res://Objects/SideBoundary/SideBoundary.tscn" id="5_hj3x7"]
 [ext_resource type="PackedScene" uid="uid://f5v6k8edjhx" path="res://Objects/BasicAAEnemy/basic_aa_enemy.tscn" id="10_buhvf"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="11_wl17g"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="12_v06gp"]
@@ -25,18 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="20_gtw5i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3o8b"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jsjp5"]
-normal = Vector2(-1, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_utm31"]
-size = Vector2(11, 119)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yp5l4"]
-normal = Vector2(-1, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xww18"]
-size = Vector2(11, 119)
 
 [node name="Level2" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [120.0]
@@ -105,46 +92,12 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/Ceiling"]
 shape = SubResource("WorldBoundaryShape2D_s3o8b")
 
-[node name="RightBoundary" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(723, 68)
-metadata/_edit_group_ = true
+[node name="RightBoundary" parent="LevelBoundary" instance=ExtResource("5_hj3x7")]
+position = Vector2(724, 68)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/RightBoundary"]
-shape = SubResource("WorldBoundaryShape2D_jsjp5")
-
-[node name="TurnAroundIndicator" type="Area2D" parent="LevelBoundary/RightBoundary"]
-script = ExtResource("5_0atce")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/RightBoundary/TurnAroundIndicator"]
-position = Vector2(-7.5, -8)
-shape = SubResource("RectangleShape2D_utm31")
-
-[node name="Arrow" type="Sprite2D" parent="LevelBoundary/RightBoundary/TurnAroundIndicator"]
-position = Vector2(23, -4)
-texture = ExtResource("6_ii1o2")
-
-[node name="BlinkTimer" type="Timer" parent="LevelBoundary/RightBoundary/TurnAroundIndicator"]
-
-[node name="LeftBoundary" type="StaticBody2D" parent="LevelBoundary"]
-position = Vector2(-1241, 53)
+[node name="LeftBoundary" parent="LevelBoundary" instance=ExtResource("5_hj3x7")]
+position = Vector2(-1240, 53)
 rotation = -3.14159
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/LeftBoundary"]
-shape = SubResource("WorldBoundaryShape2D_yp5l4")
-
-[node name="TurnAroundIndicator" type="Area2D" parent="LevelBoundary/LeftBoundary"]
-script = ExtResource("5_0atce")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/LeftBoundary/TurnAroundIndicator"]
-position = Vector2(-7.5, -7.49999)
-shape = SubResource("RectangleShape2D_xww18")
-
-[node name="Arrow" type="Sprite2D" parent="LevelBoundary/LeftBoundary/TurnAroundIndicator"]
-position = Vector2(23, -4)
-texture = ExtResource("6_ii1o2")
-
-[node name="BlinkTimer" type="Timer" parent="LevelBoundary/LeftBoundary/TurnAroundIndicator"]
 
 [node name="PrisonerCamp2" parent="." groups=["PrisonerCamp"] instance=ExtResource("3_bknii")]
 position = Vector2(-463, 118)

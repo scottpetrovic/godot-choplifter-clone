@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6nu6s1gamsbq"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/level_boundary_arrow.gd" id="1_m2ivs"]
+[ext_resource type="Texture2D" uid="uid://ipodk1iihti5" path="res://GUI/turn-around-arrow.png" id="2_nqsdr"]
+[ext_resource type="AudioStream" uid="uid://c8f3rf2lutm83" path="res://Audio/boundary-collide.wav" id="3_ix5e3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_45tmy"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxaxv"]
+size = Vector2(11, 119)
+
+[node name="RightBoundary" type="StaticBody2D"]
+position = Vector2(675, 68)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_45tmy")
+
+[node name="TurnAroundIndicator" type="Area2D" parent="."]
+script = ExtResource("1_m2ivs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurnAroundIndicator"]
+position = Vector2(-7.5, -8)
+shape = SubResource("RectangleShape2D_wxaxv")
+
+[node name="Arrow" type="Sprite2D" parent="TurnAroundIndicator"]
+position = Vector2(23, -4)
+texture = ExtResource("2_nqsdr")
+
+[node name="BlinkTimer" type="Timer" parent="TurnAroundIndicator"]
+
+[node name="HitBoundarySFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ix5e3")
+bus = &"SFX"
