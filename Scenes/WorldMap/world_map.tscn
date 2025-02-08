@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dksfie63si3qx"]
+
+[ext_resource type="Script" path="res://Scenes/WorldMap/world_map.gd" id="1_4ovwh"]
+[ext_resource type="Script" path="res://Scenes/WorldMap/camera_2d.gd" id="1_6vstb"]
+
+[sub_resource type="Curve2D" id="Curve2D_x2km7"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(-8.28244, -0.169473, 8.28244, 0.169473, 28, 37, -0.276719, 0.143729, 0.276719, -0.143729, 86, 36, 0, 0, 0, 0, 86, 100, 0, 0, 0, 0, 183, 101, 0, 0, 0, 0, 183, 151, 0, 0, 0, 0, 87, 154, 0, 0, 0, 0, 88, 188, 0, 0, 0, 0, 28, 189, 0, 0, 0, 0, 28, 37)
+}
+point_count = 9
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl7ia"]
+
+[node name="WorldMap" type="Node2D"]
+script = ExtResource("1_4ovwh")
+
+[node name="HelipadJungle" type="ColorRect" parent="."]
+offset_left = 168.0
+offset_top = 141.0
+offset_right = 190.0
+offset_bottom = 162.0
+color = Color(1, 0.513765, 0.97763, 1)
+
+[node name="HelipadCity" type="ColorRect" parent="."]
+offset_left = 15.0
+offset_top = 31.0
+offset_right = 36.0
+offset_bottom = 51.0
+color = Color(0.833736, 0.729622, 0.116737, 1)
+
+[node name="HelipadNavy" type="ColorRect" parent="."]
+offset_left = 15.0
+offset_top = 179.0
+offset_right = 36.0
+offset_bottom = 199.0
+color = Color(0.123169, 0.859486, 0.559201, 1)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-3, 4)
+curve = SubResource("Curve2D_x2km7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(28, 37)
+rotation = -1.5708
+progress = 611.091
+loop = false
+
+[node name="Helicopter" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-6.75993, -5.43776)
+sprite_frames = SubResource("SpriteFrames_wl7ia")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="ColorRect" parent="Path2D/PathFollow2D/Helicopter"]
+offset_right = 14.0
+offset_bottom = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("1_6vstb")
+target = NodePath("../Path2D/PathFollow2D/Helicopter")
