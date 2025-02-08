@@ -35,6 +35,8 @@ func hit(damage: int = 1) -> void:
 		Constants.spawn_explosion(global_position)
 		Constants.spawn_explosion(offset_explosion)
 
+func rope_object_reference() -> Area2D:
+	return $RopePowerUp
 
 func reset_player_after_loss() -> void:
 	visible = true

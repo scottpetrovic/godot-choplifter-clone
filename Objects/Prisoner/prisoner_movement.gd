@@ -28,7 +28,11 @@ func walk_toward_player(delta: float) -> void:
 func _process(delta: float) -> void:
 	# we made contact with a ladder, go up!
 	if is_climbing_ladder:
-		prisoner.global_position.y -= move_speed * delta
+		prisoner.grab_onto_ladder()
+		
+		# important to use local "position" since we are attached 
+		# to ladder. this way prisoner will appear to go up ladder
+		prisoner.position.y -= move_speed * delta
 		return
 	
 	_state = Constants.PrisonerBehaviorState.IDLE

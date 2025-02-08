@@ -2,9 +2,11 @@ extends Area2D
 
 var is_rope_colliding_with_something: bool = false
 
-#@onready var helicopter_player: HelicopterPlayer = $".."
 var helicopter_player: HelicopterPlayer = null
-
+var rotation_amount: float = 30.0
+var rotation_speed: float = 40.0
+var rope_extend_speed: float = 1.0
+	
 func _ready() -> void:
 	
 	# test by giving us the power up by default
@@ -49,8 +51,7 @@ func _process(delta: float) -> void:
 	self.visible = true
 
 	# add a bit of rotation to the rope, regardless of state
-	var rotation_amount: float = 30.0
-	var rotation_speed: float = 40.0
+
 	if helicopter_player.velocity.x < 0:
 		rotation_degrees = move_toward(rotation_degrees,-rotation_amount, delta*rotation_speed)
 	elif helicopter_player.velocity.x > 0:
@@ -74,9 +75,9 @@ func is_rope_completely_down() -> bool:
 
 func _try_to_drop_rope_if_not(delta: float) -> void:
 	if scale.y < 1.0:
-		scale.y = move_toward(scale.y, 1.0, delta*3)
+		scale.y = move_toward(scale.y, 1.0, delta*rope_extend_speed)
 
 
 func _bring_in_rope_if_not(delta: float) -> void:
 	if scale.y > 0.0:
-		scale.y = move_toward(scale.y, 0.0, delta*3)
+		scale.y = move_toward(scale.y, 0.0, delta*rope_extend_speed)

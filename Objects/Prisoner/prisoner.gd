@@ -9,7 +9,6 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(_body_enter)
 	
-	
 func _body_enter(body: Node2D) -> void:
 	
 	# if we are inside helicoptor, signal that we are saved
@@ -38,6 +37,12 @@ func climb_ladder() -> void:
 
 func prisoner_state() -> Constants.PrisonerBehaviorState:
 	return prisoner_movement._state
+	
+	
+func grab_onto_ladder() -> void:
+	# assign yourself to the helicopter instance 	
+	if get_parent() != Constants.player_reference:
+		reparent(Constants.player_reference.rope_object_reference())
 	
 	
 func facing_direction() -> Constants.PrisonerDirection:
