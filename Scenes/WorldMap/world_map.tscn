@@ -1,60 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://dksfie63si3qx"]
+[gd_scene load_steps=8 format=3 uid="uid://dksfie63si3qx"]
 
 [ext_resource type="Script" path="res://Scenes/WorldMap/world_map.gd" id="1_4ovwh"]
 [ext_resource type="Script" path="res://Scenes/WorldMap/camera_2d.gd" id="1_6vstb"]
+[ext_resource type="Texture2D" uid="uid://xdnwg4d8tsok" path="res://Scenes/WorldMap/world-map.png" id="2_4mtpr"]
+[ext_resource type="Texture2D" uid="uid://besslcl5pbvnn" path="res://Scenes/WorldMap/helicopter-base-top.png" id="3_7ap70"]
+[ext_resource type="Texture2D" uid="uid://cff8ynlmwrqfl" path="res://Scenes/WorldMap/helicopter-top-propellers.png" id="4_6mcdc"]
 
 [sub_resource type="Curve2D" id="Curve2D_x2km7"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector2Array(-8.28244, -0.169473, 8.28244, 0.169473, 28, 37, -0.276719, 0.143729, 0.276719, -0.143729, 86, 36, 0, 0, 0, 0, 86, 100, 0, 0, 0, 0, 183, 101, 0, 0, 0, 0, 183, 151, 0, 0, 0, 0, 87, 154, 0, 0, 0, 0, 88, 188, 0, 0, 0, 0, 28, 189, 0, 0, 0, 0, 28, 37)
+"points": PackedVector2Array(-8.28244, -0.169473, 8.28244, 0.169473, 63, -15, -0.276719, 0.143729, 0.276719, -0.143729, 440, -18, 0, 0, 0, 0, 441, 154, 0, 0, 0, 0, 327, 154, 0, 0, 0, 0, 328, 365, 0, 0, 0, 0, 70, 363, 0, 0, 0, 0, 63, -15)
 }
-point_count = 9
+point_count = 7
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wl7ia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7ap70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource("1_4ovwh")
 
-[node name="HelipadJungle" type="ColorRect" parent="."]
-offset_left = 168.0
-offset_top = 141.0
-offset_right = 190.0
-offset_bottom = 162.0
-color = Color(1, 0.513765, 0.97763, 1)
-
-[node name="HelipadCity" type="ColorRect" parent="."]
-offset_left = 15.0
-offset_top = 31.0
-offset_right = 36.0
-offset_bottom = 51.0
-color = Color(0.833736, 0.729622, 0.116737, 1)
-
-[node name="HelipadNavy" type="ColorRect" parent="."]
-offset_left = 15.0
-offset_top = 179.0
-offset_right = 36.0
-offset_bottom = 199.0
-color = Color(0.123169, 0.859486, 0.559201, 1)
+[node name="World-map" type="Sprite2D" parent="."]
+position = Vector2(255, 218)
+texture = ExtResource("2_4mtpr")
+offset = Vector2(0, -8)
+metadata/_edit_lock_ = true
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-3, 4)
 curve = SubResource("Curve2D_x2km7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(28, 37)
-rotation = -1.5708
-progress = 611.091
+position = Vector2(75.2971, 363.041)
+rotation = -3.13384
+progress = 1126.74
 loop = false
 
-[node name="Helicopter" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
-position = Vector2(-6.75993, -5.43776)
+[node name="Helicopter" type="Node2D" parent="Path2D/PathFollow2D"]
+
+[node name="HelicopterSprite" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Helicopter"]
+position = Vector2(1.16, -0.995)
+rotation = 1.5708
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_wl7ia")
 metadata/_edit_group_ = true
 
-[node name="Sprite" type="ColorRect" parent="Path2D/PathFollow2D/Helicopter"]
-offset_right = 14.0
-offset_bottom = 10.0
+[node name="Helicopter-top-propellers" type="Sprite2D" parent="Path2D/PathFollow2D/Helicopter"]
+position = Vector2(1.61893, -1.12474)
+scale = Vector2(1, 1)
+texture = ExtResource("4_6mcdc")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("1_6vstb")
-target = NodePath("../Path2D/PathFollow2D/Helicopter")
+target = NodePath("../Path2D/PathFollow2D/Helicopter/HelicopterSprite")

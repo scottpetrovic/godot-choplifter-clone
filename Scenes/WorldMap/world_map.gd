@@ -8,27 +8,29 @@ var _ending_progress_ratio: float = 0.0
 enum HelicopterWorldState { TAKEOFF, FLY, LAND }
 var _movement_state: HelicopterWorldState = HelicopterWorldState.TAKEOFF
 
-@onready var helicopter_sprite: AnimatedSprite2D = $Path2D/PathFollow2D/Helicopter
+@onready var helicopter_sprite: Node2D = $Path2D/PathFollow2D/Helicopter
+@onready var helicopter_propellers: Sprite2D = $"Path2D/PathFollow2D/Helicopter/Helicopter-top-propellers"
+
 
 var ground_helicopter_ground_scale: Vector2 = Vector2(0.7, 0.7)
 var liftoff_speed: float = 0.1
 
 func go_to_environment_1() -> void:
 	# city to jungle: environment 1
-	# 0 -> 0.4316
+	# 0 -> 0.367
 	path_follow_2d.progress_ratio = 0.0 # starting
-	_ending_progress_ratio = 0.4316
+	_ending_progress_ratio = 0.367
 
 func go_to_environment_2() -> void:
 	# jungle to sea base: environment 2
-	# 0.4316 -> 0.7579
-	path_follow_2d.progress_ratio = 0.4316 # starting
-	_ending_progress_ratio = 0.7579
+	# 0.36 -> 0.748
+	path_follow_2d.progress_ratio = 0.367 # starting
+	_ending_progress_ratio = 0.748
 	
 func go_to_environment_3() -> void:
 	# sea base to city: environment 3
-	# 0.7579 -> 1.0
-	path_follow_2d.progress_ratio = 0.7579 # starting
+	# 0.748 -> 1.0
+	path_follow_2d.progress_ratio = 0.748 # starting
 	_ending_progress_ratio = 1.0
 
 
@@ -38,13 +40,16 @@ func _ready() -> void:
 	helicopter_sprite.scale = ground_helicopter_ground_scale
 	
 	# TODO: This will be set based on our current level from globals
-	#go_to_environment_1()
-	go_to_environment_2()
+	go_to_environment_1()
+	#go_to_environment_2()
 	#go_to_environment_3()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	# always spin helicopter propeller
+	helicopter_propellers.rotation_degrees += delta*1000
 	
 	match _movement_state:
 		HelicopterWorldState.TAKEOFF:
