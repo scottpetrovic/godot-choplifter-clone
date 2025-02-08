@@ -14,6 +14,7 @@ var starting_lives: int = 1
 var lives_left: int = starting_lives
 var current_level: int = 1
 
+
 var level_data: Array = [
 		{
 			"level_scene": "res://Scenes/Levels/Level1.tscn"
@@ -46,14 +47,14 @@ func does_next_level_exist() -> bool:
 
 func go_to_next_level() -> void:
 	current_level += 1
-	level_total_prisoners_saved = 0
 	reset_existing_level()
 
-func start_new_game() -> void:
+func start_first_level() -> void:
 	current_level = 0
-	level_total_prisoners_saved = 0
 	reset_existing_level()
 
+func go_to_world_map() -> void:
+	get_tree().change_scene_to_file("res://Scenes/WorldMap/WorldMap.tscn")
 
 func go_to_instructions_screen() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Instructions/Instructions.tscn")

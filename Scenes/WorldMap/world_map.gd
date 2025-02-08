@@ -40,6 +40,8 @@ func _ready() -> void:
 	helicopter_sprite.scale = ground_helicopter_ground_scale
 	
 	# TODO: This will be set based on our current level from globals
+	# if we just got done with level 3, play the environment 2
+	# if we just got done with level 6, play the environment 3
 	go_to_environment_1()
 	#go_to_environment_2()
 	#go_to_environment_3()
@@ -67,7 +69,8 @@ func _land(delta: float) -> void:
 		return
 	
 	# landed go to next scene
-	print('landed, go to next scene')
+	Constants.start_first_level()
+	#print('landed, go to next scene')
 
 
 func _takeoff(delta: float) -> void:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dksfie63si3qx"]
 
-[ext_resource type="Script" path="res://Scenes/WorldMap/world_map.gd" id="1_4ovwh"]
-[ext_resource type="Script" path="res://Scenes/WorldMap/camera_2d.gd" id="1_6vstb"]
-[ext_resource type="Texture2D" uid="uid://xdnwg4d8tsok" path="res://Scenes/WorldMap/world-map.png" id="2_4mtpr"]
-[ext_resource type="Texture2D" uid="uid://besslcl5pbvnn" path="res://Scenes/WorldMap/helicopter-base-top.png" id="3_7ap70"]
-[ext_resource type="Texture2D" uid="uid://cff8ynlmwrqfl" path="res://Scenes/WorldMap/helicopter-top-propellers.png" id="4_6mcdc"]
+[ext_resource type="Script" path="res://Scenes/WorldMap/world_map.gd" id="1_0ypik"]
+[ext_resource type="Texture2D" uid="uid://xdnwg4d8tsok" path="res://Scenes/WorldMap/world-map.png" id="2_rgst5"]
+[ext_resource type="Texture2D" uid="uid://besslcl5pbvnn" path="res://Scenes/WorldMap/helicopter-base-top.png" id="3_nudvf"]
+[ext_resource type="Texture2D" uid="uid://cff8ynlmwrqfl" path="res://Scenes/WorldMap/helicopter-top-propellers.png" id="4_pp2dc"]
+[ext_resource type="Script" path="res://Scenes/WorldMap/camera_2d.gd" id="5_ixrwy"]
 
 [sub_resource type="Curve2D" id="Curve2D_x2km7"]
 bake_interval = 0.01
@@ -17,7 +17,7 @@ point_count = 7
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_7ap70")
+"texture": ExtResource("3_nudvf")
 }],
 "loop": true,
 "name": &"default",
@@ -25,11 +25,11 @@ animations = [{
 }]
 
 [node name="WorldMap" type="Node2D"]
-script = ExtResource("1_4ovwh")
+script = ExtResource("1_0ypik")
 
 [node name="World-map" type="Sprite2D" parent="."]
 position = Vector2(255, 218)
-texture = ExtResource("2_4mtpr")
+texture = ExtResource("2_rgst5")
 offset = Vector2(0, -8)
 metadata/_edit_lock_ = true
 
@@ -55,8 +55,8 @@ metadata/_edit_group_ = true
 [node name="Helicopter-top-propellers" type="Sprite2D" parent="Path2D/PathFollow2D/Helicopter"]
 position = Vector2(1.61893, -1.12474)
 scale = Vector2(1, 1)
-texture = ExtResource("4_6mcdc")
+texture = ExtResource("4_pp2dc")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("1_6vstb")
+script = ExtResource("5_ixrwy")
 target = NodePath("../Path2D/PathFollow2D/Helicopter/HelicopterSprite")

@@ -1,7 +1,10 @@
 extends Control
 
+@onready var more_text_display: Node2D = $MoreTextDisplay
 @onready var active_text_area: Label = $ActiveTextArea
 var active_text_index: int = 0
+
+
 
 var text_screens: Array[String] = [
 	"WELCOME TO THE ELITE TEAM OF PILOTS PRIVATE. I AM COMMANDER MIKHAIL. IT IS TIME TO PUT YOUR TRAINING TO GOOD USE...",
@@ -17,7 +20,7 @@ func _change_to_screen(screen_idx: int) -> void:
 	
 	# if we our index is past the last one, that means we go to the next scene
 	if active_text_index >= text_screens.size():
-		Constants.start_new_game()
+		Constants.go_to_world_map()
 		return
 	
 	active_text_area.text = text_screens[active_text_index]
@@ -31,3 +34,9 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		_change_to_screen(active_text_index+1)
+		
+	
+
+
+func is_text_done_displaying() -> bool:
+	return active_text_area.visible_ratio == 1.0
