@@ -32,10 +32,15 @@ func _process(delta: float) -> void:
 	if active_text_area.visible_ratio < 1.0:
 		active_text_area.visible_ratio += delta * 0.3
 	
+	# if we haven't shown all the text, shoot will display everything
+	# otherwise we will go to the next screen
 	if Input.is_action_just_pressed("shoot"):
-		_change_to_screen(active_text_index+1)
 		
-	
+		if active_text_area.visible_ratio < 1.0:
+			active_text_area.visible_ratio = 1.0
+		else:
+			_change_to_screen(active_text_index+1)
+
 
 
 func is_text_done_displaying() -> bool:

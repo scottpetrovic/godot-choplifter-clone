@@ -26,9 +26,8 @@ func _ready() -> void:
 
 func _door_enter(_area: Area2D) -> void:
 	if _area.is_in_group("Prisoner"):
-		Constants.level_total_prisoners_saved += 1
-		Constants.global_score += 20 # points for bringing prisoner back
-		_area.queue_free()
+		if _area.has_method("returned_to_base"):
+			_area.returned_to_base()
 
 func _helipad_enter(body: Node2D) -> void:
 	if body == Constants.player_reference:

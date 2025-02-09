@@ -32,6 +32,14 @@ func hit(damage: int = 1) -> void:
 func set_objective(obj: Constants.PrisonerObjective) -> void:
 	prisoner_movement._objective = obj
 
+func returned_to_base() -> void:
+	# when prisoners runs through door, the home base will
+	# call this for the prisoner
+	Constants.level_total_prisoners_saved += 1
+	Constants.global_score += 20 # points for bringing prisoner back
+	GlobalAudio.play_sfx_prisoner_pickup()
+	queue_free()
+
 func climb_ladder() -> void:
 	prisoner_movement.is_climbing_ladder = true
 
