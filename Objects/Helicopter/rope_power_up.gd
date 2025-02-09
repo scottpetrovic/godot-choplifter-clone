@@ -1,6 +1,7 @@
 extends Area2D
 
 var is_rope_colliding_with_something: bool = false
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var helicopter_player: HelicopterPlayer = null
 var rotation_amount: float = 30.0
@@ -10,7 +11,7 @@ var rope_extend_speed: float = 1.0
 func _ready() -> void:
 	
 	# test by giving us the power up by default
-	Constants.level_active_powerup = Constants.PowerUpType.ROPE
+	#Constants.level_active_powerup = Constants.PowerUpType.ROPE
 	
 	body_entered.connect(_body_enter)
 	body_exited.connect(_body_exit)
@@ -46,9 +47,11 @@ func _process(delta: float) -> void:
 	
 	if Constants.level_active_powerup != Constants.PowerUpType.ROPE:
 		self.visible = false
+		collision_shape_2d.disabled = true
 		return #exit out of process if we don't have a rope powerup
 	
 	self.visible = true
+	collision_shape_2d.disabled = false
 
 	# add a bit of rotation to the rope, regardless of state
 

@@ -25,6 +25,5 @@ theme_override_font_sizes/font_size = 6
 text = "B"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_et8x8")
