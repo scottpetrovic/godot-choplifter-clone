@@ -38,7 +38,7 @@ position = Vector2(-3, 4)
 curve = SubResource("Curve2D_x2km7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(75.2971, 363.041)
+position = Vector2(75.2994, 363.041)
 rotation = -3.13384
 progress = 1126.74
 loop = false
@@ -48,15 +48,36 @@ loop = false
 [node name="HelicopterSprite" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Helicopter"]
 position = Vector2(1.16, -0.995)
 rotation = 1.5708
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_wl7ia")
 metadata/_edit_group_ = true
 
 [node name="Helicopter-top-propellers" type="Sprite2D" parent="Path2D/PathFollow2D/Helicopter"]
 position = Vector2(1.61893, -1.12474)
-scale = Vector2(1, 1)
 texture = ExtResource("4_pp2dc")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("5_ixrwy")
 target = NodePath("../Path2D/PathFollow2D/Helicopter/HelicopterSprite")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="AutoWaypointLabel" type="Label" parent="UI"]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -137.0
+offset_right = 59.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.121569, 0.376471, 0.431373, 1)
+theme_override_constants/line_spacing = 4
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 5
+text = "NAVIGATING TO 
+FIRST EXTRACTION POINT"
+horizontal_alignment = 1
