@@ -7,8 +7,8 @@ const FADE_DB_MAX := 0.0  # Or whatever your default volume should be
 
 func _fade_audio(target_db: float, duration: float, on_complete: Callable = Callable()) -> void:
 	var tween = create_tween()
-	#tween.set_ease(Tween.EASE_IN)
-	#tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(self, "volume_db", target_db, duration)
 	if not on_complete.is_null():
 		tween.tween_callback(on_complete)
@@ -41,6 +41,11 @@ func play_sfx_prisoner_pickup() -> void:
 func play_sfx_explosion() -> void:
 	sfx_channel_1.stop()
 	sfx_channel_1.stream = load("res://Audio/explosion.wav")
+	sfx_channel_1.play()
+	
+func play_sfx_door_break() -> void:
+	sfx_channel_1.stop()
+	sfx_channel_1.stream = load("res://Audio/door-break.wav")
 	sfx_channel_1.play()
 
 func play_sfx_pause() -> void:
