@@ -7,6 +7,17 @@ const FADE_DURATION := 1.0
 const FADE_DB_MIN := -80.0
 const FADE_DB_MAX := 0.0  # Or whatever your default volume should be
 
+func set_sfx_volume(level: float = 1.0) -> void:
+	# set every audio listener that is in the bus
+	var bus_idx = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(bus_idx, level)
+	
+func set_music_volume(level: float = 1.0) -> void:
+	# set every audio listener that is in the bus
+	var bus_idx = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(bus_idx, level)
+	
+
 func _fade_audio(target_db: float, duration: float, on_complete: Callable = Callable()) -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
