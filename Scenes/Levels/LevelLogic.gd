@@ -5,9 +5,9 @@ extends Node
 
 @onready var helicopter_player: HelicopterPlayer = $"../Helicopter_Player"
 
-@export var min_prisoners_required_for_success: int = 4
-
-func _ready():
+@export var min_prisoners_required_for_success: int = 12
+ 
+func _ready(): 
 	await get_tree().process_frame # make sure all children loaded before continuing
 	Constants.level_total_remaining_prisoners = _caculate_total_prisoners_for_level()
 	

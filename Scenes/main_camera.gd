@@ -43,8 +43,16 @@ func _update_offset(delta: float) -> void:
 
 func _physics_process(delta):
 	if target:
-		# Create target position using helicopter's x position but keeping initial y position
-		var target_position = Vector2(target.global_position.x, initial_vertical_position)
 		
+		# if our vertical position is in the ground level range, we will lock 
+		# the camera
+		
+		var low_point_lock: int = 120 
+		var high_point_lock: int = 20 
+		if target.global_position.y > high_point_lock && target.global_position.y < low_point_lock:
+			var target_position = Vector2(target.global_position.x, initial_vertical_position)
+			global_position = global_position.lerp(target_position, smooth_speed * delta)
+			return
+			
 		# Smoothly move camera but only on x axis
-		global_position = global_position.lerp(target_position, smooth_speed * delta)
+		global_position = global_position.lerp(target.global_position, smooth_speed * delta)

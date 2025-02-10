@@ -83,7 +83,6 @@ tile_set = ExtResource("2_dyad5")
 
 [node name="CommonLevelLogic" type="Node" parent="."]
 script = ExtResource("1_mxh4y")
-min_prisoners_required_for_success = 12
 
 [node name="LevelBoundary" type="Node2D" parent="."]
 
@@ -197,7 +196,3 @@ motion_mirroring = Vector2(158, 0)
 texture_filter = 1
 texture = ExtResource("14_kqrlj")
 centered = false
-
-[node name="Tank" parent="." instance=ExtResource("26_b1gaj")]
-position = Vector2(364, 121)
-health = 2

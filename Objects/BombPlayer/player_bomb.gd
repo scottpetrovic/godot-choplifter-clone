@@ -2,6 +2,7 @@ extends Area2D
 
 @export var _gravity: float = 100.0  # Acceleration due to gravity (pixels/second²)
 var gravity_change: float = 0.0
+var damage: int = 25
 
 # initial velocity from helicopter when we start
 var _initial_x_velocity: float = 0
@@ -40,7 +41,7 @@ func _on_area_entered(area: Area2D):
 	
 	# do damage to area if it can be hurt
 	if area.has_method("hit"):
-		area.hit(5)
+		area.hit(damage)
 	
 	# Handle collision with target area
 	# You can add explosion effects, damage calculation, or other logic here

@@ -25,4 +25,5 @@ func flicker() -> void:
 		position.x = initial_position.x + randf_range(-max_x_offset, max_x_offset)
 		
 		# Wait for next flicker
-		await get_tree().create_timer(randf_range(min_flicker_time, max_flicker_time)).timeout
+		if get_tree():
+			await get_tree().create_timer(randf_range(min_flicker_time, max_flicker_time)).timeout

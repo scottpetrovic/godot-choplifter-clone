@@ -5,7 +5,7 @@ extends Area2D
 
 # either LEFT, DOWN, RIGHT
 var _shoot_direction: Constants.PlayerFacingDirection = Constants.PlayerFacingDirection.LEFT
-const BULLET_SPEED = 80
+const BULLET_SPEED = 90
 
 const BULLET_IMPACT = preload("res://Objects/BulletImpact/BulletImpact.tscn")
 
@@ -59,12 +59,13 @@ func _body_entered(body: Node2D) -> void:
 
 func _process(delta: float) -> void:
 	
+	var side_fall_strength: float = 0.5
 	match _shoot_direction:
 		Constants.PlayerFacingDirection.LEFT:
 			position.x -= (BULLET_SPEED - starting_velocity_x) * delta 
-			position.y += BULLET_SPEED * delta
+			position.y += BULLET_SPEED * delta * side_fall_strength
 		Constants.PlayerFacingDirection.RIGHT:
 			position.x += (BULLET_SPEED + starting_velocity_x) * delta
-			position.y += BULLET_SPEED * delta
+			position.y += BULLET_SPEED * delta * side_fall_strength
 		Constants.PlayerFacingDirection.DOWN:
 			position.y += BULLET_SPEED * delta
