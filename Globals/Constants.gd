@@ -12,7 +12,7 @@ var player_reference: HelicopterPlayer = null
 
 var starting_lives: int = 1
 var lives_left: int = starting_lives
-var current_level: int = 1
+var current_level: int = 0
 
 
 var level_data: Array = [
@@ -56,10 +56,13 @@ func add_to_score(amount: int) -> void:
 		GlobalAudio.play_sfx_level_up()
 
 	
-func reset_existing_level() -> void:
+func reset_existing_level(reset_lives: bool = true) -> void:
 	level_active_powerup = PowerUpType.NONE
 	level_total_prisoners_saved = 0
-	lives_left = starting_lives
+	
+	if reset_lives:
+		lives_left = starting_lives
+	
 	get_tree().change_scene_to_file(level_data[current_level].level_scene)
 
 func does_next_level_exist() -> bool:
@@ -67,11 +70,11 @@ func does_next_level_exist() -> bool:
 
 func go_to_next_level() -> void:
 	current_level += 1
-	reset_existing_level()
+	reset_existing_level(false)
 
 func start_first_level() -> void:
 	current_level = 0
-	reset_existing_level()
+	reset_existing_level(false)
 
 func go_to_world_map() -> void:
 	get_tree().change_scene_to_file("res://Scenes/WorldMap/WorldMap.tscn")
@@ -91,7 +94,9 @@ func go_to_gameover_screen() -> void:
 
 func add_camera_shake(amount: float = 0.4) -> void:
 	var camera_node: Camera2D = get_viewport().get_camera_2d()
-	camera_node.get_node("CameraShake").add_trauma(amount)
+	
+	if camera_node:
+		camera_node.get_node("CameraShake").add_trauma(amount)
 
 func spawn_explosion(pos: Vector2) -> void:
 	var expl: Node2D = EXPLOSION.instantiate()
