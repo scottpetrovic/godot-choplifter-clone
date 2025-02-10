@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbovci8t6ej4m"]
+[gd_scene load_steps=11 format=3 uid="uid://dbovci8t6ej4m"]
 
 [ext_resource type="Texture2D" uid="uid://dxmphavlomx4g" path="res://Objects/Helicopter/helicopter-facing-left.png" id="1_n8sof"]
 [ext_resource type="Script" path="res://Scenes/LevelObjectives/level_objectives.gd" id="1_pu78u"]
+[ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="2_8dqx7"]
 [ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="2_27v8i"]
 [ext_resource type="Texture2D" uid="uid://br3fy80y6omvp" path="res://Objects/Helicopter/propellor-1.png" id="5_kj65n"]
 [ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="6_0uaep"]
@@ -51,7 +52,7 @@ metadata/_edit_group_ = true
 
 [node name="CurrentLevel" type="Label" parent="layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme = ExtResource("2_8dqx7")
 text = "LEVEL 1"
 horizontal_alignment = 1
 

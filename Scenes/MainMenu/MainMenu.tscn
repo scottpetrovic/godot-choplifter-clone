@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bedmxlh3oya4j"]
+[gd_scene load_steps=8 format=3 uid="uid://bedmxlh3oya4j"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_f34ra"]
 [ext_resource type="Texture2D" uid="uid://ctth7vdunshkb" path="res://Scenes/MainMenu/main-menu-background.png" id="2_153jh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="3_sqte0"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/helicopter.gd" id="4_5dqac"]
 [ext_resource type="Texture2D" uid="uid://digxi2djn654m" path="res://Scenes/MainMenu/main-menu-logo.png" id="5_y6qm7"]
+[ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="6_y2kyp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -31,14 +32,13 @@ texture = ExtResource("5_y6qm7")
 
 [node name="StartLabel" type="Label" parent="."]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 133.0
-offset_right = 162.0
-offset_bottom = 142.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+offset_top = 128.0
+offset_right = 160.0
+offset_bottom = 137.0
+theme = ExtResource("6_y2kyp")
 theme_override_colors/font_outline_color = Color(0.121569, 0.376471, 0.431373, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 6
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 8
 text = "PRESS Z TO START"
 horizontal_alignment = 1
 script = ExtResource("3_sqte0")

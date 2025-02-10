@@ -7,9 +7,17 @@ var active_text_index: int = 0
 
 
 var text_screens: Array[String] = [
-	"WELCOME TO THE ELITE TEAM OF PILOTS PRIVATE. I AM COMMANDER MIKHAIL. IT IS TIME TO PUT YOUR TRAINING TO GOOD USE...",
-	"SAVE AS MANY HOSTAGES AS POSSIBLE AND RETURN TO BASE IN YOUR HELICOPTER. IF YOU DIE WITH HOSTAGES IN YOUR HELICOPTER,THOSE HOSTAGES WILL DIE AS WELL...",
-	"DOUBLE TAP DIRECTION KEYS TO SWITCH SHOOTING DIRECTION. HOSTAGES  WILL COME OUT TO YOU WHEN YOU DESTROY A DOOR."	
+	"Welcome to the elite team of pilots.",
+	"I am commander MIHKAIL. It is time to put",
+	"your training to good use.",
+	"Save as many hostages as possible. Return",
+	"to base in your helicopter. If you die with",
+	"hostages in your helicopter, those hostages ",
+	"will die as well.",
+	"Now for controls in case you need refreshing",
+	"Double tap directions to switch shooting",
+	"directions. Hostages will come out to you", 
+	"when you destroy a door."	
 	]
 
 func _ready() -> void:

@@ -40,8 +40,9 @@ Enemy=""
 
 [gui]
 
+fonts/dynamic_fonts/use_oversampling=false
 theme/custom="res://GUI/pixel-art-theme.tres"
-theme/default_font_subpixel_positioning=0
+theme/default_font_antialiasing=0
 
 [input]
 
