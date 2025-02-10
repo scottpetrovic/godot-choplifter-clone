@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cngi2sh58wuv"]
+
+[ext_resource type="Script" path="res://Objects/BonusStar/bonus_star.gd" id="1_e6vih"]
+[ext_resource type="Texture2D" uid="uid://ddg8oml8pndg" path="res://Objects/BonusStar/bonus-star.png" id="1_eyjhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5iyh"]
+size = Vector2(10, 10)
+
+[node name="BonusStar" type="Area2D"]
+script = ExtResource("1_e6vih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eyjhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m5iyh")

@@ -21,6 +21,11 @@ var enable_movement: bool = true
 func is_helicopter_full() -> bool:
 	return prisoners_in_helicopter == _max_prisoners_can_fit_in_helicopter
 
+func heal(amount: float = 0.5) -> void:
+	# heal in percentage (0.5 is 50%)
+	var new_health_perc: float = float(health)/float(max_health) + amount
+	health = min(new_health_perc, 1) * max_health  # can't go over max health
+
 func hit(damage: int = 1) -> void:
 	
 	if health <= 0:
