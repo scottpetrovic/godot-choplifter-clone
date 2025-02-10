@@ -54,5 +54,5 @@ func _updates_for_success() -> void:
 	retry_level_button.visible = false # cannot retry level when we win
 
 	# scores for level
-	global_score.text = 'SCORE: ' + str(Constants.global_score).pad_zeros(7)
+	global_score.text = 'SCORE: ' + str(Constants.current_score()).pad_zeros(7)
 	prisoners_saved.text = 'PRISONERS RESCUED: ' + str(Constants.level_total_prisoners_saved)

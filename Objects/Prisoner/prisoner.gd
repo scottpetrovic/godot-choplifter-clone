@@ -40,8 +40,17 @@ func returned_to_base() -> void:
 	# when prisoners runs through door, the home base will
 	# call this for the prisoner
 	Constants.level_total_prisoners_saved += 1
-	Constants.global_score += 20 # points for bringing prisoner back
-	GlobalAudio.play_sfx_prisoner_pickup()
+	
+	# Adding points logic
+	# if we are above minimum required, give more points
+	if Constants.level_min_prisoners_to_success < Constants.level_total_prisoners_saved:
+		Constants.add_to_score(200)
+		GlobalAudio.play_sfx_prisoner_pickup( 0.6) # a bit different since more of a score
+	else:
+		Constants.add_to_score(20) # points for bringing prisoner back
+		GlobalAudio.play_sfx_prisoner_pickup()
+	
+
 	queue_free()
 
 func climb_ladder() -> void:

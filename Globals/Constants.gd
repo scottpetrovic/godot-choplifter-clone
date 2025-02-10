@@ -34,8 +34,24 @@ var level_total_remaining_prisoners: int = 0
 var level_total_prisoners_saved: int = 0
 var level_active_powerup: PowerUpType = PowerUpType.NONE
 var level_min_prisoners_to_success: int = 0 # level will set this when loaded
-var global_score: int = 0
+var _global_score: int = 0
 
+func current_score() -> int:
+	return _global_score
+
+func add_to_score(amount: int) -> void:
+	
+	# every 1,000 points, we will get a new life (lives_left)
+	# if we went up 1,000 points, we will trigger a new life
+	var previous_milestone = floor(_global_score / 1000)
+	_global_score += amount
+	var new_milestone = floor(_global_score / 1000)
+	
+	if new_milestone > previous_milestone:
+		lives_left += 1
+		GlobalAudio.play_sfx_level_up()
+
+	
 func reset_existing_level() -> void:
 	level_active_powerup = PowerUpType.NONE
 	level_total_prisoners_saved = 0

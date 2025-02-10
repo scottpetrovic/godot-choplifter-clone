@@ -1,5 +1,7 @@
 extends AudioStreamPlayer2D
 @onready var sfx_channel_1: AudioStreamPlayer2D = $SFXChannel1
+@onready var sfx_channel_2: AudioStreamPlayer2D = $SFXChannel2
+
 
 const FADE_DURATION := 1.0
 const FADE_DB_MIN := -80.0
@@ -33,9 +35,10 @@ func _switch_music(new_music_path: String) -> void:
 		_fade_audio(FADE_DB_MAX, FADE_DURATION)
 
 # Your existing SFX functions remain unchanged
-func play_sfx_prisoner_pickup() -> void:
+func play_sfx_prisoner_pickup( _pitch_scale: float = 1.0) -> void:
 	sfx_channel_1.stop()
 	sfx_channel_1.stream = load("res://Audio/prisoner-pickup.wav")
+	sfx_channel_1.pitch_scale = _pitch_scale
 	sfx_channel_1.play()
 	
 func play_sfx_explosion() -> void:
@@ -52,6 +55,11 @@ func play_sfx_pause() -> void:
 	sfx_channel_1.stop()
 	sfx_channel_1.stream = load("res://Audio/pause.wav")
 	sfx_channel_1.play()
+	
+func play_sfx_level_up() -> void:
+	sfx_channel_2.stop()
+	sfx_channel_2.stream = load("res://Audio/level-up.wav")
+	sfx_channel_2.play()
 
 func play_title_music() -> void:
 	_switch_music("res://Audio/Title Battleground Echoes.mp3")
