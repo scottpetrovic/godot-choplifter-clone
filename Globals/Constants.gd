@@ -26,6 +26,7 @@ var level_data: Array = [
 
 # objects to spawn (maybe put in separate global if this gets too large
 const EXPLOSION = preload("res://Objects/Explosion/Explosion.tscn")
+const BONUS_STAR = preload("res://Objects/BonusStar/BonusStar.tscn")
 	
 
 # active level specific data 
@@ -43,9 +44,9 @@ func add_to_score(amount: int) -> void:
 	
 	# every 1,000 points, we will get a new life (lives_left)
 	# if we went up 1,000 points, we will trigger a new life
-	var previous_milestone = floor(_global_score / 1000)
+	var previous_milestone: int = floor(float(_global_score) / 1000.0)
 	_global_score += amount
-	var new_milestone = floor(_global_score / 1000)
+	var new_milestone: int = floor( float(_global_score) / 1000.0)
 	
 	if new_milestone > previous_milestone:
 		lives_left += 1
@@ -93,3 +94,14 @@ func spawn_explosion(pos: Vector2) -> void:
 	var expl: Node2D = EXPLOSION.instantiate()
 	get_tree().current_scene.add_child(expl)
 	expl.global_position = pos
+
+func spawn_bonus_star_on_chance(pos: Vector2) -> void:
+	
+	# only have % chance of spawning this object
+	# Only spawn if roll is less than 0.05 (5% chance)
+	if randf() < .05:
+		var star: Node2D = BONUS_STAR.instantiate()
+		get_tree().current_scene.call_deferred("add_child", star)
+		star.global_position = pos
+	
+	

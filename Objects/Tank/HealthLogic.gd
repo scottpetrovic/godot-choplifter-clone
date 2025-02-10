@@ -16,6 +16,7 @@ func hit(damage: int = 1):
 		Constants.spawn_explosion(global_position)
 		Constants.add_to_score(points_when_destroyed)
 		GlobalAudio.play_sfx_explosion()
+		Constants.spawn_bonus_star_on_chance(global_position)
 		queue_free()
 
 

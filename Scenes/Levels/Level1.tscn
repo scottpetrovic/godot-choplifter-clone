@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bdk61kute821m"]
+[gd_scene load_steps=22 format=4 uid="uid://bdk61kute821m"]
 
 [ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="1_kjuh5"]
 [ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_mxh4y"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dx3luipu6ocsy" path="res://Objects/PrisonerCampLarge/prisoner_camp_large.tscn" id="17_ofytm"]
 [ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_jak01"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_4j8la"]
-[ext_resource type="PackedScene" uid="uid://cngi2sh58wuv" path="res://Objects/BonusStar/BonusStar.tscn" id="21_0db2a"]
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="24_3huar"]
 [ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="25_gfiea"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="26_10erh"]
@@ -199,5 +198,6 @@ texture_filter = 1
 texture = ExtResource("14_kqrlj")
 centered = false
 
-[node name="BonusStar" parent="." instance=ExtResource("21_0db2a")]
-position = Vector2(405, 107)
+[node name="Tank" parent="." instance=ExtResource("26_b1gaj")]
+position = Vector2(364, 121)
+health = 2

@@ -6,7 +6,7 @@ func _ready() -> void:
 	# Connect the timer's timeout signal
 	timeout.connect(_on_timeout)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Start/stop timer based on health status
 	if health_bar.is_low_on_health():
 		if is_stopped():  # Changed to is_stopped()

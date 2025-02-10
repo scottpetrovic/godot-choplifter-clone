@@ -36,7 +36,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.heal(_health_bonus)
 		
 		# Add score (assuming there's a GameManager or similar with add_score method)
-		Constants.add_to_score(200)		
+		Constants.add_to_score(_score_bonus)		
 		GlobalAudio.play_sfx_level_up()
 
 		queue_free() # Remove the star

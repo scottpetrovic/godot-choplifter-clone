@@ -13,7 +13,7 @@ func _area_enter(area: Area2D) -> void:
 	if area.is_in_group("PlayerBullet"):
 		hit(1)
 
-func hit(damage: int = 1) -> void:
+func hit(_damage: int = 1) -> void:
 	health -=1
 	
 	if health <= 0:
@@ -24,7 +24,6 @@ func hit(damage: int = 1) -> void:
 
 func _body_enter(body: Node2D) -> void:
 	if body == Constants.player_reference:
-		var player: HelicopterPlayer = body
 		body.hit(1)
 		hit(1)
 		
