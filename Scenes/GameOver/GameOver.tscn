@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://slc5vijy3vpp"]
+[gd_scene load_steps=4 format=3 uid="uid://slc5vijy3vpp"]
 
 [ext_resource type="Script" path="res://Scenes/GameOver/game_over.gd" id="1_axfp4"]
+[ext_resource type="Texture2D" uid="uid://cdhbv43flif2k" path="res://Scenes/GameOver/game-over-screen.png" id="2_vafd2"]
+[ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="3_obbtl"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -11,30 +13,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_axfp4")
 
+[node name="Game-over-screen" type="Sprite2D" parent="."]
+position = Vector2(80, 36)
+texture = ExtResource("2_vafd2")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.151146, 0.308725, 0.304382, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -32.0
-offset_bottom = 48.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -85.0
+offset_right = 74.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
 [node name="GameOver" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_obbtl")
+theme_override_colors/font_outline_color = Color(0.152941, 0.309804, 0.305882, 1)
+theme_override_constants/outline_size = 5
 text = "GAME OVER"
 horizontal_alignment = 1
 
