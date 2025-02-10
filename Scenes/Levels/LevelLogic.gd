@@ -38,10 +38,14 @@ func _level_complete() -> void:
 
 
 func _caculate_total_prisoners_for_level() -> int:
+	# get all prisoners that are in a camp
 	var prisoner_camps: Array[Node] = get_tree().get_nodes_in_group("PrisonerCamp")
-	
 	var total_initial_prisoners = 0
 	for camp in prisoner_camps:
 		total_initial_prisoners += camp.prisoners_held_captive
+		
+	# find all prisoners that are hanging out in the open
+	var prisoners: Array[Node] = get_tree().get_nodes_in_group("Prisoner")
+	total_initial_prisoners += prisoners.size()
 		
 	return total_initial_prisoners

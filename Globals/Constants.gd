@@ -21,6 +21,9 @@ var level_data: Array = [
 		},
 		{
 			"level_scene": "res://Scenes/Levels/Level2.tscn"
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level3.tscn"
 		}
 	]
 

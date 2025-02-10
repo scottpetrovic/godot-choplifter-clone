@@ -44,15 +44,15 @@ func _updates_for_success() -> void:
 	# if we finished all the levels, cannot go to next level
 	if Constants.does_next_level_exist() == false:
 		next_level_button.visible = false
-		level_summary_label.text = "GAME COMPLETE"	
+		level_summary_label.text = "Game Complete"	
 	else:
-		level_summary_label.text = 'LEVEL ' +str(Constants.current_level+1) + ' COMPLETE'
-		level_message.text = "GOOD JOB"
+		level_summary_label.text = 'LEVEL ' +str(Constants.current_level+1) + ' complete'
+		level_message.text = "Good Job"
 		next_level_button.visible = true
 		next_level_button.pressed.connect( Constants.go_to_next_level )
 
 	retry_level_button.visible = false # cannot retry level when we win
 
 	# scores for level
-	global_score.text = 'SCORE: ' + str(Constants.current_score()).pad_zeros(7)
-	prisoners_saved.text = 'PRISONERS RESCUED: ' + str(Constants.level_total_prisoners_saved)
+	global_score.text = 'Score: ' + str(Constants.current_score()).pad_zeros(7)
+	prisoners_saved.text = 'Hostages Rescued: ' + str(Constants.level_total_prisoners_saved)
