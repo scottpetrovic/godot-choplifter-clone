@@ -46,6 +46,7 @@ func returned_to_base() -> void:
 	if Constants.level_min_prisoners_to_success < Constants.level_total_prisoners_saved:
 		Constants.add_to_score(200)
 		GlobalAudio.play_sfx_prisoner_pickup( 0.6) # a bit different since more of a score
+		EventBus.BonusHostageSaved.emit()
 	else:
 		Constants.add_to_score(20) # points for bringing prisoner back
 		GlobalAudio.play_sfx_prisoner_pickup()
