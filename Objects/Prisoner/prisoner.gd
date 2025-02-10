@@ -11,6 +11,10 @@ func _ready() -> void:
 	
 func _body_enter(body: Node2D) -> void:
 	
+	# helicopter is full, so we cannot go in
+	if Constants.player_reference.is_helicopter_full():
+		return
+	
 	# if we are inside helicoptor, signal that we are saved
 	# I think we are dying right when we spawn
 	# when prisoners get out of the helicopter to return to base, we don't want this

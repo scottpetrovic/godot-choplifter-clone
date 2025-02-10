@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 var prisoners_in_helicopter: int = 0
+var _max_prisoners_can_fit_in_helicopter: int = 10
 @onready var sfx_damage: AudioStreamPlayer2D = $SFXDamage
 
 # helps keeps us on screen mostly so we don't go above screen
@@ -16,6 +17,9 @@ var _starting_position: Vector2 = Vector2.ZERO
 
 # disable movement once level is over/complete
 var enable_movement: bool = true
+
+func is_helicopter_full() -> bool:
+	return prisoners_in_helicopter == _max_prisoners_can_fit_in_helicopter
 
 func hit(damage: int = 1) -> void:
 	
