@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=4 uid="uid://cp6xks6c6bp3"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_i8b8a"]
+[ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="2_8p1pf"]
+[ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="3_1yy6t"]
+[ext_resource type="TileSet" uid="uid://dprf5unha483p" path="res://Tilemap/tileset-first-environment.tres" id="4_gp8m7"]
+[ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="5_lv0g8"]
+[ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="6_3m34y"]
+[ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="7_6bwfo"]
+[ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="8_3tc04"]
+[ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="9_ne0bh"]
+[ext_resource type="PackedScene" uid="uid://dji0dxgas7tf8" path="res://Objects/Helicopter/helicopter_player.tscn" id="10_o253y"]
+[ext_resource type="Texture2D" uid="uid://b6ptn0dsut3hp" path="res://Environment/bg-parallax-4.png" id="11_tmyp6"]
+[ext_resource type="PackedScene" uid="uid://dfrjxjsajl6ho" path="res://Objects/Prisoner/prisoner.tscn" id="12_xgqpg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3o8b"]
+
+[node name="Level5" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [120.0]
+
+[node name="CommonLevelLogic" type="Node" parent="."]
+script = ExtResource("1_i8b8a")
+min_prisoners_required_for_success = 1
+
+[node name="BackgroundElementGrouping" type="Node" parent="."]
+
+[node name="BaseBackgroundLayer" type="CanvasLayer" parent="BackgroundElementGrouping"]
+layer = -100
+
+[node name="BackgroundSky" type="ColorRect" parent="BackgroundElementGrouping/BaseBackgroundLayer"]
+offset_left = 1.0
+offset_top = -17.0
+offset_right = 425.0
+offset_bottom = 194.0
+color = Color(0.768627, 0.941176, 0.760784, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundParallaxLayer" type="ParallaxBackground" parent="BackgroundElementGrouping"]
+layer = -50
+
+[node name="ParallaxLayerBG" type="ParallaxLayer" parent="BackgroundElementGrouping/BackgroundParallaxLayer"]
+position = Vector2(0, -20.58)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(168, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundElementGrouping/BackgroundParallaxLayer/ParallaxLayerBG"]
+texture_filter = 1
+position = Vector2(0, 61)
+texture = ExtResource("2_8p1pf")
+centered = false
+
+[node name="ParallaxLayerBG2" type="ParallaxLayer" parent="BackgroundElementGrouping/BackgroundParallaxLayer"]
+position = Vector2(0, -8)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(159, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundElementGrouping/BackgroundParallaxLayer/ParallaxLayerBG2"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(0, 84)
+texture = ExtResource("3_1yy6t")
+centered = false
+
+[node name="TileBaseGround" type="TileMapLayer" parent="BackgroundElementGrouping"]
+z_index = -1
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAD//wcAAAABAAEAAAD//wgAAAABAAIAAAD+/wcAAAABAAEAAAAAAAcAAAABAAEAAAAAAAgAAAABAAIAAAABAAcAAAABAAEAAAABAAgAAAABAAIAAAACAAcAAAABAAEAAAACAAgAAAABAAIAAAADAAcAAAABAAEAAAADAAgAAAABAAIAAAAEAAcAAAABAAEAAAAEAAgAAAABAAIAAAAFAAcAAAABAAEAAAAFAAgAAAABAAIAAAAGAAcAAAABAAEAAAAGAAgAAAABAAIAAAAHAAcAAAABAAEAAAAHAAgAAAABAAIAAAAIAAcAAAABAAEAAAAIAAgAAAABAAIAAAAJAAcAAAABAAEAAAAJAAgAAAABAAIAAAAKAAcAAAABAAEAAAAKAAgAAAABAAIAAAALAAcAAAABAAEAAAALAAgAAAABAAIAAAAMAAcAAAABAAEAAAAMAAgAAAABAAIAAAANAAcAAAABAAEAAAANAAgAAAABAAIAAAAOAAcAAAABAAEAAAAOAAgAAAABAAIAAAAPAAcAAAABAAEAAAAPAAgAAAABAAIAAAAQAAcAAAABAAEAAAAQAAgAAAABAAIAAAARAAcAAAABAAEAAAARAAgAAAABAAIAAAASAAcAAAABAAEAAAASAAgAAAABAAIAAAATAAcAAAABAAEAAAATAAgAAAABAAIAAAAUAAcAAAABAAEAAAAUAAgAAAABAAIAAAAVAAcAAAABAAEAAAAVAAgAAAABAAIAAAAWAAcAAAABAAEAAAAWAAgAAAABAAIAAAAXAAcAAAABAAEAAAAXAAgAAAABAAIAAAAYAAcAAAABAAEAAAAYAAgAAAABAAIAAAAZAAcAAAABAAEAAAAZAAgAAAABAAIAAAAaAAcAAAABAAEAAAAaAAgAAAABAAIAAAAbAAcAAAABAAEAAAAbAAgAAAABAAIAAAAcAAcAAAABAAEAAAAcAAgAAAABAAIAAAD+/wgAAAABAAIAAAA=")
+tile_set = ExtResource("4_gp8m7")
+
+[node name="TileGroundDecorations" type="TileMapLayer" parent="BackgroundElementGrouping"]
+z_index = -1
+position = Vector2(0, -8.225)
+tile_set = ExtResource("4_gp8m7")
+
+[node name="LevelBoundary" type="Node2D" parent="."]
+
+[node name="Ceiling" type="StaticBody2D" parent="LevelBoundary"]
+position = Vector2(347, 29)
+rotation = 3.14159
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundary/Ceiling"]
+shape = SubResource("WorldBoundaryShape2D_s3o8b")
+
+[node name="HomeBase" parent="." instance=ExtResource("5_lv0g8")]
+position = Vector2(205, 123)
+
+[node name="ShortcutsForTesting" type="Node" parent="."]
+script = ExtResource("6_3m34y")
+
+[node name="HUD" parent="." instance=ExtResource("7_6bwfo")]
+
+[node name="LevelObjectives" parent="." instance=ExtResource("8_3tc04")]
+visible = false
+
+[node name="Camera2D" parent="." instance=ExtResource("9_ne0bh")]
+
+[node name="Helicopter_Player" parent="." instance=ExtResource("10_o253y")]
+position = Vector2(209, 114)
+
+[node name="ForegroundParallaxLayer" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayerFG" type="ParallaxLayer" parent="ForegroundParallaxLayer"]
+position = Vector2(0, 136)
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(158, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForegroundParallaxLayer/ParallaxLayerFG"]
+texture_filter = 1
+texture = ExtResource("11_tmyp6")
+centered = false
+
+[node name="Prisoner" parent="." instance=ExtResource("12_xgqpg")]
+position = Vector2(156, 114)

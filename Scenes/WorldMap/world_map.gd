@@ -39,13 +39,12 @@ func _ready() -> void:
 	# simulate being landed because it is smaller
 	helicopter_sprite.scale = ground_helicopter_ground_scale
 	
-	# TODO: This will be set based on our current level from globals
-	# if we just got done with level 3, play the environment 2
-	# if we just got done with level 6, play the environment 3
-	go_to_environment_1()
-	#go_to_environment_2()
-	#go_to_environment_3()
-
+	if Constants.current_environment_stage == Constants.EnvironmentStage.JUNGLE:
+		go_to_environment_1()
+	elif Constants.current_environment_stage == Constants.EnvironmentStage.OCEAN:
+		go_to_environment_2()
+	elif Constants.current_environment_stage == Constants.EnvironmentStage.CITY:
+		go_to_environment_3()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -68,9 +67,8 @@ func _land(delta: float) -> void:
 		helicopter_sprite.scale = helicopter_sprite.scale.move_toward( ground_helicopter_ground_scale, delta*liftoff_speed )
 		return
 	
-	# landed go to next scene
-	Constants.start_first_level()
-	#print('landed, go to next scene')
+	# landed. start the level
+	Constants.reset_existing_level(false) 
 
 
 func _takeoff(delta: float) -> void:

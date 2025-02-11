@@ -3,20 +3,28 @@ extends Polygon2D
 @onready var instructions: Control = $"../.."
 @onready var more_text_display: Node2D = $".."
 
+var blink_timer: float = 0.0
+var is_visible_phase: bool = true
+const VISIBLE_DURATION: float = 1.0
+const INVISIBLE_DURATION: float = 0.5
+
+func _ready() -> void:
+	visible = true
 
 func _process(delta: float) -> void:
-	if instructions.is_text_done_displaying():
-		more_text_display.visible = true
+	# Handle text display visibility
+	more_text_display.visible = instructions.is_text_done_displaying()
+	
+	# Handle blinking
+	blink_timer += delta
+	
+	if is_visible_phase:
+		if blink_timer >= VISIBLE_DURATION:
+			visible = false
+			blink_timer = 0.0
+			is_visible_phase = false
 	else:
-		more_text_display.visible = false
-
-func _ready():
-	start_blinking()
-
-func start_blinking():
-	while true:
-		visible = true # Visible for 1 second
-		await get_tree().create_timer(1.0).timeout
-
-		visible = false  # Invisible for 0.5 seconds
-		await get_tree().create_timer(0.5).timeout
+		if blink_timer >= INVISIBLE_DURATION:
+			visible = true
+			blink_timer = 0.0
+			is_visible_phase = true

@@ -6,25 +6,52 @@ enum PrisonerObjective { GET_IN_HELICOPTOR,GET_IN_BASE }
 enum PrisonerBehaviorState { IDLE, WALK }
 enum PrisonerDirection { LEFT, RIGHT }
 enum PowerUpType { NONE,BOMBS, ROPE }
+enum EnvironmentStage {JUNGLE, OCEAN, CITY}
+
+var current_environment_stage: EnvironmentStage = EnvironmentStage.JUNGLE
 
 # global way for other objects to reference player
 var player_reference: HelicopterPlayer = null
 
 var starting_lives: int = 1
 var lives_left: int = starting_lives
-var current_level: int = 0
+
+ # when we start loading levels, this will change to 0 for first level
+var current_level: int = -1
 
 
 var level_data: Array = [
 		{
-			"level_scene": "res://Scenes/Levels/Level1.tscn"
+			"level_scene": "res://Scenes/Levels/Level1.tscn",
+			"map_change": EnvironmentStage.JUNGLE
 		},
 		{
 			"level_scene": "res://Scenes/Levels/Level2.tscn"
 		},
 		{
 			"level_scene": "res://Scenes/Levels/Level3.tscn"
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level4.tscn",
+			"map_change": EnvironmentStage.OCEAN
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level5.tscn"
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level6.tscn"
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level7.tscn",
+			"map_change": EnvironmentStage.CITY
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level8.tscn"
+		},
+		{
+			"level_scene": "res://Scenes/Levels/Level9.tscn"
 		}
+		
 	]
 
 # objects to spawn (maybe put in separate global if this gets too large
@@ -55,7 +82,7 @@ func add_to_score(amount: int) -> void:
 		lives_left += 1
 		GlobalAudio.play_sfx_level_up()
 
-	
+
 func reset_existing_level(reset_lives: bool = true) -> void:
 	level_active_powerup = PowerUpType.NONE
 	level_total_prisoners_saved = 0
@@ -70,7 +97,14 @@ func does_next_level_exist() -> bool:
 
 func go_to_next_level() -> void:
 	current_level += 1
-	reset_existing_level(false)
+	
+	# Do we have a map change element on level?
+	if "map_change" in level_data[current_level]:
+		current_environment_stage = level_data[current_level].map_change
+		go_to_instructions_screen()
+	else:
+		reset_existing_level(false)
+
 
 func start_first_level() -> void:
 	current_level = 0

@@ -63,9 +63,9 @@ layout_mode = 0
 offset_left = 13.0
 offset_top = 102.0
 offset_right = 149.0
-offset_bottom = 187.0
+offset_bottom = 137.0
 theme = ExtResource("8_6y8bs")
-text = "WELCOME TO THE ELITE TEAM OF PILOTS PRIVATE. I AM COMMANDER MIKHAIL. IT IS TIME TO PUT YOUR TRAINING TO GOOD USE."
+text = "WELCOME TO THE ELITE TEAM OF PILOTS PRIVATE. "
 autowrap_mode = 2
 
 [node name="MoreTextDisplay" type="Node2D" parent="."]
