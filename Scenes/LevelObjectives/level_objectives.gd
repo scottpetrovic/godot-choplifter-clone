@@ -9,7 +9,7 @@ extends VBoxContainer
 
 func _ready() -> void:
 	level_objectives.visible = true
-	
+
 	# don't allow player to move/shoot while objectives
 	# screen is on
 	if is_instance_valid(Constants.player_reference):
@@ -21,7 +21,18 @@ func show_screen_on_level_fail() -> void:
 
 
 func _process(_delta: float) -> void:
-	current_level.text = 'LEVEL ' + str(Constants.current_level+1)
+
+	match Constants.current_environment_stage:
+		Constants.EnvironmentStage.JUNGLE:
+			current_level.text = 'Jungle'
+		Constants.EnvironmentStage.OCEAN:
+			current_level.text = 'Ocean'
+		Constants.EnvironmentStage.CITY:
+			current_level.text = 'City'
+			
+	current_level.text += ': Lvl. ' + str(Constants.current_level+1)
+
+	
 	lives_left.text = ' x ' + str(Constants.lives_left).pad_zeros(2)
 	
 	var min_prisoners = Constants.level_min_prisoners_to_success
