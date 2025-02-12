@@ -20,7 +20,13 @@ func _ready():
 	Constants.level_min_prisoners_to_success = min_prisoners_required_for_success
 	
 	# eventually make this smarter based on the environment
-	GlobalAudio.play_environment_1_music()
+	match Constants.current_environment_stage:
+		Constants.EnvironmentStage.JUNGLE:
+			GlobalAudio.play_environment_1_music()
+		Constants.EnvironmentStage.OCEAN:
+			GlobalAudio.play_environment_2_music()
+		Constants.EnvironmentStage.CITY:
+			GlobalAudio.play_environment_3_music()
 
 func _level_fail() -> void:
 	await get_tree().create_timer(5.0).timeout

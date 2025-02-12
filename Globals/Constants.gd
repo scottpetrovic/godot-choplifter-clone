@@ -17,7 +17,7 @@ var starting_lives: int = 1
 var lives_left: int = starting_lives
 
  # when we start loading levels, this will change to 0 for first level
-var current_level: int = -1
+var current_level: int = 2 # -1 is default
 
 
 var level_data: Array = [

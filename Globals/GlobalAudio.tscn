@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Globals/global_audio.gd" id="1_7farl"]
 
 [node name="GlobalMusic" type="AudioStreamPlayer2D"]
+volume_db = -20.0
 bus = &"Music"
 script = ExtResource("1_7farl")
 

@@ -13,5 +13,5 @@ func _toggle_music() -> void:
 		text = "MUSIC OFF"
 	else:
 		is_music_on = true
-		GlobalAudio.set_music_volume(0.0)
+		GlobalAudio.set_music_volume(-20.0) # 0.0 would be 100%
 		text = "MUSIC ON"

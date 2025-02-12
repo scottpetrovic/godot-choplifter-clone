@@ -76,7 +76,13 @@ func play_title_music() -> void:
 	_switch_music("res://Audio/Title Battleground Echoes.mp3")
 
 func play_environment_1_music() -> void:
-	_switch_music("res://Audio/Level 1 - Commander's Anthem ext v1.mp3")
+	_switch_music("res://Audio/Music/jungle-theme.mp3")
+
+func play_environment_2_music() -> void:
+	_switch_music("res://Audio/Music/ocean-theme.mp3")
+
+func play_environment_3_music() -> void:
+	_switch_music("res://Audio/Music/city-theme.mp3")
 
 func fade_out_music() -> void:
 	_fade_audio(FADE_DB_MIN, FADE_DURATION, stop)
