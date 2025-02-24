@@ -17,7 +17,7 @@ var starting_lives: int = 1
 var lives_left: int = starting_lives
 
  # when we start loading levels, this will change to 0 for first level
-var current_level: int = 2 # -1 is default
+var current_level: int = -1 # -1 is default
 
 
 var level_data: Array = [
@@ -138,12 +138,12 @@ func spawn_explosion(pos: Vector2) -> void:
 	expl.global_position = pos
 
 func spawn_bonus_star_on_chance(pos: Vector2) -> void:
-	
 	# only have % chance of spawning this object
 	# Only spawn if roll is less than 0.05 (5% chance)
 	if randf() < .05:
 		var star: Node2D = BONUS_STAR.instantiate()
-		get_tree().current_scene.call_deferred("add_child", star)
+		#get_tree().current_scene.call_deferred("add_child", star)
+		get_tree().current_scene.add_child(star)
 		star.global_position = pos
 	
 	
