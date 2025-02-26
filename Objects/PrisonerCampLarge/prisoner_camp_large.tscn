@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwwd0"]
 size = Vector2(6, 8)
 
-[node name="PrisonerCampLarge" type="Node2D"]
+[node name="PrisonerCampLarge" type="Node2D" groups=["PrisonerCamp"]]
 script = ExtResource("1_nki5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

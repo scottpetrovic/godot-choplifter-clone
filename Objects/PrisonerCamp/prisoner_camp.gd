@@ -15,7 +15,6 @@ var _distance_to_run_to_player: int = 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("PrisonerCamp")
 	door.area_entered.connect(_area_enter)
 	
 	# prisoners come out at a staggered pace

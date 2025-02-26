@@ -5,7 +5,7 @@ extends Area2D
 
 # either LEFT, DOWN, RIGHT
 var _shoot_direction: Constants.PlayerFacingDirection = Constants.PlayerFacingDirection.LEFT
-const BULLET_SPEED = 90
+const BULLET_SPEED = 130
 
 const BULLET_IMPACT = preload("res://Objects/BulletImpact/BulletImpact.tscn")
 
