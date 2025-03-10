@@ -13,7 +13,7 @@ var current_environment_stage: EnvironmentStage = EnvironmentStage.JUNGLE
 # global way for other objects to reference player
 var player_reference: HelicopterPlayer = null
 
-var starting_lives: int = 1
+var starting_lives: int = 2
 var lives_left: int = starting_lives
 
  # when we start loading levels, this will change to 0 for first level
@@ -67,6 +67,13 @@ var level_active_powerup: PowerUpType = PowerUpType.NONE
 var level_min_prisoners_to_success: int = 0 # level will set this when loaded
 var _global_score: int = 0
 
+# when we have a game over, we need a way to reset all
+# values to the default values
+func initialize_game_level_data() -> void:
+	current_level = -1
+	_global_score = 0 # reset score
+	lives_left = starting_lives # reset lives
+
 func current_score() -> int:
 	return _global_score
 
@@ -97,6 +104,8 @@ func does_next_level_exist() -> bool:
 
 func go_to_next_level() -> void:
 	current_level += 1
+	
+	print('next level clicked. going to level ' + str(current_level))
 	
 	# Do we have a map change element on level?
 	if "map_change" in level_data[current_level]:

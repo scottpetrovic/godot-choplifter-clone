@@ -55,4 +55,4 @@ func _updates_for_success() -> void:
 
 	# scores for level
 	global_score.text = 'Score: ' + str(Constants.current_score()).pad_zeros(7)
-	prisoners_saved.text = 'Hostages Rescued: ' + str(Constants.level_total_prisoners_saved)
+	prisoners_saved.text = 'Rescued: ' + str(Constants.level_total_prisoners_saved)

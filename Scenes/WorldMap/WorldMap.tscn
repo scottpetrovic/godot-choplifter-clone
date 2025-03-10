@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dksfie63si3qx"]
+[gd_scene load_steps=11 format=3 uid="uid://dksfie63si3qx"]
 
 [ext_resource type="Script" path="res://Scenes/WorldMap/world_map.gd" id="1_0ypik"]
+[ext_resource type="Script" path="res://Scenes/WorldMap/key_shortcuts.gd" id="1_3g1gk"]
 [ext_resource type="Texture2D" uid="uid://xdnwg4d8tsok" path="res://Scenes/WorldMap/world-map.png" id="2_rgst5"]
 [ext_resource type="Texture2D" uid="uid://besslcl5pbvnn" path="res://Scenes/WorldMap/helicopter-base-top.png" id="3_nudvf"]
 [ext_resource type="Texture2D" uid="uid://cff8ynlmwrqfl" path="res://Scenes/WorldMap/helicopter-top-propellers.png" id="4_pp2dc"]
@@ -84,3 +85,6 @@ text = "DEPLOYING
 TO MISSION"
 horizontal_alignment = 1
 script = ExtResource("7_kj4bj")
+
+[node name="Shortcuts" type="Node" parent="."]
+script = ExtResource("1_3g1gk")
