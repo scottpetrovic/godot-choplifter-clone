@@ -57,6 +57,7 @@ var level_data: Array = [
 # objects to spawn (maybe put in separate global if this gets too large
 const EXPLOSION = preload("res://Objects/Explosion/Explosion.tscn")
 const BONUS_STAR = preload("res://Objects/BonusStar/BonusStar.tscn")
+const BULLET_CASING = preload("res://Objects/BulletCasing/BulletCasing.tscn")
 	
 
 # active level specific data 
@@ -136,6 +137,12 @@ func spawn_explosion(pos: Vector2) -> void:
 	var expl: Node2D = EXPLOSION.instantiate()
 	get_tree().current_scene.add_child(expl)
 	expl.global_position = pos
+	
+
+func spawn_bullet_casing(pos: Vector2) -> void:
+	var casing: ColorRect = BULLET_CASING.instantiate()
+	get_tree().current_scene.add_child(casing)
+	casing.global_position = pos
 
 func spawn_bonus_star_on_chance(pos: Vector2) -> void:
 	# only have % chance of spawning this object

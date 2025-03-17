@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and not bullet_timer.time_left:
 		shoot()
 		bullet_timer.start()
+		Constants.spawn_bullet_casing(Constants.player_reference.global_position)
 	
 	# Handle bombing
 	if Input.is_action_just_pressed("shoot_special") and \

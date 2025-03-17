@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://df2napj4d3rs4"]
+
+[ext_resource type="Script" uid="uid://bksodgmv8smj0" path="res://Objects/BulletCasing/bullet_casing.gd" id="1_ucyoa"]
+
+[node name="BulletCasing" type="ColorRect"]
+custom_minimum_size = Vector2(1, 1)
+color = Color(0.176471, 0.105882, 0.0156863, 1)
+script = ExtResource("1_ucyoa")
