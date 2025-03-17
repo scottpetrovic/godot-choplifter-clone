@@ -13,6 +13,8 @@ config_version=5
 config/name="Choplifter Clone"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.776471, 0.941176, 0.768627, 1)
+boot_splash/image="uid://doli3une1sqnx"
 config/icon="res://icon.svg"
 
 [autoload]
