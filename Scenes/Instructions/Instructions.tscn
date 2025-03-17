@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://be3u4bdwjwwyw"]
 
-[ext_resource type="Script" path="res://Scenes/Instructions/instructions.gd" id="1_bcd21"]
+[ext_resource type="Script" uid="uid://dqlabpj1cvhsv" path="res://Scenes/Instructions/instructions.gd" id="1_bcd21"]
 [ext_resource type="Texture2D" uid="uid://csdlo5mvxr3w6" path="res://Scenes/Instructions/commander-bg.png" id="2_gajh1"]
-[ext_resource type="Script" path="res://Scenes/Instructions/background_ships.gd" id="3_0am58"]
+[ext_resource type="Script" uid="uid://bet8nismcby06" path="res://Scenes/Instructions/background_ships.gd" id="3_0am58"]
 [ext_resource type="Texture2D" uid="uid://bxmokd3njiyuo" path="res://Scenes/Instructions/military-commander-fg.png" id="4_4d8x1"]
 [ext_resource type="Texture2D" uid="uid://d30e1xcp1cwpt" path="res://Scenes/Instructions/eyes-blink.png" id="5_2kbvg"]
-[ext_resource type="Script" path="res://Scenes/Instructions/eyes_blink.gd" id="6_enf7n"]
+[ext_resource type="Script" uid="uid://f4jhaoopusln" path="res://Scenes/Instructions/eyes_blink.gd" id="6_enf7n"]
 [ext_resource type="Texture2D" uid="uid://dkwqpw7i04wta" path="res://GUI/text-panel.png" id="7_pklx7"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="8_6y8bs"]
-[ext_resource type="Script" path="res://Scenes/Instructions/more_text_indicator.gd" id="8_v7i32"]
+[ext_resource type="Script" uid="uid://bkebjy10vee57" path="res://Scenes/Instructions/more_text_indicator.gd" id="8_v7i32"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3

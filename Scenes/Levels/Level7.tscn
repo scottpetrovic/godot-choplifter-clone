@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=4 uid="uid://d3qxsfu1xir4t"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_k0m8v"]
+[ext_resource type="Script" uid="uid://cwd2cqdgb8eo7" path="res://Scenes/Levels/LevelLogic.gd" id="1_k0m8v"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="2_uur0i"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="3_irp8w"]
 [ext_resource type="TileSet" uid="uid://dprf5unha483p" path="res://Tilemap/tileset-first-environment.tres" id="4_xsitu"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="5_1cjgn"]
-[ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="6_n36r8"]
+[ext_resource type="Script" uid="uid://cbbmmnv6tapok" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="6_n36r8"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="7_redmx"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="8_ae6c5"]
 [ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="9_ugr2n"]

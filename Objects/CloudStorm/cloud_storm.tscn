@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpr2o3ckt6a1o"]
 
 [ext_resource type="Texture2D" uid="uid://d16pclqg8qsnj" path="res://Objects/CloudStorm/cloud-storm-1.png" id="1_7n7er"]
-[ext_resource type="Script" path="res://Objects/CloudStorm/cloud_storm.gd" id="1_kxysf"]
+[ext_resource type="Script" uid="uid://ds56knxfq3l8t" path="res://Objects/CloudStorm/cloud_storm.gd" id="1_kxysf"]
 [ext_resource type="Texture2D" uid="uid://dltqo046h8x27" path="res://Objects/CloudStorm/cloud-storm-2.png" id="2_kwm0b"]
 [ext_resource type="Texture2D" uid="uid://c3l5xsvte764i" path="res://Objects/CloudStorm/lightning.png" id="3_vxdtn"]
-[ext_resource type="Script" path="res://Objects/CloudStorm/lightning_sprite.gd" id="5_dmwut"]
-[ext_resource type="Script" path="res://Objects/CloudStorm/side_movement.gd" id="5_xcnvu"]
+[ext_resource type="Script" uid="uid://it71eowljs6" path="res://Objects/CloudStorm/lightning_sprite.gd" id="5_dmwut"]
+[ext_resource type="Script" uid="uid://dlthjf1eit22t" path="res://Objects/CloudStorm/side_movement.gd" id="5_xcnvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl0dh"]
 size = Vector2(28, 17)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://fr4kk413q4pm"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_x1ipf"]
+[ext_resource type="Script" uid="uid://cwd2cqdgb8eo7" path="res://Scenes/Levels/LevelLogic.gd" id="1_x1ipf"]
 [ext_resource type="Texture2D" uid="uid://bmeth78rcq22u" path="res://Environment/bg-parallax-1.png" id="2_b07nm"]
 [ext_resource type="Texture2D" uid="uid://b06bkgyf4i6oe" path="res://Environment/bg-parallax-2.png" id="3_hkiuu"]
 [ext_resource type="TileSet" uid="uid://dprf5unha483p" path="res://Tilemap/tileset-first-environment.tres" id="4_kgxdc"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="8_wj6iv"]
 [ext_resource type="PackedScene" uid="uid://bgp4tj0awhtl1" path="res://Objects/Cloud/Cloud_Decoration.tscn" id="9_mqyc1"]
 [ext_resource type="PackedScene" uid="uid://bvuhf0ad8s2uc" path="res://Objects/Bird/Bird.tscn" id="10_rfrnv"]
-[ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="11_conrx"]
+[ext_resource type="Script" uid="uid://cbbmmnv6tapok" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="11_conrx"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="12_tn22n"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="13_aujqv"]
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="14_l16dj"]

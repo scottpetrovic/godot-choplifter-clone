@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://noh2oanq4n4f"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
+[ext_resource type="Script" uid="uid://cwd2cqdgb8eo7" path="res://Scenes/Levels/LevelLogic.gd" id="1_uinmi"]
 [ext_resource type="PackedScene" uid="uid://b73cdxs78o7tl" path="res://Objects/LevelCamera/level_camera.tscn" id="2_0lit7"]
 [ext_resource type="PackedScene" uid="uid://dt6a6g78nmcxw" path="res://Objects/PrisonerCamp/prisoner_camp.tscn" id="3_bknii"]
 [ext_resource type="PackedScene" uid="uid://bljmiqq5cc458" path="res://Objects/HomeBase/home_base.tscn" id="4_a1jjh"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://nngqe7qldhub" path="res://Objects/TurretSmallEnemy/turret_small_enemy.tscn" id="16_i031g"]
 [ext_resource type="PackedScene" uid="uid://dx3luipu6ocsy" path="res://Objects/PrisonerCampLarge/prisoner_camp_large.tscn" id="17_8b3vf"]
 [ext_resource type="PackedScene" uid="uid://dhn3mqhtbi18w" path="res://Objects/SatelliteDish/SatelliteDish.tscn" id="17_axu1w"]
-[ext_resource type="Script" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_do2m5"]
+[ext_resource type="Script" uid="uid://cbbmmnv6tapok" path="res://Scenes/Levels/shortcuts_for_testing.gd" id="18_do2m5"]
 [ext_resource type="PackedScene" uid="uid://dnkw05s8fdscw" path="res://Objects/PowerUp/PowerUp.tscn" id="18_y1b1a"]
 [ext_resource type="PackedScene" uid="uid://vnqddtppw2vv" path="res://GUI/HUD/hud.tscn" id="19_bp1ly"]
 [ext_resource type="PackedScene" uid="uid://dbovci8t6ej4m" path="res://Scenes/LevelObjectives/LevelObjectives.tscn" id="20_gtw5i"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://x6wr2j5y1f47"]
 
-[ext_resource type="Script" path="res://Objects/EnemyBullet/enemy_bullet.gd" id="1_bkk1y"]
-[ext_resource type="Script" path="res://Objects/EnemyBullet/Sprite_Blink.gd" id="2_k5384"]
+[ext_resource type="Script" uid="uid://b113u6tkdc5kd" path="res://Objects/EnemyBullet/enemy_bullet.gd" id="1_bkk1y"]
+[ext_resource type="Script" uid="uid://dm6of5mbtmmqq" path="res://Objects/EnemyBullet/Sprite_Blink.gd" id="2_k5384"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gftbx"]
 size = Vector2(2, 2)

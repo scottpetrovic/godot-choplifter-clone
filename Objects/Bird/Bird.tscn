@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvuhf0ad8s2uc"]
 
-[ext_resource type="Script" path="res://Objects/Bird/bird.gd" id="1_3t8l8"]
+[ext_resource type="Script" uid="uid://bhiclf5h1ifpk" path="res://Objects/Bird/bird.gd" id="1_3t8l8"]
 [ext_resource type="Texture2D" uid="uid://cgcme5wjuaqtk" path="res://Objects/Bird/bird-1.png" id="1_r0yt3"]
 [ext_resource type="Texture2D" uid="uid://q3o75xt0ho5x" path="res://Objects/Bird/bird-2.png" id="2_o1oaq"]
 

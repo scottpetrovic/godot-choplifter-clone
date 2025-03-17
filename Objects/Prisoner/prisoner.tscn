@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfrjxjsajl6ho"]
 
-[ext_resource type="Script" path="res://Objects/Prisoner/prisoner.gd" id="1_fs72g"]
+[ext_resource type="Script" uid="uid://li1wfhjyp4jt" path="res://Objects/Prisoner/prisoner.gd" id="1_fs72g"]
 [ext_resource type="Texture2D" uid="uid://b2r40x266vudk" path="res://Objects/Prisoner/prisoner-idle.png" id="3_80r5k"]
 [ext_resource type="Texture2D" uid="uid://cl6qp3vbql5ab" path="res://Objects/Prisoner/prisoner-run-1.png" id="4_l0vxc"]
 [ext_resource type="Texture2D" uid="uid://cv7d0mjjndpnf" path="res://Objects/Prisoner/prisoner-run-2.png" id="5_nrgsr"]
-[ext_resource type="Script" path="res://Objects/Prisoner/prisoner_movement.gd" id="6_qkkti"]
-[ext_resource type="Script" path="res://Objects/Prisoner/animated_sprite_2d.gd" id="6_wibmk"]
+[ext_resource type="Script" uid="uid://b8qkib3rdnmo2" path="res://Objects/Prisoner/prisoner_movement.gd" id="6_qkkti"]
+[ext_resource type="Script" uid="uid://dxiox5cx1du3e" path="res://Objects/Prisoner/animated_sprite_2d.gd" id="6_wibmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_017jk"]
 size = Vector2(2, 6)

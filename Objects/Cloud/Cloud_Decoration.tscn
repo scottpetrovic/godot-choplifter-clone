@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgp4tj0awhtl1"]
 
 [ext_resource type="Texture2D" uid="uid://d2imqhjk7xloc" path="res://Objects/Cloud/basic-cloud.png" id="1_msmko"]
-[ext_resource type="Script" path="res://Objects/Cloud/cloud_decoration.gd" id="1_musx2"]
+[ext_resource type="Script" uid="uid://qy07ldwlebrl" path="res://Objects/Cloud/cloud_decoration.gd" id="1_musx2"]
 
 [node name="CloudDecoration" type="Node2D"]
 script = ExtResource("1_musx2")

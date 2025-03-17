@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dksfie63si3qx"]
 
-[ext_resource type="Script" path="res://Scenes/WorldMap/world_map.gd" id="1_0ypik"]
+[ext_resource type="Script" uid="uid://gm8j0e6d86d" path="res://Scenes/WorldMap/world_map.gd" id="1_0ypik"]
 [ext_resource type="Texture2D" uid="uid://xdnwg4d8tsok" path="res://Scenes/WorldMap/world-map.png" id="2_rgst5"]
 [ext_resource type="Texture2D" uid="uid://besslcl5pbvnn" path="res://Scenes/WorldMap/helicopter-base-top.png" id="3_nudvf"]
 [ext_resource type="Texture2D" uid="uid://cff8ynlmwrqfl" path="res://Scenes/WorldMap/helicopter-top-propellers.png" id="4_pp2dc"]
-[ext_resource type="Script" path="res://Scenes/WorldMap/camera_2d.gd" id="5_ixrwy"]
+[ext_resource type="Script" uid="uid://ds8om1ivobpyb" path="res://Scenes/WorldMap/camera_2d.gd" id="5_ixrwy"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="6_a63hi"]
-[ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="7_kj4bj"]
+[ext_resource type="Script" uid="uid://b35lo0b1ehghu" path="res://Scenes/Instructions/label_blinking.gd" id="7_kj4bj"]
 
 [sub_resource type="Curve2D" id="Curve2D_x2km7"]
 bake_interval = 0.01

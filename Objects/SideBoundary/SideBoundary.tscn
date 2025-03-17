@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6nu6s1gamsbq"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/level_boundary_arrow.gd" id="1_m2ivs"]
+[ext_resource type="Script" uid="uid://kqrt3h5dl2ki" path="res://Scenes/Levels/level_boundary_arrow.gd" id="1_m2ivs"]
 [ext_resource type="Texture2D" uid="uid://ipodk1iihti5" path="res://GUI/turn-around-arrow.png" id="2_nqsdr"]
 [ext_resource type="AudioStream" uid="uid://c8f3rf2lutm83" path="res://Audio/boundary-collide.wav" id="3_ix5e3"]
 

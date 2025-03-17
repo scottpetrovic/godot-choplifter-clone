@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt6a6g78nmcxw"]
 
-[ext_resource type="Script" path="res://Objects/PrisonerCamp/prisoner_camp.gd" id="1_cblug"]
+[ext_resource type="Script" uid="uid://uojjtyxyoyoe" path="res://Objects/PrisonerCamp/prisoner_camp.gd" id="1_cblug"]
 [ext_resource type="Texture2D" uid="uid://bouu087vuh1gc" path="res://Objects/PrisonerCamp/prisoner-camp.png" id="2_6qny0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwwd0"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://jbtse7pfrxo2"]
 
 [ext_resource type="Texture2D" uid="uid://bc0685ihxy6ju" path="res://Objects/Tank/tank-gun.png" id="1_1isf3"]
-[ext_resource type="Script" path="res://Objects/Tank/attack_logic.gd" id="1_gd10c"]
-[ext_resource type="Script" path="res://Objects/Tank/HealthLogic.gd" id="1_l5iku"]
-[ext_resource type="Script" path="res://Objects/BasicAAEnemy/shoot_logic.gd" id="1_xgd7s"]
+[ext_resource type="Script" uid="uid://x2en48wcfxyu" path="res://Objects/Tank/attack_logic.gd" id="1_gd10c"]
+[ext_resource type="Script" uid="uid://c22v4hxqiaev4" path="res://Objects/Tank/HealthLogic.gd" id="1_l5iku"]
+[ext_resource type="Script" uid="uid://b2m6fugxmatup" path="res://Objects/BasicAAEnemy/shoot_logic.gd" id="1_xgd7s"]
 [ext_resource type="Texture2D" uid="uid://i5iq7502iwrq" path="res://Objects/Tank/tank-base.png" id="2_6vp8w"]
-[ext_resource type="Script" path="res://Objects/Tank/patrol_movement_logic.gd" id="3_bltqv"]
+[ext_resource type="Script" uid="uid://bwoaq13gcbbc0" path="res://Objects/Tank/patrol_movement_logic.gd" id="3_bltqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgs0p"]
 size = Vector2(36, 14)

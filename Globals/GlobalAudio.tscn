@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://u3rjt55cp4ip"]
 
-[ext_resource type="Script" path="res://Globals/global_audio.gd" id="1_7farl"]
+[ext_resource type="Script" uid="uid://dop276aq5h863" path="res://Globals/global_audio.gd" id="1_7farl"]
 
 [node name="GlobalMusic" type="AudioStreamPlayer2D"]
 volume_db = -20.0

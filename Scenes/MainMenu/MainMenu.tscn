@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bedmxlh3oya4j"]
 
-[ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_f34ra"]
+[ext_resource type="Script" uid="uid://dyf4o0cp0tjur" path="res://Scenes/MainMenu/main_menu.gd" id="1_f34ra"]
 [ext_resource type="Texture2D" uid="uid://ctth7vdunshkb" path="res://Scenes/MainMenu/main-menu-background.png" id="2_153jh"]
 [ext_resource type="Texture2D" uid="uid://bend2oy6h02oq" path="res://Scenes/MainMenu/helicopter.png" id="3_3d274"]
-[ext_resource type="Script" path="res://Scenes/Instructions/label_blinking.gd" id="3_sqte0"]
-[ext_resource type="Script" path="res://Scenes/MainMenu/helicopter.gd" id="4_5dqac"]
+[ext_resource type="Script" uid="uid://b35lo0b1ehghu" path="res://Scenes/Instructions/label_blinking.gd" id="3_sqte0"]
+[ext_resource type="Script" uid="uid://b5mcqohgkf5wc" path="res://Scenes/MainMenu/helicopter.gd" id="4_5dqac"]
 [ext_resource type="Texture2D" uid="uid://digxi2djn654m" path="res://Scenes/MainMenu/main-menu-logo.png" id="5_y6qm7"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="6_y2kyp"]
 

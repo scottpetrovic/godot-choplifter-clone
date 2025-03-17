@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg73e0287m8u6"]
 
-[ext_resource type="Script" path="res://Scenes/LevelSummary/level_summary.gd" id="1_ake3q"]
+[ext_resource type="Script" uid="uid://b4hwjs5r5jhsq" path="res://Scenes/LevelSummary/level_summary.gd" id="1_ake3q"]
 
 [node name="LevelSummary" type="Control"]
 layout_mode = 3

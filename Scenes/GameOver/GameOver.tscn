@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://slc5vijy3vpp"]
 
-[ext_resource type="Script" path="res://Scenes/GameOver/game_over.gd" id="1_axfp4"]
+[ext_resource type="Script" uid="uid://b2oxoe8i5k1gb" path="res://Scenes/GameOver/game_over.gd" id="1_axfp4"]
 [ext_resource type="Texture2D" uid="uid://cdhbv43flif2k" path="res://Scenes/GameOver/game-over-screen.png" id="2_vafd2"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="3_obbtl"]
 
