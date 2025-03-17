@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dksfie63si3qx"]
+[gd_scene load_steps=11 format=3 uid="uid://dksfie63si3qx"]
 
 [ext_resource type="Script" uid="uid://gm8j0e6d86d" path="res://Scenes/WorldMap/world_map.gd" id="1_0ypik"]
 [ext_resource type="Texture2D" uid="uid://xdnwg4d8tsok" path="res://Scenes/WorldMap/world-map.png" id="2_rgst5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ds8om1ivobpyb" path="res://Scenes/WorldMap/camera_2d.gd" id="5_ixrwy"]
 [ext_resource type="Theme" uid="uid://b1ikqqgrqbgyp" path="res://GUI/pixel-art-theme.tres" id="6_a63hi"]
 [ext_resource type="Script" uid="uid://b35lo0b1ehghu" path="res://Scenes/Instructions/label_blinking.gd" id="7_kj4bj"]
+[ext_resource type="Script" uid="uid://b76bajotanqc7" path="res://Scenes/WorldMap/key_shortcuts.gd" id="8_qwsj8"]
 
 [sub_resource type="Curve2D" id="Curve2D_x2km7"]
 bake_interval = 0.01
@@ -84,3 +85,6 @@ text = "DEPLOYING
 TO MISSION"
 horizontal_alignment = 1
 script = ExtResource("7_kj4bj")
+
+[node name="KeyShortcuts" type="Node" parent="."]
+script = ExtResource("8_qwsj8")

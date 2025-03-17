@@ -35,9 +35,9 @@ var active_text_screens: Array[String] = []
 
 func _ready() -> void:
 	_select_active_stage_data()
-	_change_to_screen(0)	
+	_change_to_screen(0)
 	GlobalAudio.play_title_music()
-	
+
 
 func _select_active_stage_data() -> void:
 	# text will be different depending on which stage/environment
