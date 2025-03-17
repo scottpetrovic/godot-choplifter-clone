@@ -40,7 +40,7 @@ layer = -100
 
 [node name="BackgroundSky" type="ColorRect" parent="BackgroundElementGrouping/BaseBackgroundLayer"]
 offset_left = -1305.0
-offset_top = 3.0
+offset_top = -3.0
 offset_right = 782.0
 offset_bottom = 151.0
 color = Color(0.768627, 0.941176, 0.760784, 1)
